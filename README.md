@@ -1,4 +1,4 @@
-dms
+Dms
 ================
 A simple Dormitory management system, developing~
 
