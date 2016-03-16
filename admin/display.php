@@ -3,11 +3,12 @@
 
 require_once("auth.php");
 require_once("header.php");
+require_once("db_connection.php");
 
 echo "<h1>This is Display page!</h1>";
 
 $sql="SELECT * FROM students";
-$result = $login->db_connection->query($sql);
+$result = $db->query($sql);
 
 echo "<table border='1'>
 <tr>
@@ -17,7 +18,7 @@ echo "<table border='1'>
 <th>dorm_num</th>
 </tr>";
 
-while($row = mysql_fetch_array($result))
+while($row = $result->fetch_array(MYSQLI_ASSOC))
   {
   echo "<tr>";
   echo "<td>" . $row['id'] . "</td>";
