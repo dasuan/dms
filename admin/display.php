@@ -1,33 +1,25 @@
 <?php
 //This is display page
-
-require_once("auth.php");
-require_once("header.php");
+require_once("auth.php"); // verify whether login
+require_once("header.php"); 
 require_once("db_connection.php");
-
+require_once("functions.php");
+//Display welcome message
 echo "<h1>This is Display page!</h1>";
 
-$sql="SELECT * FROM students";
-$result = $db->query($sql);
+$this_page=$_SERVER['PHP_SELF'];
 
-echo "<table border='1'>
-<tr>
-<th>id</th>
-<th>name</th>
-<th>sex</th>
-<th>dorm_num</th>
-</tr>";
-
-while($row = $result->fetch_array(MYSQLI_ASSOC))
-  {
-  echo "<tr>";
-  echo "<td>" . $row['id'] . "</td>";
-  echo "<td>" . $row['name'] . "</td>";
-  echo "<td>" . $row['sex'] . "</td>";
-  echo "<td>" . $row['dorm_num'] . "</td>";
-  echo "</tr>";
-  }
-
-
+echo "<a href='".$this_page."?display_dorm'>display_dorm </a>";
+echo "<a href='".$this_page."?display_students'>display_students </a>";
+echo "<a href='".$this_page."?display_routine'>display_routine </a>";
+if (isset($_GET["display_dorm"])) {
+	table_get("dorm");
+}
+if (isset($_GET["display_students"])) {
+	table_get("students");
+}
+if (isset($_GET["display_routine"])) {
+	table_get("routine");
+}
 
 ?>

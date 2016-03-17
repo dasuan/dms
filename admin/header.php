@@ -1,7 +1,9 @@
 <?php
-echo "<p>This is header, u can add contents int here!</p>";
-?>
+require_once("html.php");
+echo $logged_welcome;
+echo "<p>This is header, u can add contents in here!</p>";
 
+?>
 <a href="./display.php">display</a>
 <a href="./add.php">add</a>
 <a href="./update.php">update</a>

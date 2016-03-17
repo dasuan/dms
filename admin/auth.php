@@ -36,10 +36,10 @@ if ($login->isUserLoggedIn() == false) {
     // for demonstration purposes, we simply show the "you are logged in" view.
     include("../views/not_logged_in.php");
     die();
-
 } 
 
-echo "<p>aha , you have logged in</p>";
+$logged_welcome = "<p>Hey, " . $_SESSION['user_name'] . " You are logged in.<a href='index.php?logout'>Logout</a></p><br />";
 ?>
 
-<a href="index.php?logout">Logout</a><br />
+
+
