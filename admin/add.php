@@ -110,6 +110,7 @@ else{
 
 		$sql_insert="INSERT INTO routine(date, dorm_num, score,comments) VALUES ('$date','$b','$cc','$dd')";
 		$db->query($sql_insert) or die($db->error);
+	}
 		//Display added
 		echo "Added perfectly as below";
 		$sql_checkdate="SELECT * FROM routine where date = '" . $date ."'";
@@ -140,10 +141,6 @@ else{
 
 
 
-
-
-
-	} 
 
 
 
