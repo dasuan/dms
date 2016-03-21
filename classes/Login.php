@@ -88,7 +88,7 @@ class Login
                         $_SESSION['user_login_status'] = 1;
 
                     } else {
-                        $this->errors[] = "Wrong password. Try again.";
+                        $this->errors[] = "<div class='alert alert-danger' role='alert'>Wrong password. Try again.</div>";
                     }
                 } else {
                     $this->errors[] = "This user does not exist.";

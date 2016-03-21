@@ -22,4 +22,6 @@ if (isset($_GET["display_routine"])) {
 	table_get("routine");
 }
 
+require_once("footer.php"); 
 ?>
+

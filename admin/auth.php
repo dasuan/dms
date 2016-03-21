@@ -23,6 +23,11 @@ if (version_compare(PHP_VERSION, '5.3.7', '<')) {
 // include the configs / constants for the database connection
 require_once("../config/db.php");
 
+// include language to echo hint correctly
+require_once("lang_zh.php");
+// 
+require_once("functions.php");
+
 // load the login class
 require_once("../classes/Login.php");
 

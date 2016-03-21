@@ -3,6 +3,11 @@
 require_once("auth.php");
 require_once("header.php");
 require_once("db_connection.php");
+
+echo "<a href='import_dorm.php'>import_dorm </a>";
+echo "<a href='import_students.php'>import_students </a>";
+echo "<a href='import_routine.php'>import_routine </a>";
+
 //Display welcome message
 echo "<h1>This is import_stu</h1> ";
 
