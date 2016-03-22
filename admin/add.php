@@ -4,6 +4,12 @@ require_once("auth.php");
 require_once("header.php");
 require_once("db_connection.php");
 //Display welcome message
+echo '
+<ol class="breadcrumb">
+  <li><a href="index.php">主页</a></li>
+  <li class="active">添加</li>
+</ol>
+';
 echo "<h1>This is add page</h1> ";
 
 //This is choose date code   >>>>>>>>>>>step1
@@ -50,7 +56,7 @@ elseif(empty($_POST["routine_submit"])){
 	else{
 		echo "date is $date";
 		echo "<form method='post' action='".$_SERVER['PHP_SELF']."?date=$date"."' name='routine_form'>";
-		echo "<table>
+		echo "<table class='table'>
 			<tr>
 			<th>宿舍号</th>
 			<th>成绩</th>
@@ -62,12 +68,12 @@ elseif(empty($_POST["routine_submit"])){
 		while($row = $result->fetch_array(MYSQLI_ASSOC)){
 			//per row define
 			echo "<tr>";
-			echo "<td><input type='text' value='" . $row['dorm_num'] . "' readonly /></td>";
+			echo "<td><input class='form-control' type='text' value='" . $row['dorm_num'] . "' readonly /></td>";
 			echo "<td>";
 			require("droplist.php");
 			echo "</td>";
 			echo "<td>";
-			echo "<input type='text' name='comment" . "$i". "' required />";
+			echo "<input type='text' name='comment" . "$i". "' class='form-control' required />";
 			echo "</td>";
 			echo "</tr>";
 
@@ -117,7 +123,7 @@ else{
 		$result_of_date_check = $db->query($sql_checkdate);
 
 		if ($result_of_date_check->num_rows != 0) {
-			echo "<table border='1'>";
+			echo "<table class='table'>";
 			$i = 0;
 			while($row = $result_of_date_check->fetch_array(MYSQLI_ASSOC)){
 				if($i == 0){

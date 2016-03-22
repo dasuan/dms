@@ -4,6 +4,12 @@ require_once("auth.php");
 require_once("header.php");
 require_once("db_connection.php");
 //Display welcome message
+echo '
+<ol class="breadcrumb">
+  <li><a href="index.php">主页</a></li>
+  <li class="active">更新</li>
+</ol>
+';
 echo "<h1>This is update page</h1> ";
 
 //This is choose update_date code   >>>>>>>>>>>step1
@@ -98,11 +104,11 @@ else{
 		$result_of_date_check = $db->query($sql_checkdate);
 
 		if ($result_of_date_check->num_rows != 0) {
-			echo "<table border='1'>";
+			echo "<table class='table table-bordered'>";
 			$i = 0;
 			while($row = $result_of_date_check->fetch_array(MYSQLI_ASSOC)){
 				if($i == 0){
-					echo "<tr>";
+					echo "<tr class='success'>";
 					foreach($row as $x=>$x_value) {
 						echo "<th>";
 						echo $x;

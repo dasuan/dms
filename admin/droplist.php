@@ -4,7 +4,7 @@
 ?>
 
 
-<select name='<?php echo "score"."$i";?>'>
+<select name='<?php echo "score"."$i";?>' class= "form-control">
 <option value="none" selected="selected">未记录</option>
 <option value="100">100</option>
 <option value="95">95</option>

@@ -61,6 +61,7 @@ body {
 	max-width: 330px;
 	padding: 15px;
 	margin: 0 auto;
+	padding-top: 80px;
 }
 
 .form-signin .form-control {
