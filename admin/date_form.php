@@ -1,8 +1,11 @@
-	<link href="css/datepicker.css" rel="stylesheet">
+<?php
+//This script need $date predefined
+?>
 
 
-<h2>Please input date here</h2>
-	<input type="text" class="span2" value="<?php echo date("Y-m-d");?>" id="dp1" name="date" readonly>
+<link href="css/datepicker.css" rel="stylesheet">
+<p>请选择日期：</p>
+	<input type="text" class="span2 form-control drop_list" value="<?php echo date("Y-m-d");?>" id="dp1" name="date">
 
 <script>
 var monster = {

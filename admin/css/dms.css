@@ -1,0 +1,25 @@
+.display_dorm_num_select{
+	display: inline;
+	width:210px;
+}
+.drop_list{
+	display: inline;
+	width: 210px;
+}
+.display_input{
+	display: inline;
+	width: 210px;
+}
+.button_div{
+	display: inline;
+	margin-left: 20px;
+}
+.panel-body  > a > .btn {
+    margin: 0px 5px;
+}
+.add_button{
+	float:right;
+}
+.float_right{
+	float:right;
+}
