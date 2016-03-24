@@ -40,7 +40,6 @@ echo '
 
 
 if (isset($_POST["date"])){
-
 	$date=$_POST["date"];
 //Panel start >>>>>>>>>>>>>>>>>>>>
 	echo '
@@ -48,7 +47,6 @@ if (isset($_POST["date"])){
 		<div class="panel-heading"><strong class="text-danger">'.$date.'</strong>宿舍的记录如下：</div>
 		<div class="panel-body">
 			';
-
 //Add contents start
 			$table_name="routine";
 			$sql="SELECT * FROM $table_name WHERE date='$date'";
@@ -72,67 +70,61 @@ if (isset($_POST["date"])){
 			echo '<a href="'.$this_page.'"><button class="btn btn-default">继续查询</button></a>';
 	//echo '<button class="btn btn-default" name="export_table">导出表格</button>';
 			echo '<a href="index.php"><button class="btn btn-default float_right">返回主面板</button></a>';
-			echo "</form>";
-			
-			
+			echo "</form>";			
 //Add contents finish
-
 			echo '
 		</div>
 	</div>';
 //Panel end        <<<<<<<<<<<<<<<
-die();
+	die();
 }elseif (isset($_POST["dorm_num"])) {
 
 	$dorm_num=$_POST["dorm_num"];
+	if($dorm_num="none"){
+		echo "<div class='well'><div class='alert alert-danger' role='alert'>未选择宿舍号！</div></div>";
+	}else{
 //Panel start >>>>>>>>>>>>>>>>>>>>
-	echo '
-	<div class="panel panel-success">
-		<div class="panel-heading"><strong class="text-danger">'.$dorm_num.'</strong>的记录如下：</div>
-		<div class="panel-body">
-			';
-
+		echo '
+		<div class="panel panel-success">
+			<div class="panel-heading"><strong class="text-danger">'.$dorm_num.'</strong>的记录如下：</div>
+			<div class="panel-body">
+				';
 //Add contents start
-			$table_name="routine";
-			$sql="SELECT * FROM $table_name WHERE dorm_num='$dorm_num'";
-			$result = $db->query($sql) or die($db->error);
-			echo "<table class='table table-bordered'>
-			<tr>
-				<th>日期</th>
-				<th>宿舍号</th>
-				<th>成绩</th>
-				<th>备注</th>
-			</tr>";
-			while($row = $result->fetch_array(MYSQLI_ASSOC)){
-				echo "<tr>";
-				foreach($row as $x=>$x_value) {
-					echo "<td>" .$x_value."</td>" ;
+				$table_name="routine";
+				$sql="SELECT * FROM $table_name WHERE dorm_num='$dorm_num'";
+				$result = $db->query($sql) or die($db->error);
+				echo "<table class='table table-bordered'>
+				<tr>
+					<th>日期</th>
+					<th>宿舍号</th>
+					<th>成绩</th>
+					<th>备注</th>
+				</tr>";
+				while($row = $result->fetch_array(MYSQLI_ASSOC)){
+					echo "<tr>";
+					foreach($row as $x=>$x_value) {
+						echo "<td>" .$x_value."</td>" ;
+					}
+					echo "</tr>";
 				}
-				echo "</tr>";
-			}
-			echo "</table>";
+				echo "</table>";
+		}
 			$this_page=$_SERVER['PHP_SELF'];
 			echo '<a href="'.$this_page.'"><button class="btn btn-default">继续查询</button></a>';
 			//echo '<button class="btn btn-default" name="export_table">导出表格</button>';
 			echo '<a href="index.php"><button class="btn btn-default float_right">返回主面板</button></a>';
-			echo "</form>";
-		
+			echo "</form>";		
 //Add contents finish
-
 			echo '
 		</div>
 	</div>';
 //Panel end        <<<<<<<<<<<<<<<
-die();
+	die();
 }elseif (isset($_POST["stu_id"])) {
 	# code...
 }elseif (isset($_POST["stu_name"])) {
 	# code...
 }
-
-
-
-
 
 //choose date 
 echo '
@@ -207,7 +199,7 @@ echo '
 
 
 
-//Below code must has to limit, because it can see the table fully !
+//Below code must has to limit, because it can see the full table data
 
 // echo "<h1>This is Display page!</h1>";
 // $this_page=$_SERVER['PHP_SELF'];

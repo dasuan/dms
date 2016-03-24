@@ -15,7 +15,7 @@ $lang['HEADING'] = 'Heading';
  
 // Login
  
-$lang['login_title_h2'] = '中德DMS';
+$lang['login_title_h2'] = '中德科技学院 宿舍成绩录入系统';
 $lang['MENU_ABOUT_US'] = 'About Us';
 $lang['MENU_OUR_PRODUCTS'] = 'Our products';
 $lang['MENU_CONTACT_US'] = 'Contact Us';

@@ -3,6 +3,7 @@
 /**
  * Class login
  * handles the user's login and logout process
+ * Need: bootstrap
  */
 class Login
 {
@@ -46,9 +47,11 @@ class Login
     {
         // check login form contents
         if (empty($_POST['user_name'])) {
-            $this->errors[] = "Username field was empty.";
+            //$this->errors[] = "Username field was empty.";
+            $this->errors[] = "未输入用户名";
         } elseif (empty($_POST['user_password'])) {
-            $this->errors[] = "Password field was empty.";
+            //$this->errors[] = "Password field was empty.";
+            $this->errors[] = "未输入密码";
         } elseif (!empty($_POST['user_name']) && !empty($_POST['user_password'])) {
 
             // create a database connection, using the constants from config/db.php (which we loaded in index.php)
@@ -88,13 +91,13 @@ class Login
                         $_SESSION['user_login_status'] = 1;
 
                     } else {
-                        $this->errors[] = "<div class='alert alert-danger' role='alert'>Wrong password. Try again.</div>";
+                        $this->errors[] = "<div class='alert alert-danger' role='alert'>密码错误，请重试！</div>";
                     }
                 } else {
-                    $this->errors[] = "This user does not exist.";
+                    $this->errors[] = "<div class='alert alert-danger' role='alert'>用户不存在！</div>";
                 }
             } else {
-                $this->errors[] = "Database connection problem.";
+                $this->errors[] = "<div class='alert alert-danger' role='alert'>数据库连接出错！</div>";
             }
         }
     }
@@ -108,7 +111,7 @@ class Login
         $_SESSION = array();
         session_destroy();
         // return a little feeedback message
-        $this->messages[] = "You have been logged out.";
+        $this->messages[] = "<div class='alert alert-success' role='alert'>您已退出系统！</div>";
 
     }
 

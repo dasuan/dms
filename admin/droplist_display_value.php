@@ -4,7 +4,7 @@
 ?>
 
 
-<select name='<?php echo "score"."$i";?>'>
+<select name='<?php echo "score"."$i";?>' class= 'form-control'>
 <?php
 
 switch ($row['score'])

@@ -120,9 +120,9 @@ elseif(empty($_POST["routine_submit"])){
 				}
 				echo "</table>";
 				$this_page=$_SERVER['PHP_SELF'];
-				echo '<button class="btn btn-danger add_button" type="submit"  name="routine_submit" value="routine_submit">提交</button>';
-				echo '<a href="$this_page"><button class="btn btn-default">重新选择日期</button></a>';
+				echo '<button class="btn btn-danger float_right" type="submit"  name="routine_submit" value="routine_submit">提交</button>';
 				echo "</form>";
+				echo '<a href="'.$this_page.'"><button class="btn btn-default">重新选择日期</button></a>';
 //Add contents finish
 
 				echo '
@@ -194,7 +194,7 @@ else{
 			}
 			echo "</table>";
 			$this_page=$_SERVER['PHP_SELF'];
-			echo '<button class="btn btn-default" name="export_table">导出表格</button>';
+			//echo '<button class="btn btn-default" name="export_table">导出表格</button>';
 			echo '<a href="index.php"><button class="btn btn-default float_right">返回主面板</button></a>';
 			echo "</form>";
 //Add contents finish

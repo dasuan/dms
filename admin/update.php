@@ -6,8 +6,8 @@ require_once("db_connection.php");
 //site map
 echo '
 <ol class="breadcrumb">
-  <li><a href="index.php">主页</a></li>
-  <li class="active">更新</li>
+	<li><a href="index.php">主页</a></li>
+	<li class="active">更新</li>
 </ol>
 ';
 //Display welcome message
@@ -23,7 +23,7 @@ if (empty($_POST["date"]) && empty($_POST["routine_submit"]) ) {
 //Panel start      >>>>>>>>>>>>>>>>>>>>
 	echo '
 	<div class="panel panel-info">
-		<div class="panel-heading">添加记录</div>
+		<div class="panel-heading">更新记录</div>
 		<div class="panel-body">
 			';
 
@@ -109,24 +109,31 @@ elseif(empty($_POST["routine_submit"])){
 				$sql="SELECT * FROM dorm";
 				$result = $db->query($sql);
 				$i = 0;
-				while($row = $result->fetch_array(MYSQLI_ASSOC)){
-			//per row define
-					echo "<tr>";
-					echo "<td><input class='form-control' type='text' value='" . $row['dorm_num'] . "' readonly /></td>";
-					echo "<td>";
-					require("droplist.php");
-					echo "</td>";
-					echo "<td>";
-					echo "<input type='text' name='comment" . "$i". "' class='form-control' required />";
-					echo "</td>";
-					echo "</tr>";
-					$i++;
+				while($row = $result_of_date_check->fetch_array(MYSQLI_ASSOC)){
+				//per row define
+				echo "<tr>";
+				echo "<td><input type='text' value='" . $row['dorm_num'] . "' class='form-control' readonly /></td>";
+
+				//echo "<td>" .$row['score']."</td>" ;
+				//$row['score'] add to below require
+				echo "<td>";
+				require("droplist_display_value.php");
+				echo "</td>";
+
+				echo "<td>";
+				$comments=$row['comments'];
+				echo "<input type='text' name='comment" . "$i". "' value='$comments' class='form-control' required />";
+				echo "</td>";
+				echo "</tr>";
+
+				$i++;
 				}
 				echo "</table>";
 				$this_page=$_SERVER['PHP_SELF'];
-				echo '<button class="btn btn-danger add_button" type="submit"  name="routine_submit" value="routine_submit">提交</button>';
-				echo '<a href="$this_page"><button class="btn btn-default">重新选择日期</button></a>';
+				echo '<button class="btn btn-danger float_right" type="submit"  name="routine_submit" value="routine_submit">提交更新</button>';
 				echo "</form>";
+				//add js verify as below
+				echo '<a href="'.$this_page.'"><button class="btn btn-default">重新选择日期</button></a>';
 //Add contents finish
 
 				echo '
@@ -197,7 +204,7 @@ else{
 //Panel begin >>>>>>>>>>>>>>>>>>>>
 	echo '
 	<div class="panel panel-success">
-		<div class="panel-heading"><strong>更新成功！</strong>如下表格所示：</div>
+		<div class="panel-heading"><strong>'.$date.'的记录更新成功！</strong>如下表格所示：</div>
 		<div class="panel-body">
 			';
 
@@ -222,7 +229,7 @@ else{
 			}
 			echo "</table>";
 			$this_page=$_SERVER['PHP_SELF'];
-			echo '<button class="btn btn-default" name="export_table">导出表格</button>';
+			//echo '<button class="btn btn-default" name="export_table">导出表格</button>';
 			echo '<a href="index.php"><button class="btn btn-default float_right">返回主面板</button></a>';
 			echo "</form>";
 //Add contents finish
