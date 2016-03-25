@@ -29,6 +29,28 @@ class Login
         // create/read session, absolutely necessary
         session_start();
 
+        //Timeout set
+        // if(!(isset($_SESSION['timeout']))){
+        //     //echo "setting time ~~~~~~~~~~~~~</ br>";
+        //  $_SESSION['timeout'] = time();
+        // }
+        // if ($_SESSION['timeout'] + 3600 < time()) {
+        // $_SESSION = array();
+        // session_destroy();
+        // // return a little feeedback message
+        // $this->messages[] = "<div class='alert alert-success' role='alert'>由于长时间未操作，您已退出系统，请重新登录！</div>";
+        // // session timed out
+        // } else {
+        //     $cha=time()-$_SESSION['timeout'];
+        //     $cha_div=$cha / 60 ;
+        //     echo "您已经停留 $cha_div 分钟，超过60分钟会强制退出！</ br>";
+        // // session ok
+        // }
+
+
+
+
+
         // check the possible login actions:
         // if user tried to log out (happen when user clicks logout button)
         if (isset($_GET["logout"])) {
