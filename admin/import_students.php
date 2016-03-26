@@ -10,9 +10,8 @@ echo '
   <li class="active">导入学生</li>
 </ol>
 ';
-echo "<a href='import_dorm.php'>import_dorm </a>";
-echo "<a href='import_students.php'>import_students </a>";
-echo "<a href='import_routine.php'>import_routine </a>";
+require_once("import_list.php");
+
 
 //Display welcome message
 echo "<h1>This is import_stu</h1> ";
@@ -52,7 +51,7 @@ if (isset($_POST['submit'])) {
 		echo "start_a ";
 		echo "$data[0],$data[1],$data[2],$data[3]";
 		echo " end_a <br />";
-		$import="INSERT into students(id,name,sex,dorm_num) values('$data[0]','$data[1]','$data[2]','$data[3]')";
+		$import="INSERT into students(id,name,sex,dorm_num,bed_num) values('$data[0]','$data[1]','$data[2]','$data[3]','$data[4]')";
 		echo "start_b ";
 		echo "$data[0],$data[1],$data[2],$data[3]";
 		echo " end_b <br />";

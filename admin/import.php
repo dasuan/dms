@@ -12,9 +12,7 @@ echo '
 ';
 echo "<h1>This is import page</h1> ";
 
-echo "<a href='import_dorm.php'>import_dorm </a>";
-echo "<a href='import_students.php'>import_students </a>";
-echo "<a href='import_routine.php'>import_routine </a>";
+require_once("import_list.php");
 
 require_once("footer.php");
 ?>

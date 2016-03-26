@@ -3,20 +3,23 @@
 require_once("auth.php");
 require_once("header.php");
 require_once("db_connection.php");
+
 echo '
 <ol class="breadcrumb">
   <li><a href="index.php">主页</a></li>
   <li><a href="import.php">导入</a></li>
-  <li class="active">导入成绩</li>
+  <li class="active">导入宿舍</li>
 </ol>
 ';
 
 require_once("import_list.php");
 
-//Display welcome message
-echo "<h1>This is import_routine</h1> ";
 
-$deleterecords = "TRUNCATE TABLE routine"; //empty the table of its current records
+
+//Display welcome message
+echo "<h1>This is routine_date</h1> ";
+
+$deleterecords = "TRUNCATE TABLE routine_date"; //empty the table of its current records
 //Upload File
 if (isset($_POST['submit'])) {
 	//truncate the table
@@ -43,7 +46,7 @@ if (isset($_POST['submit'])) {
 	//Read and insert
 	fgetcsv($handle, 1000, ",");
 	while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-		$import="INSERT into routine(date,dorm_num,comments,score) values('$data[0]','$data[1]','$data[2]','$data[3]')";	
+		$import="INSERT into routine_date(date,add_time,user_name) values('$data[0]','$data[1]','$data[2]')";//query statement		
 		$db->query($import) or die($db->error);//$import was defined at beginning, for easy to modifycode
 	}
 

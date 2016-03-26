@@ -12,9 +12,8 @@ echo '
 </ol>
 ';
 
-echo "<a href='import_dorm.php'>import_dorm </a>";
-echo "<a href='import_students.php'>import_students </a>";
-echo "<a href='import_routine.php'>import_routine </a>";
+require_once("import_list.php");
+
 
 //Display welcome message
 echo "<h1>This is import_dorm</h1> ";

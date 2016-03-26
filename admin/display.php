@@ -80,7 +80,7 @@ if (isset($_POST["date"])){
 }elseif (isset($_POST["dorm_num"])) {
 
 	$dorm_num=$_POST["dorm_num"];
-	if($dorm_num="none"){
+	if($dorm_num=="none"){
 		echo "<div class='well'><div class='alert alert-danger' role='alert'>未选择宿舍号！</div></div>";
 	}else{
 //Panel start >>>>>>>>>>>>>>>>>>>>
@@ -121,9 +121,105 @@ if (isset($_POST["date"])){
 //Panel end        <<<<<<<<<<<<<<<
 	die();
 }elseif (isset($_POST["stu_id"])) {
-	# code...
+	$stu_id=$_POST["stu_id"];
+	$table_name="students";
+	$sql="SELECT * FROM $table_name WHERE id='$stu_id'";
+	$stu_info = $db->query($sql) or die($db->error);
+	$num_rows=$stu_info->num_rows;
+
+	if($num_rows==0){
+		echo "<div class='well'><div class='alert alert-danger' role='alert'>学号为".$stu_id."的学生不存在！</div></div>";
+	}else{
+		$row = $stu_info->fetch_array(MYSQLI_ASSOC);
+		$dorm_num=$row['dorm_num'];
+		$bed_num=$row['bed_num'];
+//Panel start >>>>>>>>>>>>>>>>>>>>
+		echo '
+		<div class="panel panel-success">
+			<div class="panel-heading"><strong class="text-danger">'.$stu_id.'</strong>宿舍号为'.$dorm_num.'，床号为'.$bed_num.'，记录如下：</div>
+			<div class="panel-body">
+				';
+//Add contents start
+				$table_name="routine";
+				$sql="SELECT * FROM $table_name WHERE dorm_num='$dorm_num'";
+				$result = $db->query($sql) or die($db->error);
+				echo "<table class='table table-bordered'>
+				<tr>
+					<th>日期</th>
+					<th>宿舍号</th>
+					<th>备注</th>
+					<th>成绩</th>
+				</tr>";
+				while($row = $result->fetch_array(MYSQLI_ASSOC)){
+					echo "<tr>";
+					foreach($row as $x=>$x_value) {
+						echo "<td>" .$x_value."</td>" ;
+					}
+					echo "</tr>";
+				}
+				echo "</table>";
+		}
+			$this_page=$_SERVER['PHP_SELF'];
+			echo '<a href="'.$this_page.'"><button class="btn btn-default">继续查询</button></a>';
+			//echo '<button class="btn btn-default" name="export_table">导出表格</button>';
+			echo '<a href="index.php"><button class="btn btn-default float_right">返回主面板</button></a>';
+			echo "</form>";		
+//Add contents finish
+			echo '
+		</div>
+	</div>';
+//Panel end        <<<<<<<<<<<<<<<
+die();
 }elseif (isset($_POST["stu_name"])) {
-	# code...
+	$stu_name=$_POST["stu_name"];
+	$table_name="students";
+	$sql="SELECT * FROM $table_name WHERE name='$stu_name'";
+	$stu_info = $db->query($sql) or die($db->error);
+	$num_rows=$stu_info->num_rows;
+
+	if($num_rows==0){
+		echo "<div class='well'><div class='alert alert-danger' role='alert'>学生".$stu_name."不存在！</div></div>";
+	}else{
+		$row = $stu_info->fetch_array(MYSQLI_ASSOC);
+		$dorm_num=$row['dorm_num'];
+		$bed_num=$row['bed_num'];
+//Panel start >>>>>>>>>>>>>>>>>>>>
+		echo '
+		<div class="panel panel-success">
+			<div class="panel-heading"><strong class="text-danger">'.$stu_name.'</strong>的宿舍号为'.$dorm_num.'，床号为'.$bed_num.'，记录如下：</div>
+			<div class="panel-body">
+				';
+//Add contents start
+				$table_name="routine";
+				$sql="SELECT * FROM $table_name WHERE dorm_num='$dorm_num'";
+				$result = $db->query($sql) or die($db->error);
+				echo "<table class='table table-bordered'>
+				<tr>
+					<th>日期</th>
+					<th>宿舍号</th>
+					<th>备注</th>
+					<th>成绩</th>
+				</tr>";
+				while($row = $result->fetch_array(MYSQLI_ASSOC)){
+					echo "<tr>";
+					foreach($row as $x=>$x_value) {
+						echo "<td>" .$x_value."</td>" ;
+					}
+					echo "</tr>";
+				}
+				echo "</table>";
+		}
+			$this_page=$_SERVER['PHP_SELF'];
+			echo '<a href="'.$this_page.'"><button class="btn btn-default">继续查询</button></a>';
+			//echo '<button class="btn btn-default" name="export_table">导出表格</button>';
+			echo '<a href="index.php"><button class="btn btn-default float_right">返回主面板</button></a>';
+			echo "</form>";		
+//Add contents finish
+			echo '
+		</div>
+	</div>';
+//Panel end        <<<<<<<<<<<<<<<
+die();
 }
 
 //choose date 
@@ -166,7 +262,6 @@ echo '
 	</div>
 </div>";
 
-/*
 //choose student id
 	echo '		
 	<div class="panel panel-info">
@@ -175,7 +270,7 @@ echo '
 			';
 			echo "<form method='post' action='".$_SERVER['PHP_SELF']."' name='stu_id'>";
 			echo '<input id="stu_id" class="form-control display_input" type="text" name="stu_id" placeholder="请输入学号" required />';
-			echo '<div class="button_div"><button class="btn btn-default" type="submit" name="stu_id">提交学号</button></div>';
+			echo '<div class="button_div"><button class="btn btn-default" type="submit" name="stu_id_button">提交学号</button></div>';
 			echo "</form>
 		</div>
 	</div>";
@@ -188,33 +283,33 @@ echo '
 			';
 			echo "<form method='post' action='".$_SERVER['PHP_SELF']."' name='stu_id'>";
 			echo '<input id="stu_id" class="form-control display_input" type="text" name="stu_name" placeholder="请输入姓名" required />';
-			echo '<div class="button_div"><button class="btn btn-default" type="submit" name="stu_name">提交姓名</button></div>';
+			echo '<div class="button_div"><button class="btn btn-default" type="submit" name="stu_name_btn">提交姓名</button></div>';
 			echo "</form>";
 
 			echo '
 		</div>
 	</div>
 	';
-*/
+
 
 
 
 //Below code must has to limit, because it can see the full table data
 
-// echo "<h1>This is Display page!</h1>";
-// $this_page=$_SERVER['PHP_SELF'];
-// echo "<a href='".$this_page."?display_dorm'>display_dorm </a>";
-// echo "<a href='".$this_page."?display_students'>display_students </a>";
-// echo "<a href='".$this_page."?display_routine'>display_routine </a>";
-// if (isset($_GET["display_dorm"])) {
-// 	table_get("dorm");
-// }
-// if (isset($_GET["display_students"])) {
-// 	table_get("students");
-// }
-// if (isset($_GET["display_routine"])) {
-// 	table_get("routine");
-// }
+echo "<h1>This is Display page!</h1>";
+$this_page=$_SERVER['PHP_SELF'];
+echo "<a href='".$this_page."?display_dorm'>display_dorm </a>";
+echo "<a href='".$this_page."?display_students'>display_students </a>";
+echo "<a href='".$this_page."?display_routine'>display_routine </a>";
+if (isset($_GET["display_dorm"])) {
+	table_get("dorm");
+}
+if (isset($_GET["display_students"])) {
+	table_get("students");
+}
+if (isset($_GET["display_routine"])) {
+	table_get("routine");
+}
 
 
 	require_once("footer.php"); 
