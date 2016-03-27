@@ -1,7 +1,3 @@
-<?php
-echo "今天是 " . date("Y/m/d  h:i:s") . "<br>";
-?>
-
 <!DOCTYPE>
 <html>
     <head>
@@ -61,66 +57,20 @@ echo "今天是 " . date("Y/m/d  h:i:s") . "<br>";
     </head>
 
     <body>
-
-<?php
-require_once("auth.php"); // verify whether login
-require_once("db_connection.php");
-require_once("functions.php"); //must under db
-$date="2016-03-27";
-//Panel start >>>>>>>>>>>>>>>>>>>>
-	echo '
-	<div class="panel panel-success">
-		<div class="panel-heading"><strong class="text-danger">'.$date.'</strong>宿舍的记录如下：</div>
-		<div class="panel-body" id="dvData">
-			';
-//Add contents start
-			$table_name="routine";
-			$sql="SELECT * FROM $table_name WHERE date='$date'";
-			$result = $db->query($sql) or die($db->error);
-
-			echo "<table class='table table-bordered'>
-			<tr>
-				<th>日期</th>
-				<th>宿舍号</th>
-				<th>成绩</th>
-				<th>备注</th>
-			</tr>";
-			while($row = $result->fetch_array(MYSQLI_ASSOC)){
-				echo "<tr>";
-				foreach($row as $x=>$x_value) {
-					echo "<td>" .$x_value."</td>" ;
-				}
-				echo "</tr>";
-			}
-			echo "</table>";
-			
-			echo '<a href="#" id ="export" ';
-			echo "role='button'";
-			echo '>导出csv</a>';
+        <div class='container'> 
+          <div id="dvData">
+                <table class='table table-bordered'>
+            <tr>
+                <th>日期</th>
+                <th>宿舍号</th>
+                <th>成绩</th>
+                <th>备注</th>
+            </tr><tr><td>2016-03-27</td><td>101</td><td>发给谁发个</td><td>85</td></tr><tr><td>2016-03-27</td><td>102</td><td>啊发发发到付</td><td>25</td></tr></table>
+            </div>
 
 
-
-			$this_page=$_SERVER['PHP_SELF'];
-			echo '<a href="'.$this_page.'"><button class="btn btn-default">继续查询</button></a>';
-
-			echo '<a href="index.php"><button class="btn btn-default float_right">返回主面板</button></a>';
-			echo "</form>";			
-
-?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                <a href="#" id ="export" role='button'>Click On This Here Link To Export The Table Data into a CSV File
+                </a>
 
 
         <!-- Scripts ----------------------------------------------------------- -->

@@ -45,7 +45,7 @@ function php_self(){
 
 // need
 function add_log($action,$db){
-	$log_time=date("Y/m/d  h:i:s");
+	$log_time=date("Y-m-d  h:i:s");
 	$user_name=$_SESSION['user_name'];
 	$sql_log="INSERT INTO log(log_time,user_name,action) VALUES ('$log_time','$user_name','$action')";
 	$db->query($sql_log) or die($db->error);

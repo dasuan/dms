@@ -1,132 +1,6 @@
-<?php
-echo "今天是 " . date("Y/m/d  h:i:s") . "<br>";
-?>
-
-<!DOCTYPE>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Adila Faruk">
-         
-
-        <title>Exporting Data to a CSV File</title>
-
-
-        <style type="text/css">
-            body{
-                font-family: sans-serif;
-                font-weight:300;
-                padding-top:30px;
-                color:#666;
-            }
-            .container{
-                text-align:center;  
-            }
-            a{ color:#1C2045; font-weight:350;}
-            table{
-                font-weight:300;
-                margin:0px auto;
-                border: 1px solid #1C2045;
-                padding:5px;
-                color:#666;
-
-            }
-            th,td{ 
-                border-bottom: 1px solid #dddddd;
-                text-align:center;
-                margin: 10px;
-                padding:0 10px;
-            }
-            hr{ 
-                border:0;
-                border-top: 1px solid #E7C254;
-                margin:20px auto;
-                width:50%;
-            }
-            .button{
-                background-color:#1C2045;
-                color:#E7C254;
-                padding:5px 20px;
-                max-width: 300px;
-                line-height:1.5em;
-                text-align:center;
-                margin:5px auto;
-            }
-            .button a{ color:#E7C254;}
-            .refs{ display:block; margin:auto; text-align:left; max-width:500px; }
-            .refs .label{  font-size:1.4em;}
-            .refs > ul{ margin-top:10px; line-height:1.5em;}
-        </style>
-    </head>
-
-    <body>
-
-<?php
-require_once("auth.php"); // verify whether login
-require_once("db_connection.php");
-require_once("functions.php"); //must under db
-$date="2016-03-27";
-//Panel start >>>>>>>>>>>>>>>>>>>>
-	echo '
-	<div class="panel panel-success">
-		<div class="panel-heading"><strong class="text-danger">'.$date.'</strong>宿舍的记录如下：</div>
-		<div class="panel-body" id="dvData">
-			';
-//Add contents start
-			$table_name="routine";
-			$sql="SELECT * FROM $table_name WHERE date='$date'";
-			$result = $db->query($sql) or die($db->error);
-
-			echo "<table class='table table-bordered'>
-			<tr>
-				<th>日期</th>
-				<th>宿舍号</th>
-				<th>成绩</th>
-				<th>备注</th>
-			</tr>";
-			while($row = $result->fetch_array(MYSQLI_ASSOC)){
-				echo "<tr>";
-				foreach($row as $x=>$x_value) {
-					echo "<td>" .$x_value."</td>" ;
-				}
-				echo "</tr>";
-			}
-			echo "</table>";
-			
-			echo '<a href="#" id ="export" ';
-			echo "role='button'";
-			echo '>导出csv</a>';
-
-
-
-			$this_page=$_SERVER['PHP_SELF'];
-			echo '<a href="'.$this_page.'"><button class="btn btn-default">继续查询</button></a>';
-
-			echo '<a href="index.php"><button class="btn btn-default float_right">返回主面板</button></a>';
-			echo "</form>";			
-
-?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- Scripts ----------------------------------------------------------- -->
-        <script type='text/javascript' src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
-        <!-- If you want to use jquery 2+: https://code.jquery.com/jquery-2.1.0.min.js -->
-        <script type='text/javascript'>
+<!-- This jquery has include at head -->
+<!-- <script type='text/javascript' src='https://code.jquery.com/jquery-1.11.0.min.js'></script> -->
+<script type='text/javascript'>
         $(document).ready(function () {
 
             console.log("HELLO")
@@ -201,7 +75,8 @@ $date="2016-03-27";
             // This must be a hyperlink
             $("#export").click(function (event) {
                 // var outputFile = 'export'
-                var outputFile = window.prompt("What do you want to name your output file (Note: This won't have any effect on Safari)") || 'export';
+                //var outputFile = window.prompt("What do you want to name your output file (Note: This won't have any effect on Safari)") || 'export';
+                var outputFile = window.prompt("请输入导出后的文件名") || '<?php echo $filename;?>';
                 outputFile = outputFile.replace('.csv','') + '.csv'
                  
                 // CSV
@@ -212,5 +87,3 @@ $date="2016-03-27";
             });
         });
     </script>
-    </body>
-</html>

@@ -187,14 +187,14 @@ else{
 	echo '
 	<div class="panel panel-success">
 		<div class="panel-heading"><strong>添加成功！</strong>如下表格所示：</div>
-		<div class="panel-body">
+		<div class="panel-body"  id="dvData">
 			';
 
 //Add contents start
 			$sql_checkdate="SELECT * FROM routine where date = '" . $date ."'";
 			$result_of_date_check = $db->query($sql_checkdate);
 			if ($result_of_date_check->num_rows != 0) {
-				echo "<table class='table'>
+				echo "<table class='table table-bordered'>
 				<tr>
 					<th>日期</th>
 					<th>宿舍号</th>
@@ -211,9 +211,10 @@ else{
 			}
 			echo "</table>";
 			$this_page=$_SERVER['PHP_SELF'];
-			//echo '<button class="btn btn-default" name="export_table">导出表格</button>';
-			echo '<a href="index.php"><button class="btn btn-default float_right">返回主面板</button></a>';
-			echo "</form>";
+			echo '<a href="#" id ="export" role="button" class="btn btn-default">导出表格</a>';
+			//echo '<a class="btn btn-default float_right" href="'.$this_page.'">继续添加</a>';		
+			echo '<a href="index.php"class="btn btn-default float_right">返回主面板</a>';
+			echo "</form>";	
 //Add contents finish
 
 			echo '
@@ -221,17 +222,9 @@ else{
 	</div>';
 //Panel end        <<<<<<<<<<<<<<<
 
-
-
-
-
-
-
-
-
-
-
-
+//include export js 
+$filename=$date;
+require_once("export.php");
 
 }
 

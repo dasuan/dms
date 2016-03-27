@@ -5,7 +5,6 @@ require_once("header.php");
 require_once("db_connection.php");
 require_once("functions.php"); //must under db
 //Display welcome message
-echo "<h1>This is log page! </h1> ";
 
 $table_name="log";
 $sql="SELECT * FROM ".$table_name." ORDER BY log_id DESC";
@@ -35,7 +34,7 @@ echo "</td>";
 echo "<td>";
 $user_name=$row['user_name'];
 $action=$row['action'];
-echo "用户".$user_name." $action";
+echo "用户 ".$user_name." $action";
 echo "</td>";
 
 

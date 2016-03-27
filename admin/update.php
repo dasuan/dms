@@ -210,7 +210,7 @@ else{
 	echo '
 	<div class="panel panel-success">
 		<div class="panel-heading"><strong>'.$date.'的记录更新成功！</strong>如下表格所示：</div>
-		<div class="panel-body">
+		<div class="panel-body"  id="dvData">
 			';
 
 //Add contents start
@@ -234,15 +234,20 @@ else{
 			}
 			echo "</table>";
 			$this_page=$_SERVER['PHP_SELF'];
-			//echo '<button class="btn btn-default" name="export_table">导出表格</button>';
-			echo '<a href="index.php"><button class="btn btn-default float_right">返回主面板</button></a>';
-			echo "</form>";
+			echo '<a href="#" id ="export" role="button" class="btn btn-default">导出表格</a>';
+			//echo '<a class="btn btn-default float_right" href="'.$this_page.'">继续更新</a>';		
+			echo '<a href="index.php"class="btn btn-default float_right">返回主面板</a>';
+			echo "</form>";	
 //Add contents finish
 
 			echo '
 		</div>
 	</div>';
 //Panel end        <<<<<<<<<<<<<<<
+
+//include export js 
+$filename=$date;
+require_once("export.php");
 
 }
 
