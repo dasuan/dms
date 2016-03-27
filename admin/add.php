@@ -147,7 +147,7 @@ else{
 	$date=$_GET["date"];
 
 	//routine_date
-	$add_time=date("Y/m/d  h:i:s");
+	$add_time=date("Y/m/d  H:i:s");
 	$user_name=$_SESSION['user_name'];
 	$sql_insert="INSERT INTO routine_date(date, add_time,user_name) VALUES ('$date','$add_time','$user_name')";
 	$db->query($sql_insert) or die($db->error);

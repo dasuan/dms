@@ -4,13 +4,28 @@ require_once("auth.php");
 require_once("header.php");
 require_once("db_connection.php");
 require_once("functions.php"); //must under db
+//site map
+echo '
+<ol class="breadcrumb">
+	<li><a href="index.php">主页</a></li>
+	<li class="active">日志</li>
+</ol>
+';
+
 //Display welcome message
 
+//sql
 $table_name="log";
 $sql="SELECT * FROM ".$table_name." ORDER BY log_id DESC";
 $result = $db->query($sql);
-echo "<table border='1' class='table table-bordered'>";
 
+//Panel start >>>>>>>>>>>>>>>>>>>>
+		echo '
+		<div class="panel panel-info">
+			<div class="panel-heading">系统日志</div>
+			<div class="panel-body" id="dvData">
+			';//id="dvData" for export module
+//Add contents start
 echo "<table class='table table-bordered'>
 				<tr>
 					<th>事件id</th>
@@ -41,7 +56,13 @@ echo "</td>";
 echo "</tr>";
 }
 
-echo "</table>";
+echo "</table>";			
+//Add contents finish
+
+			echo '
+		</div>
+	</div>';
+//Panel end        <<<<<<<<<<<<<<<
 
 
 

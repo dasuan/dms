@@ -47,7 +47,7 @@ if (isset($_POST["date"])){
 	$num_rows=$result->num_rows;
 
 	if($num_rows==0){
-		echo "<div class='well'><div class='alert alert-danger' role='alert'>".$date."的记录不存在！</div>";
+		echo "<div class='well'><div class='alert alert-danger' role='alert'><strong>".$date."</strong>的记录不存在！</div>";
 		$this_page=$_SERVER['PHP_SELF'];
 		//echo '<a href="#" id ="export" role="button" class="btn btn-default">导出表格</a>';
 		echo '<a class="btn btn-default" href="'.$this_page.'">重新选择</a>';		
@@ -163,7 +163,12 @@ die();
 	$num_rows=$stu_info->num_rows;
 
 	if($num_rows==0){
-		echo "<div class='well'><div class='alert alert-danger' role='alert'>学号为".$stu_id."的学生不存在！</div></div>";
+		echo "<div class='well'><div class='alert alert-danger' role='alert'>学号为 <strong>".$stu_id."</strong> 的学生不存在！</div>";
+		$this_page=$_SERVER['PHP_SELF'];
+		//echo '<a href="#" id ="export" role="button" class="btn btn-default">导出表格</a>';
+		echo '<a class="btn btn-default" href="'.$this_page.'">重新选择</a>';		
+		echo '<a href="index.php"><button class="btn btn-default float_right">返回主面板</button></a>';
+		echo '</div>';
 	}else{
 		$row = $stu_info->fetch_array(MYSQLI_ASSOC);
 		$dorm_num=$row['dorm_num'];
@@ -171,7 +176,7 @@ die();
 //Panel start >>>>>>>>>>>>>>>>>>>>
 		echo '
 		<div class="panel panel-success">
-			<div class="panel-heading">学号为<strong class="text-danger">'.$stu_id.'</strong>的学生宿舍号为'.$dorm_num.'，床号为'.$bed_num.'，记录如下：</div>
+			<div class="panel-heading">学号为 <strong class="text-danger">'.$stu_id.'</strong> 的学生宿舍号为 <strong class="text-danger">'.$dorm_num.'</strong> ，床号为 <strong class="text-danger">'.$bed_num.'</strong> ，记录如下：</div>
 			<div class="panel-body" id="dvData">
 				';
 //Add contents start
@@ -193,7 +198,7 @@ die();
 					echo "</tr>";
 				}
 				echo "</table>";
-			}
+			
 			$this_page=$_SERVER['PHP_SELF'];
 			echo '<a href="#" id ="export" role="button" class="btn btn-default">导出表格</a>';
 			echo '<a class="btn btn-default float_right" href="'.$this_page.'">继续查询</a>';		
@@ -206,10 +211,11 @@ die();
 	</div>';
 //Panel end        <<<<<<<<<<<<<<<
 
+
 //include export js 
 		$filename=$stu_id;
 		require_once("export.php");
-
+}
 	die();
 }elseif (isset($_POST["stu_name"])) {
 	$stu_name=$_POST["stu_name"];
@@ -219,7 +225,12 @@ die();
 	$num_rows=$stu_info->num_rows;
 
 	if($num_rows==0){
-		echo "<div class='well'><div class='alert alert-danger' role='alert'>学生".$stu_name."不存在！</div></div>";
+		echo "<div class='well'><div class='alert alert-danger' role='alert'>学生 <strong>".$stu_name."</strong> 不存在！</div>";
+		$this_page=$_SERVER['PHP_SELF'];
+		//echo '<a href="#" id ="export" role="button" class="btn btn-default">导出表格</a>';
+		echo '<a class="btn btn-default" href="'.$this_page.'">重新选择</a>';		
+		echo '<a href="index.php"><button class="btn btn-default float_right">返回主面板</button></a>';
+		echo '</div>';
 	}else{
 		$row = $stu_info->fetch_array(MYSQLI_ASSOC);
 		$dorm_num=$row['dorm_num'];
@@ -227,7 +238,7 @@ die();
 //Panel start >>>>>>>>>>>>>>>>>>>>
 		echo '
 		<div class="panel panel-success">
-			<div class="panel-heading"><strong class="text-danger">'.$stu_name.'</strong>的宿舍号为'.$dorm_num.'，床号为'.$bed_num.'，记录如下：</div>
+			<div class="panel-heading">学生 <strong class="text-danger">'.$stu_name.'</strong> 的宿舍号为 <strong class="text-danger">'.$dorm_num.'</strong> ，床号为 <strong class="text-danger">'.$bed_num.'</strong> ，记录如下：</div>
 			<div class="panel-body" id="dvData">
 				';
 //Add contents start
@@ -249,7 +260,7 @@ die();
 					echo "</tr>";
 				}
 				echo "</table>";
-			}
+			
 			$this_page=$_SERVER['PHP_SELF'];
 			echo '<a href="#" id="export" role="button" class="btn btn-default">导出表格</a>';
 			echo '<a class="btn btn-default float_right" href="'.$this_page.'">继续查询</a>';		
@@ -265,7 +276,7 @@ die();
 	//include export js 
 	$filename=$stu_name;
 	require_once("export.php");
-
+}
 	die();
 }
 
@@ -342,7 +353,7 @@ echo '
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Developer code>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 //Below code must has to limit, because it can see the full table data
-
+/*
 echo "<h1>This is Display page!</h1>";
 $this_page=$_SERVER['PHP_SELF'];
 echo "<a href='".$this_page."?display_dorm'>display_dorm </a>";
@@ -365,7 +376,7 @@ if (isset($_GET["display_routine_date"])) {
 if (isset($_GET["display_log"])) {
 	table_get("log");
 }
-
+*/
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Developer code<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 require_once("footer.php");

@@ -8,7 +8,7 @@ echo '
 <h2 class="alert alert-success">欢迎使用中德宿舍成绩录入系统！</h1> 
 <!-- <h1 class="alert alert-success">请在左侧列表选择要进行的操作~</h1> -->
 <h2 class="alert alert-danger">建议使用Chrome浏览器，或将浏览器切换到 <strong>极速模式！</strong></h1>
-<h2 class="alert alert-danger">完成操作后请及时点右上角 <strong>退出！</strong>！</h1>
+<h2 class="alert alert-danger">完成操作后请及时点右上角 <strong>退出！</strong></h1>
 ';
 
 
