@@ -3,6 +3,7 @@
 require_once("auth.php");
 require_once("header.php");
 require_once("db_connection.php");
+require_once("functions.php");
 //site map
 echo '
 <ol class="breadcrumb">
@@ -60,8 +61,8 @@ elseif(empty($_POST["routine_submit"])){
 				<tr>
 					<th>日期</th>
 					<th>宿舍号</th>
-					<th>成绩</th>
 					<th>备注</th>
+					<th>成绩</th>
 				</tr>";
 				while($row = $result_of_date_check->fetch_array(MYSQLI_ASSOC)){
 					echo "<tr>";
@@ -99,8 +100,8 @@ elseif(empty($_POST["routine_submit"])){
 				echo "<table class='table'>
 				<tr>
 					<th>宿舍号</th>
-					<th>成绩</th>
 					<th>注释</th>
+					<th>成绩</th>
 				</tr>";
 				$sql="SELECT * FROM dorm";
 				$result = $db->query($sql);
@@ -108,13 +109,17 @@ elseif(empty($_POST["routine_submit"])){
 				while($row = $result->fetch_array(MYSQLI_ASSOC)){
 			//per row define
 					echo "<tr>";
+					//dorm_num
 					echo "<td><input class='form-control' type='text' value='" . $row['dorm_num'] . "' readonly /></td>";
-					echo "<td>";
-					require("droplist.php");
-					echo "</td>";
+					//comment
 					echo "<td>";
 					echo "<input type='text' name='comment" . "$i". "' class='form-control' required />";
 					echo "</td>";
+					//score
+					echo "<td>";
+					require("droplist.php");
+					echo "</td>";
+					//per row end
 					echo "</tr>";
 					$i++;
 				}
@@ -141,15 +146,26 @@ else{
 	$i = $result_select->num_rows;
 	$date=$_GET["date"];
 
+	//routine_date
+	$add_time=date("Y/m/d  h:i:s");
+	$user_name=$_SESSION['user_name'];
+	$sql_insert="INSERT INTO routine_date(date, add_time,user_name) VALUES ('$date','$add_time','$user_name')";
+	$db->query($sql_insert) or die($db->error);
+	//log
+	$action="增加记录：".$date."";
+	add_log($action,$db);
+
+
 	for ($j=0; $j<$i; $j++) {	
 
 		//	$date=date("Y.m.d")；
 		$row = $result_select->fetch_array(MYSQLI_ASSOC);
 		$b=$row['dorm_num'];
-		$c="score"."$j";
-		$d="comment"."$j";
+		$c="comment"."$j";
+		$d="score"."$j";
 		$cc=$_POST[$c];
 		$dd=$_POST[$d];
+
 
 		//This is test code, do not del 
 		// echo "i = $i <br />";
@@ -161,7 +177,8 @@ else{
 		// echo "d: $d <br />";
 		// echo "dd: $dd <br />";
 
-		$sql_insert="INSERT INTO routine(date, dorm_num, score,comments) VALUES ('$date','$b','$cc','$dd')";
+		//routine insert
+		$sql_insert="INSERT INTO routine(date, dorm_num, comments, score) VALUES ('$date','$b','$cc','$dd')";
 		$db->query($sql_insert) or die($db->error);
 	}
 		//Display added
@@ -181,8 +198,8 @@ else{
 				<tr>
 					<th>日期</th>
 					<th>宿舍号</th>
-					<th>成绩</th>
 					<th>注释</th>
+					<th>成绩</th>			
 				</tr>";
 				while($row = $result_of_date_check->fetch_array(MYSQLI_ASSOC)){
 					echo "<tr>";

@@ -3,6 +3,7 @@
 require_once("auth.php");
 require_once("header.php");
 require_once("db_connection.php");
+require_once("functions.php");
 //site map
 echo '
 <ol class="breadcrumb">
@@ -103,8 +104,8 @@ elseif(empty($_POST["routine_submit"])){
 				echo "<table class='table'>
 				<tr>
 					<th>宿舍号</th>
-					<th>成绩</th>
 					<th>注释</th>
+					<th>成绩</th>
 				</tr>";
 				$sql="SELECT * FROM dorm";
 				$result = $db->query($sql);
@@ -113,17 +114,17 @@ elseif(empty($_POST["routine_submit"])){
 				//per row define
 				echo "<tr>";
 				echo "<td><input type='text' value='" . $row['dorm_num'] . "' class='form-control' readonly /></td>";
-
+				//comments
+				echo "<td>";
+				$comments=$row['comments'];
+				echo "<input type='text' name='comment" . "$i". "' value='$comments' class='form-control' required />";
+				echo "</td>";
 				//echo "<td>" .$row['score']."</td>" ;
 				//$row['score'] add to below require
 				echo "<td>";
 				require("droplist_display_value.php");
 				echo "</td>";
-
-				echo "<td>";
-				$comments=$row['comments'];
-				echo "<input type='text' name='comment" . "$i". "' value='$comments' class='form-control' required />";
-				echo "</td>";
+				//per row end
 				echo "</tr>";
 
 				$i++;
@@ -150,14 +151,18 @@ else{
 	$result_select = $db->query($sql_select);
 	$i = $result_select->num_rows;
 	$date=$_GET["date"];
+	//log
+	$action="更新记录：".$date."";
+	add_log($action,$db);
+
 
 	for ($j=0; $j<$i; $j++) {	
 
 		//	$date=date("Y.m.d")；
 		$row = $result_select->fetch_array(MYSQLI_ASSOC);
 		$b=$row['dorm_num'];
-		$c="score"."$j";
-		$d="comment"."$j";
+		$c="comment"."$j";
+		$d="score"."$j";
 		$cc=$_POST[$c];
 		$dd=$_POST[$d];
 
@@ -171,7 +176,7 @@ else{
 		// echo "d: $d <br />";
 		// echo "dd: $dd <br />";
 		//$sql_insert="INSERT INTO routine(date, dorm_num, score,comments) VALUES ('$date','$b','$cc','$dd')";
-		$sql_update="UPDATE routine SET score = '$cc' , comments = '$dd' WHERE date = '$date' and dorm_num = '$b' ";
+		$sql_update="UPDATE routine SET  comments = '$cc' , score = '$dd' WHERE date = '$date' and dorm_num = '$b' ";
 		$db->query($sql_update) or die($db->error);
 	}
 		//Display added
@@ -216,8 +221,8 @@ else{
 				<tr>
 					<th>日期</th>
 					<th>宿舍号</th>
-					<th>成绩</th>
 					<th>注释</th>
+					<th>成绩</th>			
 				</tr>";
 				while($row = $result_of_date_check->fetch_array(MYSQLI_ASSOC)){
 					echo "<tr>";

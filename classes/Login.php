@@ -27,7 +27,7 @@ class Login
     public function __construct()
     {
         // create/read session, absolutely necessary
-        session_start();
+      
 
         //Timeout set
         // if(!(isset($_SESSION['timeout']))){
@@ -47,8 +47,7 @@ class Login
         // // session ok
         // }
 
-
-
+        session_start();
 
 
         // check the possible login actions:
@@ -111,6 +110,12 @@ class Login
                         $_SESSION['user_name'] = $result_row->user_name;
                         $_SESSION['user_email'] = $result_row->user_email;
                         $_SESSION['user_login_status'] = 1;
+                        //log add
+                        $action="登录系统";
+                        add_log($action,$this->db_connection);
+
+
+
 
                     } else {
                         $this->errors[] = "<div class='alert alert-danger' role='alert'>密码错误，请重试！</div>";
@@ -129,6 +134,14 @@ class Login
      */
     public function doLogout()
     {
+        //log
+        if(isset($_SESSION['user_name'])){
+            $action="退出系统";
+            require_once("db_connection.php");
+            add_log($action,$db);
+        }
+
+
         // delete the session of the user
         $_SESSION = array();
         session_destroy();

@@ -3,7 +3,7 @@
 require_once("auth.php"); // verify whether login
 require_once("header.php"); //nav
 require_once("db_connection.php");
-require_once("functions.php");
+require_once("functions.php"); //must under db
 //site map
 echo '
 <ol class="breadcrumb">
@@ -97,8 +97,8 @@ if (isset($_POST["date"])){
 				<tr>
 					<th>日期</th>
 					<th>宿舍号</th>
-					<th>成绩</th>
 					<th>备注</th>
+					<th>成绩</th>
 				</tr>";
 				while($row = $result->fetch_array(MYSQLI_ASSOC)){
 					echo "<tr>";
@@ -136,7 +136,7 @@ if (isset($_POST["date"])){
 //Panel start >>>>>>>>>>>>>>>>>>>>
 		echo '
 		<div class="panel panel-success">
-			<div class="panel-heading"><strong class="text-danger">'.$stu_id.'</strong>宿舍号为'.$dorm_num.'，床号为'.$bed_num.'，记录如下：</div>
+			<div class="panel-heading">学号为<strong class="text-danger">'.$stu_id.'</strong>的学生宿舍号为'.$dorm_num.'，床号为'.$bed_num.'，记录如下：</div>
 			<div class="panel-body">
 				';
 //Add contents start
@@ -301,6 +301,7 @@ $this_page=$_SERVER['PHP_SELF'];
 echo "<a href='".$this_page."?display_dorm'>display_dorm </a>";
 echo "<a href='".$this_page."?display_students'>display_students </a>";
 echo "<a href='".$this_page."?display_routine'>display_routine </a>";
+echo "<a href='".$this_page."?display_routine_date'>display_routine_date </a>";
 if (isset($_GET["display_dorm"])) {
 	table_get("dorm");
 }
@@ -309,6 +310,9 @@ if (isset($_GET["display_students"])) {
 }
 if (isset($_GET["display_routine"])) {
 	table_get("routine");
+}
+if (isset($_GET["display_routine_date"])) {
+	table_get("routine_date");
 }
 
 

@@ -1,4 +1,8 @@
 <?php
+// echo $logged_welcome;
+// echo "<p>This is header, u can add contents in here!</p>";
+?>
+<?php
 require_once("html.php");
 ?>
 
@@ -40,10 +44,7 @@ require_once("html.php");
 <a href="./import_stu.php">import_stu</a>
 <a href="./import_routine.php">import_routine</a> -->
 
-<?php
-// echo $logged_welcome;
-// echo "<p>This is header, u can add contents in here!</p>";
-?>
+
 
 <div class="container-fluid">
 	<div class="row">
@@ -53,7 +54,7 @@ require_once("html.php");
 				<li <?php if (php_self() == 'add.php') { echo 'class="active" '; } ?>><a href="add.php">添加</a></li>
 				<li <?php if (php_self() == 'update.php') { echo 'class="active" '; } ?>><a href="update.php">更新</a></li>
 				<li <?php if (php_self() == 'import.php') { echo 'class="active" '; } ?>><a href="import.php">导入</a></li>
-<!-- 				<li <?php if (php_self() == 'log.php') { echo 'class="active" '; } ?>><a href="log.php">日志</a></li> -->
+				<li <?php if (php_self() == 'log.php') { echo 'class="active" '; } ?>><a href="log.php">日志</a></li> 
 			</ul>
 
 		</div>
