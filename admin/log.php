@@ -31,6 +31,7 @@ echo "<table class='table table-bordered'>
 					<th>事件id</th>
 					<th>时间</th>
 					<th>操作</th>
+					<th>IP</th>
 				</tr>";
 
 while($row = $result->fetch_array(MYSQLI_ASSOC)){
@@ -52,6 +53,16 @@ $action=$row['action'];
 echo "用户 ".$user_name." $action";
 echo "</td>";
 
+echo "<td>";
+$ipa=$row['ipa'];
+$ipb=$row['ipb'];
+if(empty($ipb)){
+	echo "$ipa";
+}else{
+	echo "$ipa,$ipb";
+}
+
+echo "</td>";
 
 echo "</tr>";
 }

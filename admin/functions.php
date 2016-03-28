@@ -45,12 +45,27 @@ function php_self(){
 
 // need
 function add_log($action,$db){
+	//global $_SERVER['REMOTE_ADDR'];
+	//global $_SERVER['HTTP_X_FORWARDED_FOR'];
 	$log_time=date("Y-m-d  H:i:s");
 	$user_name=$_SESSION['user_name'];
-	$sql_log="INSERT INTO log(log_time,user_name,action) VALUES ('$log_time','$user_name','$action')";
+	$user_agent=$_SERVER['HTTP_USER_AGENT'];
+	if(isset($_SERVER['HTTP_X_FORWARDED_FOR'])){
+		$ipa=$_SERVER['REMOTE_ADDR'];
+		$ipb=$_SERVER['HTTP_X_FORWARDED_FOR'];
+		$sql_log="INSERT INTO log(log_time,user_name,action,ipa,ipb,user_agent) VALUES ('$log_time','$user_name','$action','$ipa','$ipb','$user_agent')";
+	}else{
+		$ipa=$_SERVER['REMOTE_ADDR'];
+		$sql_log="INSERT INTO log(log_time,user_name,action,ipa,user_agent) VALUES ('$log_time','$user_name','$action','$ipa','$user_agent')";
+	}
+
 	$db->query($sql_log) or die($db->error);
 }
 
+
+
+
+	
 
 
 

@@ -44,6 +44,8 @@ if ($login->isUserLoggedIn() == false) {
 } 
 
 $logged_welcome = "<p>Hey, " . $_SESSION['user_name'] . " You are logged in.<a href='index.php?logout'>Logout</a></p><br />";
+
+
 ?>
 
 

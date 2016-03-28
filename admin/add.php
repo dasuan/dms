@@ -96,15 +96,16 @@ elseif(empty($_POST["routine_submit"])){
 				';
 
 //Add contents start
-				echo "<form method='post' action='".$_SERVER['PHP_SELF']."?date=$date"."' name='routine_form'>";
+				echo "<form method='post' action='".$_SERVER['PHP_SELF']."?date=$date"."' name='routine_form'  onsubmit='return validate_form(this)' >";
 				echo "<table class='table'>
 				<tr>
 					<th>宿舍号</th>
-					<th>注释</th>
+					<th>备注</th>
 					<th>成绩</th>
 				</tr>";
 				$sql="SELECT * FROM dorm";
 				$result = $db->query($sql);
+
 				$i = 0;
 				while($row = $result->fetch_array(MYSQLI_ASSOC)){
 			//per row define
@@ -125,7 +126,7 @@ elseif(empty($_POST["routine_submit"])){
 				}
 				echo "</table>";
 				$this_page=$_SERVER['PHP_SELF'];
-				echo '<button class="btn btn-danger float_right" type="submit"  name="routine_submit" value="routine_submit">提交</button>';
+				echo '<button class="btn btn-danger float_right" type="submit"  name="routine_submit" value="routine_submit" >提交</button>';
 				echo "</form>";
 				echo '<a href="'.$this_page.'"><button class="btn btn-default">重新选择日期</button></a>';
 //Add contents finish
@@ -133,7 +134,44 @@ elseif(empty($_POST["routine_submit"])){
 				echo '
 			</div>
 		</div>';
-//panle end  >>>>>>>>>>>>>>>>>>
+//panle end  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+//form verify start >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+		$rows = $result->num_rows;
+		echo '
+<script type="text/javascript">
+function validate_required(field,alerttxt)
+{
+	with (field)
+	{
+		if (value==null||value==""||value=="none")
+			{alert(alerttxt);return false}
+		else {return true}
+	}
+}
+function validate_form(thisform)
+{
+	with (thisform)
+	{
+		';
+
+for ($j=0; $j < $rows ; $j++) { 
+
+	echo "
+if (validate_required(comment$j,'请填入第".($j+1)."行的备注')==false)
+				{comment$j.focus();return false}";	
+	echo "
+if (validate_required(score$j,'请填入第".($j+1)."行的成绩')==false)
+				{score$j.focus();return false}";
+}
+			
+echo '
+	}
+}
+</script>
+		';
+//form verify end <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
 	}
 
 }
@@ -147,7 +185,7 @@ else{
 	$date=$_GET["date"];
 
 	//routine_date
-	$add_time=date("Y/m/d  H:i:s");
+	$add_time=date("Y-m-d  H:i:s");
 	$user_name=$_SESSION['user_name'];
 	$sql_insert="INSERT INTO routine_date(date, add_time,user_name) VALUES ('$date','$add_time','$user_name')";
 	$db->query($sql_insert) or die($db->error);

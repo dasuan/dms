@@ -17,9 +17,16 @@ require_once("html.php");
 			</button>
 			<a class="navbar-brand" href="index.php">中德DMS</a>
 		</div>
+
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#"><?php echo $_SESSION['user_name']; ?></a></li>
+<!-- 
+				<li <?php if (php_self() == 'display.php') { echo 'class="active" '; } ?>><a href="display.php">显示 </a></li>
+				<li <?php if (php_self() == 'add.php') { echo 'class="active" '; } ?>><a href="add.php">添加</a></li>
+				<li <?php if (php_self() == 'update.php') { echo 'class="active" '; } ?>><a href="update.php">更新</a></li>
+				<li <?php if (php_self() == 'log.php') { echo 'class="active" '; } ?>><a href="log.php">日志</a></li>
+ -->
+				<li><a href="user.php"><?php echo $_SESSION['user_name']; ?></a></li>
 				<li><a href="index.php?logout">退出</a></li>
 			</ul>
 

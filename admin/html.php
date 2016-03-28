@@ -2,6 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="renderer" content="webkit">
+
 <title>中德科技学院DMS</title>
 
 	<!-- From date-picker -->
@@ -18,7 +20,7 @@
 	<link href="css/datepicker.css" rel="stylesheet">
   <!-- Jack's define -->
   <link href="css/dms.css" rel="stylesheet">
-
+  <script src="js/dms.js"></script>
   <!-- <link rel="stylesheet" href="css/flat-ui.min.css"> -->
 
 
