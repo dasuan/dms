@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="renderer" content="webkit">
-
+<link href="images/dms.ico" rel="shortcut icon">
 <title>中德科技学院DMS</title>
 
 	<!-- From date-picker -->

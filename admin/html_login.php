@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="renderer" content="webkit">
 	<title>中德DMS登录</title>
 
 	<!-- 新 Bootstrap 核心 CSS 文件 -->
