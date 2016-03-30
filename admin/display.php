@@ -34,6 +34,53 @@ echo '
 	echo '
 </ol>';
 
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Developer code>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//Below code must has to limit, because it can see the full table data
+
+echo "<h1>This is Display page!</h1>";
+$this_page=$_SERVER['PHP_SELF'];
+echo "<a href='".$this_page."?display_dorm'>display_dorm </a>";
+echo "<a href='".$this_page."?display_students'>display_students </a>";
+echo "<a href='".$this_page."?display_routine'>display_routine </a>";
+echo "<a href='".$this_page."?display_routine_date'>display_routine_date </a>";
+echo "<a href='".$this_page."?display_log'>display_log</a>";
+if (isset($_GET["display_dorm"])) {
+	table_get("dorm");
+	die();
+}
+if (isset($_GET["display_students"])) {
+	table_get("students");
+	die();
+}
+if (isset($_GET["display_routine"])) {
+	table_get("routine");
+	die();
+}
+if (isset($_GET["display_routine_date"])) {
+	table_get("routine_date");
+	die();
+}
+if (isset($_GET["display_log"])) {
+	table_get("log");
+	die();
+}
+
+//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Developer code<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -348,36 +395,6 @@ echo '
 	</div>
 </div>
 ';
-
-
-
-//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Developer code>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-//Below code must has to limit, because it can see the full table data
-/*
-echo "<h1>This is Display page!</h1>";
-$this_page=$_SERVER['PHP_SELF'];
-echo "<a href='".$this_page."?display_dorm'>display_dorm </a>";
-echo "<a href='".$this_page."?display_students'>display_students </a>";
-echo "<a href='".$this_page."?display_routine'>display_routine </a>";
-echo "<a href='".$this_page."?display_routine_date'>display_routine_date </a>";
-echo "<a href='".$this_page."?display_log'>display_log</a>";
-if (isset($_GET["display_dorm"])) {
-	table_get("dorm");
-}
-if (isset($_GET["display_students"])) {
-	table_get("students");
-}
-if (isset($_GET["display_routine"])) {
-	table_get("routine");
-}
-if (isset($_GET["display_routine_date"])) {
-	table_get("routine_date");
-}
-if (isset($_GET["display_log"])) {
-	table_get("log");
-}
-*/
-//<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Developer code<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 require_once("footer.php");
 ?>
