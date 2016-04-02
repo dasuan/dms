@@ -39,7 +39,6 @@ if (empty($_POST["date"]) && empty($_POST["routine_submit"]) ) {
 
 
 
-
 //This is input code         >>>>>>>>>>>>step2
 elseif(empty($_POST["routine_submit"])){
 
