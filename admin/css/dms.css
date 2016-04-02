@@ -69,3 +69,16 @@ body{
 
 	top: 0px;
 }
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>add Page<<<<<<<<<<<<<<<<<<<<<*/
+
+
+
+.drop_list_add{
+	display: inline;
+	width: 16%;
+}
+.btn_add{
+	display: inline;
+	width: 8%;
+}

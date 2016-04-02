@@ -335,6 +335,12 @@ echo '
 		';
 		echo "<form method='post' action='".$_SERVER['PHP_SELF']."' name='date_form'>";
 		require_once("date_form.php");
+		// echo "<table class='table table-bordered'>";
+		// echo '<tr><td><select class= "form-control"></td>';
+		// echo '<td><select class= "form-control"></td>';
+		// echo '<td><select class= "form-control"></td></tr>';		
+		// echo "</table>";
+
 		echo '<div class="button_div"><button class="btn btn-default display_dorm_num_select_button" type="submit" name="date_submit">提交日期</button></div>';
 		echo "</form>
 	</div>

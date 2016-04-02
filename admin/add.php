@@ -26,8 +26,25 @@ if (empty($_POST["date"]) && empty($_POST["routine_submit"]) ) {
 //Add contents start
 			echo "<form method='post' action='".$_SERVER['PHP_SELF']."' name='date_form'>";
 			require_once("date_form.php");
-			echo '<div class="button_div"><button class="btn btn-default" type="submit" name="submit_date">提交</button></div>';
+			echo '
+			<select name="region" onchange="f_region(this.value)" id="region" class="form-control drop_list_add" required>
+				<option value="" selected="selected">请选择地区</option> 
+				<option value="1">南苑</option>
+				<option value="2">北苑</option>
+			</select>
+			<select name="build_num" onchange="f_build_num(this.value)" id="build_num" class="form-control drop_list_add" required>
+				<option value="" selected="selected">请选择楼号</option> 
+			</select>
+			<select name="part" onchange="f_part(this.value)" id="part" class="form-control drop_list_add" required>
+				<option value="" selected="selected">请选择ab区</option> 
+			</select>
+			<select name="floor" onchange="f_floor(this.value)" id="floor" class="form-control drop_list_add" required>
+				<option value="" selected="selected">请选择楼层</option> 
+			</select>
+			<div class="button_div"><button class="btn btn-default btn_add" type="submit" name="add_step1" value="add_step1">提交</button></div>
+			';
 			echo "</form>";
+			require_once("add_js.php");
 //Add contents finish
 
 			echo '
@@ -40,7 +57,7 @@ if (empty($_POST["date"]) && empty($_POST["routine_submit"]) ) {
 
 
 //This is input code         >>>>>>>>>>>>step2
-elseif(empty($_POST["routine_submit"])){
+elseif(isset($_POST["add_step1"])){
 
 	$date=$_POST["date"];
 	$sql_checkdate="SELECT * FROM routine where date = '" . $date ."'";
