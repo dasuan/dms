@@ -57,7 +57,7 @@ function f_part(str)
 	var build_num = document.getElementById('build_num');
 	var url="ajax_get.php?step=3"
 	url=url+"&region="+region.value
-	url=url+"&build_num="+region.value
+	url=url+"&build_num="+build_num.value
 	url=url+"&part="+str
 	url=url+"&sid="+Math.random()
 
@@ -66,6 +66,7 @@ function f_part(str)
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
 			document.getElementById("floor").innerHTML=xmlhttp.responseText;
+			//document.getElementById("part").style.display = "none";//>>>>>>>>>>option<<<<<<<<<<
 		}
 	});
 }

@@ -57,11 +57,14 @@ require_once("html.php");
 	<div class="row">
 		<div class="col-sm-3 col-md-2 sidebar">
 			<ul class="nav nav-pills nav-stacked nav-sidebar">
+			
+			
 				<li <?php if (php_self() == 'display.php') { echo 'class="active" '; } ?>><a href="display.php">显示 </a></li>
 				<li <?php if (php_self() == 'add.php') { echo 'class="active" '; } ?>><a href="add.php">添加</a></li>
-				<li <?php if (php_self() == 'update.php') { echo 'class="active" '; } ?>><a href="update.php">更新</a></li>
-				<!-- <li <?php if (php_self() == 'import.php') { echo 'class="active" '; } ?>><a href="import.php">导入</a></li> -->
-				<li <?php if (php_self() == 'log.php') { echo 'class="active" '; } ?>><a href="log.php">日志</a></li> 
+				<!-- <li <?php if (php_self() == 'update.php') { echo 'class="active" '; } ?>><a href="update.php">更新</a></li> -->
+				<?php role_siderbar($_SESSION['user_role']); ?>
+				<li <?php if (php_self() == 'log.php') { echo 'class="active" '; } ?>><a href="log.php">日志</a></li>
+
 			</ul>
 
 		</div>

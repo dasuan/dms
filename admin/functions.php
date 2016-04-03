@@ -61,6 +61,72 @@ function add_log($action,$db){
 
 	$db->query($sql_log) or die($db->error);
 }
+//add_page need
+function drop_list_20($col,$i){
+	echo "<select name='$col$i' id='$col$i' class= 'form-control'>";
+	echo '
+	<option value="20" selected="selected">20</option>
+	<option value="15">15</option>
+	<option value="10">10</option>
+	<option value="5">5</option>
+	<option value="0">0</option>
+	</select>
+	';
+}
+
+function role_siderbar($user_role){
+	switch($user_role)
+	{
+		case 1:
+
+		// echo "<li ";
+		// if (php_self() == 'display.php') { echo 'class="active" '; } 
+		// echo "><a href="display.php">显示 </a></li><li ";
+		// if (php_self() == 'add.php') { echo 'class="active" '; } 
+		// echo "><a href="add.php">添加</a></li><!-- <li ";
+		// if (php_self() == 'update.php') { echo 'class="active" '; } 
+		// echo "><a href="update.php">更新</a></li> --><li ";
+		// if (php_self() == 'del.php') { echo 'class="active" '; } 
+		// echo "><a href="del.php">删除</a></li><li ";
+		// if (php_self() == 'import.php') { echo 'class="active" '; } 
+		// echo "><a href="import.php">导入</a></li><li ";
+		// if (php_self() == 'log.php') { echo 'class="active" '; } 
+		// echo "><a href="log.php">日志</a></li>";
+
+
+		echo "<li ";
+		if (php_self() == 'del.php') { echo 'class="active" '; } 
+		echo '><a href="del.php">删除</a></li>';
+		echo "<li ";
+		if (php_self() == 'import.php') { echo 'class="active" '; } 
+		echo '><a href="import.php">导入</a></li>';
+		echo "<li ";
+		// if (php_self() == 'display_table.php') { echo 'class="active" '; } 
+		// echo '><a href="display_table.php">显示所有表</a></li>';
+		break;
+
+		case 2:
+		echo "<li ";
+		if (php_self() == 'del.php') { echo 'class="active" '; } 
+		echo '><a href="del.php">删除</a></li>';
+		break;
+
+		case 3:
+		echo "<li ";
+		if (php_self() == 'del.php') { echo 'class="active" '; } 
+		echo '><a href="del.php">删除</a></li>';
+		break;
+
+		case 4:
+		echo "";
+		break;
+
+		default:
+		die("<h1>你没有权限查看此页</h1>");
+	}
+
+}
+
 
 
 

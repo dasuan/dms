@@ -4,7 +4,7 @@
 
 
 <link href="css/datepicker.css" rel="stylesheet">
-<p>请选择日期：</p>
+<p>请选择检查日期：</p>
 	<input type="text" class="span2 form-control drop_list_add" value="<?php echo date("Y-m-d");?>" id="dp1" name="date" required>
 
 <script>

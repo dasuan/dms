@@ -15,6 +15,10 @@ require_once("import_list.php");
 
 //Display welcome message
 echo "<h1>This is import_stu</h1> ";
+echo "<p>警告：此操作会删除并依据导入的文件重建所有学生信息，此操作不可逆，请确保一次性导入正确的格式！</p> ";
+echo "<p>格式要求：</p> ";
+echo "<p>条件要求：学生id不能重复！学生表中宿舍号必须在宿舍表内有唯一值对应！</p> ";
+
 
 $deleterecords = "TRUNCATE TABLE students"; //empty the table of its current records
 //$import="INSERT into students(id,name,sex,dorm_num) values('$data[0]','$data[1]','$data[2]','$data[3]')";
