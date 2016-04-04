@@ -43,7 +43,21 @@ if ($login->isUserLoggedIn() == false) {
     die();
 } 
 
-$logged_welcome = "<p>Hey, " . $_SESSION['user_name'] . " You are logged in.<a href='index.php?logout'>Logout</a></p><br />";
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>console>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+$logged_welcome = "Hey, " . $_SESSION['user_name'] . ", You are logged in.";
+echo '
+<script type="text/javascript">console.log("'.$logged_welcome.'")</script>     
+';
+
+$git_hub = "This project was developing by jack, my github-> https://github.com/dasuan/dms";
+echo '
+<script type="text/javascript">console.log("'.$git_hub.'")</script>     
+';
+
+$trick = "Happy to listen your voice~ ;>";
+echo '
+<script type="text/javascript">console.log("'.$trick.'")</script>     
+';
 
 
 ?>

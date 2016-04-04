@@ -3,6 +3,8 @@
 require_once("auth.php");
 require_once("header.php");
 require_once("db_connection.php");
+require_once("functions.php"); 
+check_permission(1);
 echo '
 <ol class="breadcrumb">
   <li><a href="index.php">主页</a></li>

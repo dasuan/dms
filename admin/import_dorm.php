@@ -3,6 +3,8 @@
 require_once("auth.php");
 require_once("header.php");
 require_once("db_connection.php");
+require_once("functions.php"); 
+check_permission(1);
 
 echo '
 <ol class="breadcrumb">
@@ -17,7 +19,7 @@ require_once("import_list.php");
 
 //Display welcome message
 echo "<h1>This is import_dorm</h1> ";
-echo "<p>警告：此操作会删除并重建所有宿舍并且不可逆，请确保一次性导入正确的格式！</p> ";
+echo "<p>警告：此操作会删除并依据导入文件重建所有宿舍，此操作不可逆，请确保一次性导入正确的格式！</p> ";
 echo "<p>格式要求：</p> ";
 echo "<p>条件要求：宿舍号不能重复！除宿舍号外的其它字段的值必须与宿舍号对应，学生表中宿舍号必须在此表内！</p> ";
 

@@ -64,7 +64,7 @@ require_once("html.php");
 				<!-- <li <?php if (php_self() == 'update.php') { echo 'class="active" '; } ?>><a href="update.php">更新</a></li> -->
 				<?php role_siderbar($_SESSION['user_role']); ?>
 				<li <?php if (php_self() == 'log.php') { echo 'class="active" '; } ?>><a href="log.php">日志</a></li>
-
+				<?php role_siderbar_develop($_SESSION['user_role']); ?>
 			</ul>
 
 		</div>

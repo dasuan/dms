@@ -4,6 +4,7 @@ require_once("auth.php"); // verify whether login
 require_once("header.php"); //nav
 require_once("db_connection.php");
 require_once("functions.php"); //must under db
+check_permission(5);
 //site map
 echo '
 <ol class="breadcrumb">
@@ -96,7 +97,7 @@ if(isset($_POST["display_date_floor"])){
 		echo '
 		<div class="panel panel-success">
 			<div class="panel-heading">日期为<strong>'.$date.'</strong> ，楼层为<strong>'.$region.$build_num.'#'.$part.'区'.$floor.'层</strong>的记录如下表所示：</div>
-			<div class="panel-body">
+			<div class="panel-body" id="dvData">
 				';
 
 			//Add contents start

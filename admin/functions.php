@@ -100,9 +100,9 @@ function role_siderbar($user_role){
 		echo "<li ";
 		if (php_self() == 'import.php') { echo 'class="active" '; } 
 		echo '><a href="import.php">导入</a></li>';
-		echo "<li ";
+		//echo "<li ";
 		// if (php_self() == 'display_table.php') { echo 'class="active" '; } 
-		// echo '><a href="display_table.php">显示所有表</a></li>';
+		// echo '><a href="display_table.php">显示底层表</a></li>';
 		break;
 
 		case 2:
@@ -125,6 +125,45 @@ function role_siderbar($user_role){
 		die("<h1>你没有权限查看此页</h1>");
 	}
 
+}
+
+function role_siderbar_develop($user_role){
+	switch($user_role)
+	{
+		case 1:
+
+		echo "<li ";
+		if (php_self() == 'd_log.php') { echo 'class="active" '; } 
+		echo '><a href="d_log.php">开发日志</a></li>';
+		break;
+
+		case 2:
+		echo "";
+		break;
+
+		case 3:
+		echo "";
+		break;
+
+		case 4:
+		echo "";
+		break;
+
+		default:
+		die("<h1>你没有权限查看此页</h1>");
+	}
+
+}
+
+function check_permission($level){
+
+	$user_role=$_SESSION['user_role'];
+	$user_role += 0;
+	if($user_role > $level){
+		die("你没有权限查看此页！");
+	}
+	// echo gettype($user_role), "\n";
+	// echo gettype($level), "\n";
 }
 
 
