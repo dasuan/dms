@@ -28,14 +28,15 @@ if(isset($_POST["add_step1"])){
 		$region="南";
 	}elseif ($region=="2") {
 		$region="北";
-	}else{
-		die();
 	}
+	// else{
+	// 	die();
+	// }
 
 	//$sql_checkdate="SELECT * FROM routine_list where date = '" . $date ."'";
 	$sql_check="SELECT * FROM dorm,routine_list WHERE routine_list.date='$date' and dorm.region = '$region' and dorm.build_num = '$build_num' and dorm.part = '$part' and dorm.floor = '$floor' and dorm.dorm_num=routine_list.dorm_num ";
-	$result_of_check = $db->query($sql_check);
-
+	$result_of_check = $db->query($sql_check) or die($db->error);
+echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaafaffff";
 	if ($result_of_check->num_rows != 0) {
 		//echo "result_checkdate is $result_of_date_check->num_rows <br />";
 
@@ -48,7 +49,7 @@ if(isset($_POST["add_step1"])){
 			//Add contents start
 			$add_floor=$region."$build_num"."#"."$part"."区"."$floor"."层";
 			$sql="SELECT * FROM routine_list where date = '" . $date ."' and add_floor = '".$add_floor."' " ;
-			$result= $db->query($sql);
+			$result= $db->query($sql)  or die($db->error);
 			if ($result->num_rows != 0) {
 				echo "<table class='table table-bordered'>
 				<tr>
