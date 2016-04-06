@@ -26,12 +26,12 @@
 
 
 
-	<script>
+<!-- 	<script>
 $('#myTabs a').click(function (e) {
   e.preventDefault()
   $(this).tab('show')
 })
-	</script>
+	</script> -->
 
 
 <style type="text/css">

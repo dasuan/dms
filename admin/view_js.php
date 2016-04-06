@@ -39,6 +39,30 @@ function get_model()
 	});
 }
 
+function get_dorm_list(str)
+{
+
+	//document.write(a)
+	var url="ajax_get.php?view_step=2"
+	url=url+"&"+str
+	url=url+"&sid="+Math.random()
+
+	loadXMLDoc(url,function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{	
+			
+			document.getElementById("dorm_model_container").innerHTML=xmlhttp.responseText;
+			$(function(argument) {
+				$('[type="checkbox"]').bootstrapSwitch();
+				// $(document).ajaxComplete(function(event, xhr, settings) {
+				// 	$('[type="checkbox"]').bootstrapSwitch();
+				// });
+			})
+		}
+	});
+}
+
 
 
 

@@ -159,6 +159,7 @@ if(isset($_POST["display_date_floor"])){
 			                background-image: -o-linear-gradient(to bottom, rgb(248, 248, 248) 0px, rgb(238, 238, 238) 100%);
 			                background-image: linear-gradient(to bottom, rgb(248, 248, 248) 0px, rgb(238, 238, 238) 100%);
 			                background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgb(248, 248, 248)), to(rgb(238, 238, 238)));
+			                
 			            }
 			            .pad_left_15{
 			            	padding-left: 15px;

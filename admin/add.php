@@ -36,7 +36,7 @@ if(isset($_POST["add_step1"])){
 	//$sql_checkdate="SELECT * FROM routine_list where date = '" . $date ."'";
 	$sql_check="SELECT * FROM dorm,routine_list WHERE routine_list.date='$date' and dorm.region = '$region' and dorm.build_num = '$build_num' and dorm.part = '$part' and dorm.floor = '$floor' and dorm.dorm_num=routine_list.dorm_num ";
 	$result_of_check = $db->query($sql_check) or die($db->error);
-echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaafaffff";
+	//echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaafaffff";
 	if ($result_of_check->num_rows != 0) {
 		//echo "result_checkdate is $result_of_date_check->num_rows <br />";
 
