@@ -65,6 +65,9 @@ require_once("html.php");
 				<?php role_siderbar($_SESSION['user_role']); ?>
 				<li <?php if (php_self() == 'log.php') { echo 'class="active" '; } ?>><a href="log.php">日志</a></li>
 				<?php role_siderbar_develop($_SESSION['user_role']); ?>
+				<li <?php if (php_self() == 'view_display.php') { echo 'class="active" '; } ?>><a href="view_display.php">view display </a></li>
+				<li <?php if (php_self() == 'view_add.php') { echo 'class="active" '; } ?>><a href="view_add.php">view add</a></li>
+				<li <?php if (php_self() == 'view_del.php') { echo 'class="active" '; } ?>><a href="view_del.php">view del</a></li>
 
 			</ul>
 

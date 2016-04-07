@@ -3,16 +3,16 @@
 require_once("auth.php"); // verify whether login
 require_once("header.php"); //nav
 require_once("db_connection.php");
-check_permission(5);
+check_permission(3);
 
 
 echo '
 <div class="panel panel-info">
-    <div class="panel-heading">view_添加</div>
+    <div class="panel-heading">view_删除</div>
     <div class="panel-body">
         ';
         require_once("date_form_view.php");
-        echo '<a href="#build_top" class="btn btn-default" onclick="get_model()">图形化显示</a>';
+        echo '<a href="#build_top" class="btn btn-default" onclick="view_del_get_build()">图形化显示</a>';
         echo '
     </div>
 </div>';
@@ -84,11 +84,12 @@ echo '</div></div>';
 <!--This is for check box-->
 <link href="css/bootstrap-switch.min.css" rel="stylesheet">
 <script src="js/bootstrap-switch.min.js"></script>
+
 <script>
-$(function(argument) {
-  $('[type="checkbox"]').bootstrapSwitch();
- $(document).ajaxComplete(function(event, xhr, settings) {
-      $('[type="checkbox"]').bootstrapSwitch();
-   });
-})
+// $(function(argument) {
+//   $('[type="checkbox"]').bootstrapSwitch();
+//  $(document).ajaxComplete(function(event, xhr, settings) {
+//       $('[type="checkbox"]').bootstrapSwitch();
+//    });
+// })
 </script>

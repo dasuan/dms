@@ -4,20 +4,20 @@ require_once("auth.php"); // verify whether login
 require_once("header.php"); //nav
 require_once("db_connection.php");
 check_permission(5);
-
+require_once("view_js.php");
 
 echo '
 <div class="panel panel-info">
-    <div class="panel-heading">概况</div>
+    <div class="panel-heading">view显示</div>
     <div class="panel-body">
         ';
         require_once("date_form_view.php");
-        echo '<a href="#build_top" class="btn btn-default" onclick="get_model()">图形化显示</a>';
+        echo '<a href="#build_top" class="btn btn-default" onclick="view_display_get_dorm_model()">显示</a>';
         echo '
     </div>
 </div>';
 
-require_once("view_js.php");
+
 
 echo '<div  id="build_top">喔喔~看不见我~看不见我~</div>';
 echo '
