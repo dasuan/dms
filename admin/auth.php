@@ -25,7 +25,7 @@ require_once("../config/db.php");
 
 // include language to echo hint correctly
 require_once("lang_zh.php");
-// 
+ 
 require_once("functions.php");
 
 // load the login class
@@ -58,7 +58,9 @@ $trick = "Happy to listen your voice~ ;>";
 echo '
 <script type="text/javascript">console.log("'.$trick.'")</script>     
 ';
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>> load enviroment >>>>>>>>>>>>>>>>>>>>>>>
 
+require_once("load.php");
 
 ?>
 

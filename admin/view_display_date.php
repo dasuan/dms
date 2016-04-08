@@ -3,26 +3,33 @@
 require_once("auth.php"); // verify whether login
 require_once("header.php"); //nav
 require_once("db_connection.php");
-check_permission($level_del);
+check_permission($level_display);
 
 echo '
 <ol class="breadcrumb">
-<li><a href="index.php">主页</a></li>
-<li class="active">删除</li>
-</ol>';
+    <li><a href="index.php">主页</a></li>
+    <li><a href="display.php">查询</a></li>
+    <li class="active">通过日期</li>
+</ol>
+';
+
+
+
+
+require_once("view_js.php");
 
 echo '
 <div class="panel panel-info">
-    <div class="panel-heading">删除</div>
+    <div class="panel-heading">view显示</div>
     <div class="panel-body">
         ';
         require_once("date_form_view.php");
-        echo '<a href="#build_top" class="btn btn-default" onclick="view_del_get_build()">图形化显示</a>';
+        echo '<a href="#build_top" class="btn btn-default" onclick="view_display_get_dorm_model()">显示</a>';
         echo '
     </div>
 </div>';
 
-require_once("view_js.php");
+
 
 echo '<div  id="build_top">喔喔~看不见我~看不见我~</div>';
 echo '
@@ -89,12 +96,11 @@ echo '</div></div>';
 <!--This is for check box-->
 <link href="css/bootstrap-switch.min.css" rel="stylesheet">
 <script src="js/bootstrap-switch.min.js"></script>
-
 <script>
-// $(function(argument) {
-//   $('[type="checkbox"]').bootstrapSwitch();
-//  $(document).ajaxComplete(function(event, xhr, settings) {
-//       $('[type="checkbox"]').bootstrapSwitch();
-//    });
-// })
+$(function(argument) {
+  $('[type="checkbox"]').bootstrapSwitch();
+ $(document).ajaxComplete(function(event, xhr, settings) {
+      $('[type="checkbox"]').bootstrapSwitch();
+   });
+})
 </script>

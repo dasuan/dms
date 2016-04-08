@@ -3,7 +3,19 @@
 require_once("auth.php"); // verify whether login
 require_once("header.php"); //nav
 require_once("db_connection.php");
-check_permission(5);
+check_permission($level_display);
+
+echo '
+<ol class="breadcrumb">
+    <li><a href="index.php">主页</a></li>
+    <li><a href="display.php">查询</a></li>
+    <li class="active">通过宿舍</li>
+</ol>
+';
+
+
+
+
 require_once("view_js.php");
 
 

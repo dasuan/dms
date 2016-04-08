@@ -3,8 +3,7 @@
 require_once("auth.php"); // verify whether login
 require_once("header.php"); //nav
 require_once("db_connection.php");
-require_once("functions.php"); //must under db
-check_permission(5);
+check_permission($level_display);
 //site map
 echo '
 <ol class="breadcrumb">

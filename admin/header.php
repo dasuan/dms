@@ -59,16 +59,59 @@ require_once("html.php");
 			<ul class="nav nav-pills nav-stacked nav-sidebar">
 			
 			
-				<li <?php if (php_self() == 'display.php') { echo 'class="active" '; } ?>><a href="display.php">显示 </a></li>
-				<li <?php if (php_self() == 'add.php') { echo 'class="active" '; } ?>><a href="add.php">添加</a></li>
-				<!-- <li <?php if (php_self() == 'update.php') { echo 'class="active" '; } ?>><a href="update.php">更新</a></li> -->
-				<?php role_siderbar($_SESSION['user_role']); ?>
-				<li <?php if (php_self() == 'log.php') { echo 'class="active" '; } ?>><a href="log.php">日志</a></li>
-				<?php role_siderbar_develop($_SESSION['user_role']); ?>
-				<li <?php if (php_self() == 'view_display.php') { echo 'class="active" '; } ?>><a href="view_display.php">view display </a></li>
-				<li <?php if (php_self() == 'view_add.php') { echo 'class="active" '; } ?>><a href="view_add.php">view add</a></li>
-				<li <?php if (php_self() == 'view_del.php') { echo 'class="active" '; } ?>><a href="view_del.php">view del</a></li>
-				<li <?php if (php_self() == 'view_dorm.php') { echo 'class="active" '; } ?>><a href="view_dorm.php">view dorm</a></li>
+
+				<?//php role_siderbar($_SESSION['user_role']); ?>
+
+
+<?php
+
+//$level_system=1;
+if ($level_display >= $user_role) {
+		echo "<li ";
+		if (php_self() == 'view_display.php' || php_self() == 'view_display_date.php' || php_self() == 'view_display_dorm.php' || php_self() == 'view_display_stu.php'){
+			echo 'class="active" '; 
+		} 
+		echo '><a href="view_display.php">查询</a></li>';
+}
+if ($level_add >= $user_role) {
+		echo "<li ";
+		if (php_self() == 'view_add.php' || php_self() == 'view_add_input.php'){
+			echo 'class="active" '; 
+		} 
+		echo '><a href="view_add.php">增加</a></li>';
+}
+if ($level_del >= $user_role) {
+		echo "<li ";
+		if (php_self() == 'view_del.php' || php_self() == 'view_del_confirm.php'){
+			echo 'class="active" '; 
+		} 
+		echo '><a href="view_del.php">删除</a></li>';
+}
+if ($level_import >= $user_role) {
+		echo "<li ";
+		if (php_self() == 'import.php'){
+			echo 'class="active" '; 
+		} 
+		echo '><a href="import.php">导入</a></li>';
+}
+if ($level_log >= $user_role) {
+		echo "<li ";
+		if (php_self() == 'log.php'){
+			echo 'class="active" '; 
+		} 
+		echo '><a href="log.php">日志</a></li>';
+}
+
+
+
+
+?>
+
+
+
+
+
+
 
 			</ul>
 

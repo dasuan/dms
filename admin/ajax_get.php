@@ -935,7 +935,7 @@ elseif ($_GET["view_dorm_step"]=="2"){
 
 		$sql_check="SELECT * FROM dorm WHERE dorm_num = '$dorm_num'";
 		$result_of_check = $db->query($sql_check) or die($db->error);
-	//echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaafaffff";
+		//echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaafaffff";
 		$dorm_num_replace=str_replace("#","%23",$dorm_num);
 		str_replace("world","Shanghai","Hello world!");
 		//echo $dorm_num;

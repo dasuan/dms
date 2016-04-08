@@ -4,7 +4,7 @@ require_once("auth.php");
 require_once("header.php");
 require_once("db_connection.php");
 require_once("functions.php");
-check_permission(5);
+check_permission($level_add);
 //site map
 echo '
 <ol class="breadcrumb">
@@ -25,10 +25,19 @@ if(isset($_POST["view_add_submit"])){
 	// echo gettype($floor_sum), "\n";
 	//echo "$floor_sum";
 	//var_dump($_POST);
+$judge=0;
+for ($k=0; $k < $floor_sum ; $k++) { 
+		$dorm_check_k="dorm_check".$k;		
+		if (isset($_POST[$dorm_check_k])) {
+			$judge++;
+		}
 
-	if(empty($_POST["dorm_check0"])){
-		die("你没有选择宿舍");
-	}
+}
+if($judge==0){
+	die(你没有选择宿舍);
+}
+
+
 	//echo $floor_sum;
 
 	$date=$_POST["date"];
