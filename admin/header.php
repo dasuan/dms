@@ -68,6 +68,7 @@ require_once("html.php");
 				<li <?php if (php_self() == 'view_display.php') { echo 'class="active" '; } ?>><a href="view_display.php">view display </a></li>
 				<li <?php if (php_self() == 'view_add.php') { echo 'class="active" '; } ?>><a href="view_add.php">view add</a></li>
 				<li <?php if (php_self() == 'view_del.php') { echo 'class="active" '; } ?>><a href="view_del.php">view del</a></li>
+				<li <?php if (php_self() == 'view_dorm.php') { echo 'class="active" '; } ?>><a href="view_dorm.php">view dorm</a></li>
 
 			</ul>
 

@@ -183,114 +183,114 @@ function validate_form(thisform)
 	//form verify end <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 	//table head ceiling>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-				echo '
-				<style>
-					.second{
-						width:77.5%;
-						height:37px;
-						border-color: rgb(198, 198, 198);
-						background-color: rgb(238, 238, 238);
-						background-image: -o-linear-gradient(to bottom, rgb(248, 248, 248) 0px, rgb(238, 238, 238) 100%);
-						background-image: linear-gradient(to bottom, rgb(248, 248, 248) 0px, rgb(238, 238, 238) 100%);
-						background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgb(248, 248, 248)), to(rgb(238, 238, 238)));
-					}
-					.pad_left_15{
-						padding-left: 15px;
-					}           
-				</style>
+// 				echo '
+// 				<style>
+// 					.second{
+// 						width:77.5%;
+// 						height:37px;
+// 						border-color: rgb(198, 198, 198);
+// 						background-color: rgb(238, 238, 238);
+// 						background-image: -o-linear-gradient(to bottom, rgb(248, 248, 248) 0px, rgb(238, 238, 238) 100%);
+// 						background-image: linear-gradient(to bottom, rgb(248, 248, 248) 0px, rgb(238, 238, 238) 100%);
+// 						background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgb(248, 248, 248)), to(rgb(238, 238, 238)));
+// 					}
+// 					.pad_left_15{
+// 						padding-left: 15px;
+// 					}           
+// 				</style>
 
-				<script type="text/javascript">
-					/**
-			            * 网页加载完毕后，确定各div的位置
-			            */
-					$(document).ready(function(){
-						floatdiv();
-					});
-					/**
-			            * 网页滚动时，确定各div的位置
-			            */
-					$(window).scroll(function(){
-						floatdiv();
-					});
-					/**
-			            * div浮动函数
-			            */
-					function floatdiv(){
-						var scrollTop = $(this).scrollTop();
-						/*查找class=second 的元素，调整css*/
-						if (scrollTop > 180) {
-							$(".second").css({
-								"position" : "fixed",
-								"top"      : "50px",
-								"left"     : "19.5%",
-								"z-index"  : "999"
-							});
+// 				<script type="text/javascript">
+// 					/**
+// 			            * 网页加载完毕后，确定各div的位置
+// 			            */
+// 					$(document).ready(function(){
+// 						floatdiv();
+// 					});
+// 					/**
+// 			            * 网页滚动时，确定各div的位置
+// 			            */
+// 					$(window).scroll(function(){
+// 						floatdiv();
+// 					});
+// 					/**
+// 			            * div浮动函数
+// 			            */
+// 					function floatdiv(){
+// 						var scrollTop = $(this).scrollTop();
+// 						/*查找class=second 的元素，调整css*/
+// 						if (scrollTop > 180) {
+// 							$(".second").css({
+// 								"position" : "fixed",
+// 								"top"      : "50px",
+// 								"left"     : "19.5%",
+// 								"z-index"  : "999"
+// 							});
 
-						} else {
-							$(".second").css({
-								"position" : "static"
-							});
+// 						} else {
+// 							$(".second").css({
+// 								"position" : "static"
+// 							});
 
-						}
-					}
+// 						}
+// 					}
 
-					window.onscroll = function() { 
-						console.info(window.scrollY); 
-					} 
+// 					window.onscroll = function() { 
+// 						console.info(window.scrollY); 
+// 					} 
 
-				</script>
+// 				</script>
 
-				<div class="second panel pad_left_15">
-					<table class="table">
-						<tr>
-							<th>宿舍号</th>
-							<th>阳台&卫生间</th>
-							<th>床铺</th>
-							<th>桌柜</th>
-							<th>地面</th>
-							<th>安全</th>
-							<th>备注</th>
-							<th>总分</th>
-						</tr>
-						<tr style="visibility:hidden;"><td><input name="dorm_num0" class="form-control" type="text" value="南10#601" readonly=""></td><td><select name="wc_balcony0" id="wc_balcony0" class="form-control">
-							<option value="20" selected="selected">20</option>
-							<option value="15">15</option>
-							<option value="10">10</option>
-							<option value="5">5</option>
-							<option value="0">0</option>
-						</select>
-					</td><td><select name="bed0" id="bed0" class="form-control">
-					<option value="20" selected="selected">20</option>
-					<option value="15">15</option>
-					<option value="10">10</option>
-					<option value="5">5</option>
-					<option value="0">0</option>
-				</select>
-			</td><td><select name="desk_cupboard0" id="desk_cupboard0" class="form-control">
-			<option value="20" selected="selected">20</option>
-			<option value="15">15</option>
-			<option value="10">10</option>
-			<option value="5">5</option>
-			<option value="0">0</option>
-		</select>
-	</td><td><select name="ground0" id="ground0" class="form-control">
-	<option value="20" selected="selected">20</option>
-	<option value="15">15</option>
-	<option value="10">10</option>
-	<option value="5">5</option>
-	<option value="0">0</option>
-</select>
-</td><td><select name="security0" id="security0" class="form-control">
-<option value="20" selected="selected">20</option>
-<option value="15">15</option>
-<option value="10">10</option>
-<option value="5">5</option>
-<option value="0">0</option>
-</select>
-</td><td><input type="text" name="comments0" class="form-control"></td><td><input type="text" name="score0" id="score0" class="form-control" required=""></td></tr>
-</table>
-</div> 
-';
+// 				<div class="second panel pad_left_15">
+// 					<table class="table">
+// 						<tr>
+// 							<th>宿舍号</th>
+// 							<th>阳台&卫生间</th>
+// 							<th>床铺</th>
+// 							<th>桌柜</th>
+// 							<th>地面</th>
+// 							<th>安全</th>
+// 							<th>备注</th>
+// 							<th>总分</th>
+// 						</tr>
+// 						<tr style="visibility:hidden;"><td><input name="dorm_num0" class="form-control" type="text" value="南10#601" readonly=""></td><td><select name="wc_balcony0" id="wc_balcony0" class="form-control">
+// 							<option value="20" selected="selected">20</option>
+// 							<option value="15">15</option>
+// 							<option value="10">10</option>
+// 							<option value="5">5</option>
+// 							<option value="0">0</option>
+// 						</select>
+// 					</td><td><select name="bed0" id="bed0" class="form-control">
+// 					<option value="20" selected="selected">20</option>
+// 					<option value="15">15</option>
+// 					<option value="10">10</option>
+// 					<option value="5">5</option>
+// 					<option value="0">0</option>
+// 				</select>
+// 			</td><td><select name="desk_cupboard0" id="desk_cupboard0" class="form-control">
+// 			<option value="20" selected="selected">20</option>
+// 			<option value="15">15</option>
+// 			<option value="10">10</option>
+// 			<option value="5">5</option>
+// 			<option value="0">0</option>
+// 		</select>
+// 	</td><td><select name="ground0" id="ground0" class="form-control">
+// 	<option value="20" selected="selected">20</option>
+// 	<option value="15">15</option>
+// 	<option value="10">10</option>
+// 	<option value="5">5</option>
+// 	<option value="0">0</option>
+// </select>
+// </td><td><select name="security0" id="security0" class="form-control">
+// <option value="20" selected="selected">20</option>
+// <option value="15">15</option>
+// <option value="10">10</option>
+// <option value="5">5</option>
+// <option value="0">0</option>
+// </select>
+// </td><td><input type="text" name="comments0" class="form-control"></td><td><input type="text" name="score0" id="score0" class="form-control" required=""></td></tr>
+// </table>
+// </div> 
+// ';
 	//table head ceiling<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 }

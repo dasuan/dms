@@ -344,6 +344,7 @@ elseif ($_GET["view_display_step"]=="2"){
 			$sql="SELECT * FROM routine_list where date = '" . $date ."' and add_floor = '".$add_floor."' " ;
 			$result= $db->query($sql);
 			if ($result->num_rows != 0) {
+				echo '<div id="dvData">';
 				echo "<table class='table table-bordered'>
 				<tr>
 					<th>检查日期</th>
@@ -374,100 +375,23 @@ elseif ($_GET["view_display_step"]=="2"){
 			}
 
 				echo "</table>";
+
 				$this_page=$_SERVER['PHP_SELF'];
 				echo '<a href="#" id ="export" role="button" class="btn btn-default">导出表格</a>';
 				echo '<a class="btn btn-default float_right" href="'.$this_page.'">继续查询</a>';
 				//echo '<a href="'.$this_page.'"><button class="btn btn-default">重新选择</button></a>';
 				//echo '<a href="index.php"><button class="btn btn-default float_right">返回主面板</button></a>';
-
+				echo '</div>';//dor dvData
 				//Add contents finish
 
 				echo '
 			</div>
 		</div>';
 
-		//table head ceiling>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-			echo '
-			<style>
-			            .second{
-			                width:77.5%;
-			                height:37px;
-			                border-color: rgb(198, 198, 198);
-			                background-color: rgb(238, 238, 238);
-			                background-image: -o-linear-gradient(to bottom, rgb(248, 248, 248) 0px, rgb(238, 238, 238) 100%);
-			                background-image: linear-gradient(to bottom, rgb(248, 248, 248) 0px, rgb(238, 238, 238) 100%);
-			                background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgb(248, 248, 248)), to(rgb(238, 238, 238)));
-			                
-			            }
-			            .pad_left_15{
-			            	padding-left: 15px;
-			            }           
-			        </style>
-
-			        <script type="text/javascript">
-			            /**
-			            * 网页加载完毕后，确定各div的位置
-			            */
-			            $(document).ready(function(){
-			                floatdiv();
-			            });
-			            /**
-			            * 网页滚动时，确定各div的位置
-			            */
-			            $(window).scroll(function(){
-			                floatdiv();
-			            });
-			            /**
-			            * div浮动函数
-			            */
-			            function floatdiv(){
-			                var scrollTop = $(this).scrollTop();
-			                /*查找class=second 的元素，调整css*/
-			                if (scrollTop > 180) {
-			                    $(".second").css({
-			                        "position" : "fixed",
-			                        "top"      : "50px",
-			                        "left"     : "19.5%",
-			                        "z-index"  : "999"
-			                    });
-
-			                } else {
-			                    $(".second").css({
-			                        "position" : "static"
-			                        "display" : "none"
-			                    });
-
-			                }
-			            }
-
-			            window.onscroll = function() { 
-						console.info(window.scrollY); 
-						} 
-
-			</script>
-
-			<div class="second panel pad_left_15">
-			<table class="table">
-				<tr>
-					<th>检查日期</th>
-					<th>宿舍号</th>
-					<th>阳台&amp;卫生间</th>
-					<th>床铺</th>
-					<th>桌柜</th>
-					<th>地面</th>
-					<th>安全</th>
-					<th>备注</th>
-					<th>总分</th>			
-				</tr>
-				<tr style="visibility:hidden;"><td>2016-04-04</td><td>南10#601</td><td>20</td><td>20</td><td>20</td><td>20</td><td>20</td><td></td><td>100</td></tr>	
-			</table>
-			</div> 
-			';
-	//table head ceiling<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 	//include export js 
-	$filename=$date;
-	require_once("export.php");
+	// $filename=$date;
+	// require_once("export.php");
 
 	}
 
@@ -967,6 +891,170 @@ elseif ($_GET["view_del_step"]=="2"){
 
 
 }
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>> view dorm >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+elseif ($_GET["view_dorm_step"]=="2"){
+	$date=$_GET["date"];
+	$region=$_GET["region"];
+	if ($region=="1") {
+		$region="南";
+	}elseif ($region=="2") {
+		$region="北";
+	}
+	// else{
+	// 	die("不住宿");
+	// }
+
+	$build_num=$_GET["build_num"];
+	$part=$_GET["part"];
+	$floor=$_GET["floor"];
+
+	//echo "$region$build_num$part$floor";
+	//$sql="SELECT * FROM dorm";
+	$sql="SELECT * FROM dorm WHERE region = '$region' and build_num = '$build_num' and part = '$part' and floor = '$floor'";
+	$result = $db->query($sql) or die($db->error);
+
+	$floor_add=$region.'苑'.$build_num.'号楼'.$part.'区'.$floor.'层';
+	echo '<p>您选择的日期为：<strong class="text-danger">'.$date.'</strong>  &nbsp;&nbsp;  楼层为：<strong class="text-danger">'.$floor_add.'</strong>  &nbsp;&nbsp;  (<strong>0区</strong>代表此楼不分AB区)</p> ';
+
+	//echo '<form method="post" action="view_del_confirm.php">';
+
+	echo "<input name = 'date' value = '$date' style='display: none;' />";
+	echo "<input name = 'region' value = '$region' style='display: none;' />";
+	echo "<input name = 'build_num' value = '$build_num' style='display: none;' />";
+	echo "<input name = 'part' value = '$part' style='display: none;' />";
+	echo "<input name = 'floor' value = '$floor' style='display: none;' />";
+
+
+	echo "<input name = 'add_floor' value = '".$region."$build_num"."#"."$part"."区"."$floor"."层' style='display: none;' />";
+	echo '<div class="dorm_list_div">';
+	$i=0;
+	while($row = $result->fetch_array(MYSQLI_ASSOC)){
+		$dorm_num=$row['dorm_num'];
+		//echo "<button class='btn btn-default'>$dorm_num</button>";
+
+		$sql_check="SELECT * FROM dorm WHERE dorm_num = '$dorm_num'";
+		$result_of_check = $db->query($sql_check) or die($db->error);
+	//echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaafaffff";
+		$dorm_num_replace=str_replace("#","%23",$dorm_num);
+		str_replace("world","Shanghai","Hello world!");
+		//echo $dorm_num;
+		if ($result_of_check->num_rows != 0){
+			//echo '<input type="checkbox" name="dorm_check'.$i.'" value="'.$dorm_num.'" data-label-text="'.$dorm_num.'" data-on-text="删除" data-off-text="不删除" />';
+			echo "<button class='btn btn-default' value='".$dorm_num_replace."' onclick='view_dorm_routine(this.value)'>$dorm_num</button>";
+			$i=$i+1;
+		}else{
+		echo '<input type="checkbox" name="dorm_check'.$i.'" value="'.$dorm_num.'"  data-label-text="'.$dorm_num.'" data-on-text="删除" data-off-text="无记录" data-switch-toggle="readonly" readonly/>';
+		
+		}
+
+	}
+
+	echo "</div>";
+
+
+	// echo '<div class="dorm_list_right">
+	// <button class="btn btn-default " type="submit"  name="view_del_submit" value="'.$i.'" >为左侧选中的宿舍删除记录</button>
+	// </div>';
+
+
+
+	//echo '</form>';
+
+
+
+
+
+
+	echo "<style>
+        .dorm_model_container_panel{
+            /*visibility:hidden;*/
+            /*height:500px;*/
+
+        }
+        .main{
+            height:1500px;
+        }  
+        .dorm_list_div{
+        	/*width:200px;
+        	float: left;*/
+        } 
+        .dorm_list_right{
+        	float:left;
+        }     
+    </style>";
+
+
+}
+
+elseif ($_GET["view_dorm_step"]=="3"){
+
+	$dorm_num=$_GET["dorm_num"];
+var_dump($_GET);
+
+//Panel start >>>>>>>>>>>>>>>>>>>>
+		echo '
+		<div class="panel panel-success">
+			<div class="panel-heading"><strong class="text-danger">'.$dorm_num.'</strong>宿舍的记录如下：</div>
+			<div class="panel-body" id="dvData">
+				';
+//Add contents start
+				$table_name="routine_list";
+				$sql="SELECT * FROM $table_name WHERE dorm_num='$dorm_num'";
+				$result = $db->query($sql) or die($db->error);
+				echo "<table class='table table-bordered'>
+				<tr>
+					<th>检查日期</th>
+					<th>宿舍号</th>
+					<th>阳台&卫生间</th>
+					<th>床铺</th>
+					<th>桌柜</th>
+					<th>地面</th>
+					<th>安全</th>
+					<th>备注</th>
+					<th>总分</th>
+				</tr>";
+				while($row = $result->fetch_array(MYSQLI_ASSOC)){
+					echo "<tr>";
+
+						echo "<td>" .$row['date']."</td>" ;
+						echo "<td>" .$row['dorm_num']."</td>" ;
+						echo "<td>" .$row['wc_balcony']."</td>" ;
+						echo "<td>" .$row['bed']."</td>" ;
+						echo "<td>" .$row['desk_cupboard']."</td>" ;
+						echo "<td>" .$row['ground']."</td>" ;
+						echo "<td>" .$row['security']."</td>" ;
+						echo "<td>" .$row['comments']."</td>" ;
+						echo "<td>" .$row['score']."</td>" ;
+
+
+					echo "</tr>";
+				}
+				echo "</table>";
+			
+			$this_page=$_SERVER['PHP_SELF'];
+			echo '<a href="#" id ="export" role="button" class="btn btn-default">导出表格</a>';
+			echo '<a class="btn btn-default float_right" href="'.$this_page.'">继续查询</a>';		
+			//echo '<a href="index.php"><button class="btn btn-default float_right">返回主面板</button></a>';
+			echo "</form>";			
+//Add contents finish
+
+			echo '
+		</div>
+	</div>';
+
+
+//include export js 
+			$filename=$dorm_num;
+			require_once("export.php");
+
+//Panel end        <<<<<<<<<<<<<<<
+
+}
+
+
+
+
 
 
 

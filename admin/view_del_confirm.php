@@ -24,7 +24,7 @@ if(isset($_POST["view_del_submit"])){
 	$floor_sum=$floor_sum+0;
 	// echo gettype($floor_sum), "\n";
 	//echo "$floor_sum";
-	var_dump($_POST);
+	//var_dump($_POST);
 
 
 	$date=$_POST["date"];
@@ -148,7 +148,7 @@ elseif(isset($_POST["add_step2"])){
 	$add_time=date("Y-m-d  H:i:s");
 	$user_name=$_SESSION['user_name'];
 
-	var_dump($_POST);
+	//var_dump($_POST);
 	echo "<br />";
 	echo "<br />";
 	// var_dump($_SESSION);
@@ -192,7 +192,7 @@ elseif(isset($_POST["add_step2"])){
 
 		echo '<div class="well">';
 			echo '<div class="alert alert-success" role="alert">
-		日期为<strong>'.$date.'</strong> ，楼层为<strong>'.$add_floor.'</strong>的记录已删除！</div>';
+		日期为<strong class="text-danger">'.$date.'</strong> <strong class="text-danger">'.$dorm_num_sum.'</strong>的记录已删除！</div>';
 			$this_page=$_SERVER['PHP_SELF'];
 			//echo '<a href="#" id ="export" role="button" class="btn btn-default">导出表格</a>';
 			echo '<a class="btn btn-default" href="'.$this_page.'">继续删除</a>';		
