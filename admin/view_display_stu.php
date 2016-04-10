@@ -21,7 +21,7 @@ echo '
         ';
         echo "<form method='post' action='".$_SERVER['PHP_SELF']."' name='stu_id'>";
         echo '<input id="stu_id" class="form-control display_input" type="text" name="stu_id" placeholder="请输入学号" required />';
-        echo '<div class="button_div"><button class="btn btn-default" type="submit" name="stu_id_button">提交学号</button></div>';
+        echo '<a href="#stu_top"><div class="button_div"><button class="btn btn-default" type="submit" name="stu_id_button">提交学号</button></div></a>';
         echo "</form>
     </div>
 </div>";
@@ -88,7 +88,7 @@ if (isset($_POST["stu_id"])) {
             
             $this_page=$_SERVER['PHP_SELF'];
             echo '<a href="#" id ="export" role="button" class="btn btn-default">导出表格</a>';
-            echo '<a class="btn btn-default float_right" href="'.$this_page.'">继续查询</a>';       
+            //echo '<a class="btn btn-default float_right" href="'.$this_page.'">继续查询</a>';       
             //echo '<a href="index.php"><button class="btn btn-default float_right">返回主面板</button></a>';
             echo "</form>";         
 //Add contents finish
@@ -102,8 +102,8 @@ if (isset($_POST["stu_id"])) {
 //include export js 
         $filename=$stu_id;
         require_once("export.php");
-}
-    die();
+    }
+
 }
 
 

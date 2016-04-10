@@ -88,6 +88,7 @@ $(function(argument) {
 
 
 elseif ($_GET["view_display_step"]=="1") {
+
 	$date=$_GET["date"];
 	//echo $date;
 echo '<p>您选择的日期为：<strong class="text-danger">'.$date.'</strong>  &nbsp;&nbsp;   <strong class="bg-success text-success">绿色</strong>代表有记录 (<strong>0区</strong>代表此楼不分AB区)</p> ';
@@ -126,7 +127,7 @@ while($row_region = $result_region->fetch_array(MYSQLI_ASSOC)){
                 $floor = $row_floor['floor'];
 
                 $this_floor=$region."$build_num"."#"."$part"."区"."$floor"."层";
-                $sql_check="SELECT * FROM routine_add WHERE add_floor = '$this_floor' and date = '$date'";
+                $sql_check="SELECT * FROM routine_list WHERE add_floor = '$this_floor' and date = '$date'";
                 $result_of_check = $db->query($sql_check);
                 if ($result_of_check->num_rows != 0){
                     echo '<tr><td class="is_green">';
@@ -401,8 +402,8 @@ elseif ($_GET["view_display_step"]=="2"){
 		echo '<div class="alert alert-danger" role="alert">
 		日期为<strong>'.$date.'</strong> ，楼层为<strong>'.$region.$build_num.'#'.$part.'区'.$floor.'层</strong>的记录 <strong>不存在！</strong></div>';
 		$this_page=$_SERVER['PHP_SELF'];
-		echo '<a href="'.$this_page.'"><button class="btn btn-default">重新选择</button></a>';
-		echo '<a href="index.php"><button class="btn btn-default float_right">返回主面板</button></a>';
+		echo '<a href="#build_top"><button class="btn btn-default">重新选择</button></a>';
+		echo '<a href="index.php"><button class="btn btn-default float_right">返回主页</button></a>';
 		echo '</div>';
 	
 	}
@@ -630,17 +631,19 @@ elseif ($_GET["view_step"]=="2"){
 	$floor_add=$region.'苑'.$build_num.'号楼'.$part.'区'.$floor.'层';
 	echo '<p>您选择的日期为：<strong class="text-danger">'.$date.'</strong>  &nbsp;&nbsp;  楼层为：<strong class="text-danger">'.$floor_add.'</strong>  &nbsp;&nbsp;  (<strong>0区</strong>代表此楼不分AB区)</p> ';
 
-	echo '<form method="post" action="view_add_input.php">';
+	//echo '<button onClick="toggle(this)" id="check_all"> click</Button><br />';
+	//echo '<input type="checkbox" onClick="toggle(this)" /> Toggle All<br/>';
 
+	echo '<form method="post" action="view_add_input.php">';
 	echo "<input name = 'date' value = '$date' style='display: none;' />";
 	echo "<input name = 'region' value = '$region' style='display: none;' />";
 	echo "<input name = 'build_num' value = '$build_num' style='display: none;' />";
 	echo "<input name = 'part' value = '$part' style='display: none;' />";
 	echo "<input name = 'floor' value = '$floor' style='display: none;' />";
 
-
 	echo "<input name = 'add_floor' value = '".$region."$build_num"."#"."$part"."区"."$floor"."层' style='display: none;' />";
 	echo '<div class="dorm_list_div">';
+
 	$i=0;
 	while($row = $result->fetch_array(MYSQLI_ASSOC)){
 		$dorm_num=$row['dorm_num'];
@@ -650,9 +653,9 @@ elseif ($_GET["view_step"]=="2"){
 		$result_of_check = $db->query($sql_check) or die($db->error);
 	//echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaafaffff";
 		if ($result_of_check->num_rows != 0){
-			echo '<input type="checkbox" name="dorm_check'.$i.'" value="'.$dorm_num.'" data-label-text="'.$dorm_num.'" data-on-text="添加" data-off-text="已添加" data-switch-toggle="readonly" readonly/>';
+			echo '<input type="checkbox" name="dorm_check'.$i.'" value="'.$dorm_num.'" data-label-text="'.$dorm_num.'" data-on-text="添加" data-off-text="已添加" data-off-color="success" data-switch-toggle="readonly" readonly/>';
 		}else{
-		echo '<input type="checkbox" name="dorm_check'.$i.'" value="'.$dorm_num.'" checked="checked" data-label-text="'.$dorm_num.'" data-on-text="添加" data-off-text="未添加" />';
+		echo '<input type="checkbox" name="dorm_check'.$i.'" value="'.$dorm_num.'"  data-label-text="'.$dorm_num.'" data-on-text="添加" data-off-text="不添加" checked/>';
 		$i=$i+1;
 		}
 
@@ -662,7 +665,7 @@ elseif ($_GET["view_step"]=="2"){
 
 
 	echo '<div class="dorm_list_right">
-	<button class="btn btn-default " type="submit"  name="view_add_submit" value="'.$i.'" >为左侧选中的宿舍添加成绩</button>
+	<button class="btn btn-default dorm_list_right_button" type="submit"  name="view_add_submit" value="'.$i.'" >为左侧选中的宿舍添加成绩</button>
 	</div>';
 
 
@@ -738,7 +741,7 @@ while($row_region = $result_region->fetch_array(MYSQLI_ASSOC)){
                 $floor = $row_floor['floor'];
 
                 $this_floor=$region."$build_num"."#"."$part"."区"."$floor"."层";
-                $sql_check="SELECT * FROM routine_add WHERE add_floor = '$this_floor' and date = '$date'";
+                $sql_check="SELECT * FROM routine_list WHERE add_floor = '$this_floor' and date = '$date'";
                 $result_of_check = $db->query($sql_check);
                 if ($result_of_check->num_rows != 0){
                     echo '<tr><td class="is_green">';
@@ -846,7 +849,7 @@ elseif ($_GET["view_del_step"]=="2"){
 		$result_of_check = $db->query($sql_check) or die($db->error);
 	//echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaafaffff";
 		if ($result_of_check->num_rows != 0){
-			echo '<input type="checkbox" name="dorm_check'.$i.'" value="'.$dorm_num.'" data-label-text="'.$dorm_num.'" data-on-text="删除" data-off-text="不删除" />';
+			echo '<input type="checkbox" name="dorm_check'.$i.'" value="'.$dorm_num.'" data-label-text="'.$dorm_num.'" data-on-text="删除" data-off-text="不删除" data-on-color="danger" data-off-color="success" />';
 			$i=$i+1;
 		}else{
 		echo '<input type="checkbox" name="dorm_check'.$i.'" value="'.$dorm_num.'"  data-label-text="'.$dorm_num.'" data-on-text="删除" data-off-text="无记录" data-switch-toggle="readonly" readonly/>';
@@ -915,7 +918,8 @@ elseif ($_GET["view_dorm_step"]=="2"){
 	$result = $db->query($sql) or die($db->error);
 
 	$floor_add=$region.'苑'.$build_num.'号楼'.$part.'区'.$floor.'层';
-	echo '<p>您选择的日期为：<strong class="text-danger">'.$date.'</strong>  &nbsp;&nbsp;  楼层为：<strong class="text-danger">'.$floor_add.'</strong>  &nbsp;&nbsp;  (<strong>0区</strong>代表此楼不分AB区)</p> ';
+	echo '<p>您选择的楼层为：<strong class="text-danger">'.$floor_add.'</strong>  &nbsp;&nbsp; &nbsp;&nbsp;(
+<strong class="bg-success text-success">绿色</strong>代表有记录  <strong>0区</strong>代表此楼不分AB区)</p> ';
 
 	//echo '<form method="post" action="view_del_confirm.php">';
 
@@ -933,18 +937,18 @@ elseif ($_GET["view_dorm_step"]=="2"){
 		$dorm_num=$row['dorm_num'];
 		//echo "<button class='btn btn-default'>$dorm_num</button>";
 
-		$sql_check="SELECT * FROM dorm WHERE dorm_num = '$dorm_num'";
+		$sql_check="SELECT * FROM routine_list WHERE dorm_num = '$dorm_num'";
 		$result_of_check = $db->query($sql_check) or die($db->error);
 		//echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaafaffff";
 		$dorm_num_replace=str_replace("#","%23",$dorm_num);
-		str_replace("world","Shanghai","Hello world!");
+		//str_replace("world","Shanghai","Hello world!");
 		//echo $dorm_num;
 		if ($result_of_check->num_rows != 0){
 			//echo '<input type="checkbox" name="dorm_check'.$i.'" value="'.$dorm_num.'" data-label-text="'.$dorm_num.'" data-on-text="删除" data-off-text="不删除" />';
-			echo "<button class='btn btn-default' value='".$dorm_num_replace."' onclick='view_dorm_routine(this.value)'>$dorm_num</button>";
+			echo "<a href='#routine_top'><button class='btn btn-success' value='".$dorm_num_replace."' onclick='view_dorm_routine(this.value)'>$dorm_num</button></a>";
 			$i=$i+1;
 		}else{
-		echo '<input type="checkbox" name="dorm_check'.$i.'" value="'.$dorm_num.'"  data-label-text="'.$dorm_num.'" data-on-text="删除" data-off-text="无记录" data-switch-toggle="readonly" readonly/>';
+			echo "<a href='#routine_top'><button class='btn btn-default' value='".$dorm_num_replace."' onclick='view_dorm_routine(this.value)'>$dorm_num</button></a>";
 		
 		}
 
@@ -990,7 +994,7 @@ elseif ($_GET["view_dorm_step"]=="2"){
 elseif ($_GET["view_dorm_step"]=="3"){
 
 	$dorm_num=$_GET["dorm_num"];
-var_dump($_GET);
+//var_dump($_GET);
 
 //Panel start >>>>>>>>>>>>>>>>>>>>
 		echo '
@@ -1002,6 +1006,7 @@ var_dump($_GET);
 				$table_name="routine_list";
 				$sql="SELECT * FROM $table_name WHERE dorm_num='$dorm_num'";
 				$result = $db->query($sql) or die($db->error);
+if ($result->num_rows != 0){
 				echo "<table class='table table-bordered'>
 				<tr>
 					<th>检查日期</th>
@@ -1034,19 +1039,21 @@ var_dump($_GET);
 			
 			$this_page=$_SERVER['PHP_SELF'];
 			echo '<a href="#" id ="export" role="button" class="btn btn-default">导出表格</a>';
-			echo '<a class="btn btn-default float_right" href="'.$this_page.'">继续查询</a>';		
+			//echo '<a class="btn btn-default float_right" href="'.$this_page.'">继续查询</a>';		
 			//echo '<a href="index.php"><button class="btn btn-default float_right">返回主面板</button></a>';
 			echo "</form>";			
 //Add contents finish
-
+}else{
+	echo '<strong class="text-danger">'.$dorm_num.'</strong> 宿舍的记录 <strong class="text-danger">不存在！</strong>';
+}
 			echo '
 		</div>
 	</div>';
 
 
 //include export js 
-			$filename=$dorm_num;
-			require_once("export.php");
+			// $filename=$dorm_num;
+			// require_once("export.php");
 
 //Panel end        <<<<<<<<<<<<<<<
 

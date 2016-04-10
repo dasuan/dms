@@ -50,7 +50,7 @@ echo '
 
         }
         .main{
-            height:1000px;
+            height:1500px;
         }
          
     </style>
@@ -64,13 +64,15 @@ echo '</div></div>';
 <style>
 #build_top{
     /*position: fixed;*/
+    position: absolute;
+    top:180px;
     visibility:hidden;
-    margin-bottom: 50px;
+    
 }
 #dorm_top{
-    /*position: fixed;*/
+    position: absolute;
+    top:650px;
     visibility:hidden;
-    margin-bottom: 50px;
 }
 
 
@@ -90,10 +92,10 @@ echo '</div></div>';
 <link href="css/bootstrap-switch.min.css" rel="stylesheet">
 <script src="js/bootstrap-switch.min.js"></script>
 <script>
-$(function(argument) {
-  $('[type="checkbox"]').bootstrapSwitch();
- $(document).ajaxComplete(function(event, xhr, settings) {
-      $('[type="checkbox"]').bootstrapSwitch();
-   });
-})
+// $(function(argument) {
+//   $('[type="checkbox"]').bootstrapSwitch();
+//  $(document).ajaxComplete(function(event, xhr, settings) {
+//       $('[type="checkbox"]').bootstrapSwitch();
+//    });
+// })
 </script>

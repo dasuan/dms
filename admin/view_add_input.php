@@ -9,6 +9,7 @@ check_permission($level_add);
 echo '
 <ol class="breadcrumb">
 	<li><a href="index.php">主页</a></li>
+	<li><a href="view_add.php">添加</a></li>
 	<li class="active">添加选定宿舍</li>
 </ol>
 ';
@@ -77,7 +78,7 @@ if($judge==0){
 			//echo $dorm_check_k."&nbsp;&nbsp;";
 			$dorm_num=$_POST["$dorm_check_k"];		
 			//echo $dorm_num."<br />";
-			$dorm_num_sum=$dorm_num_sum.",".$dorm_num;
+			$dorm_num_sum=$dorm_num_sum." ".$dorm_num;
 
 
 			//per row define
@@ -120,7 +121,8 @@ if($judge==0){
 	}
 
 	echo "</table>";
-	$this_page=$_SERVER['PHP_SELF'];
+
+	//$this_page=$_SERVER['PHP_SELF'];
 
 	echo "<input name = 'date' value = '$date' style='display: none;' />";
 	echo "<input name = 'region' value = '$region' style='display: none;' />";
@@ -146,7 +148,7 @@ if($judge==0){
 	echo "</form>";
 	echo '<button class="btn text-info float_right" onclick="score_sum()">生成总分</button>';
 	require_once("score_sum_js.php");
-	echo '<a href="'.$this_page.'"><button class="btn btn-default">重新选择日期</button></a>';
+	echo '<a href="view_add.php"><button class="btn btn-default">重新选择日期</button></a>';
 				//Add contents finish
 
 	echo '
@@ -192,114 +194,118 @@ function validate_form(thisform)
 	//form verify end <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 	//table head ceiling>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// 				echo '
-// 				<style>
-// 					.second{
-// 						width:77.5%;
-// 						height:37px;
-// 						border-color: rgb(198, 198, 198);
-// 						background-color: rgb(238, 238, 238);
-// 						background-image: -o-linear-gradient(to bottom, rgb(248, 248, 248) 0px, rgb(238, 238, 238) 100%);
-// 						background-image: linear-gradient(to bottom, rgb(248, 248, 248) 0px, rgb(238, 238, 238) 100%);
-// 						background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgb(248, 248, 248)), to(rgb(238, 238, 238)));
-// 					}
-// 					.pad_left_15{
-// 						padding-left: 15px;
-// 					}           
-// 				</style>
+				echo '
+				<style>
+					.second{
+						width:77.5%;
+						height:37px;
+						border-color: rgb(198, 198, 198);
+						background-color: rgb(238, 238, 238);
+						background-image: -o-linear-gradient(to bottom, rgb(248, 248, 248) 0px, rgb(238, 238, 238) 100%);
+						background-image: linear-gradient(to bottom, rgb(248, 248, 248) 0px, rgb(238, 238, 238) 100%);
+						background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgb(248, 248, 248)), to(rgb(238, 238, 238)));
+					}
+					.pad_left_15{
+						padding-left: 15px;
+					}           
+				</style>
 
-// 				<script type="text/javascript">
-// 					/**
-// 			            * 网页加载完毕后，确定各div的位置
-// 			            */
-// 					$(document).ready(function(){
-// 						floatdiv();
-// 					});
-// 					/**
-// 			            * 网页滚动时，确定各div的位置
-// 			            */
-// 					$(window).scroll(function(){
-// 						floatdiv();
-// 					});
-// 					/**
-// 			            * div浮动函数
-// 			            */
-// 					function floatdiv(){
-// 						var scrollTop = $(this).scrollTop();
-// 						/*查找class=second 的元素，调整css*/
-// 						if (scrollTop > 180) {
-// 							$(".second").css({
-// 								"position" : "fixed",
-// 								"top"      : "50px",
-// 								"left"     : "19.5%",
-// 								"z-index"  : "999"
-// 							});
+				<script type="text/javascript">
+					/**
+			            * 网页加载完毕后，确定各div的位置
+			            */
+					$(document).ready(function(){
+						floatdiv();
+					});
+					/**
+			            * 网页滚动时，确定各div的位置
+			            */
+					$(window).scroll(function(){
+						floatdiv();
+					});
+					/**
+			            * div浮动函数
+			            */
+					function floatdiv(){
+						var scrollTop = $(this).scrollTop();
+						/*查找class=second 的元素，调整css*/
+						if (scrollTop > 180) {
+							$(".second").css({
+								"visibility" : "visible",
+								"position" : "fixed",
+								"top"      : "50px",
+								"left"     : "19.5%",
+								"z-index"  : "999"
+								
+							});
 
-// 						} else {
-// 							$(".second").css({
-// 								"position" : "static"
-// 							});
+						} else {
+							$(".second").css({
+								"visibility" : "hidden",
+								"position" : "static"
+								
+							});
 
-// 						}
-// 					}
+						}
+					}
 
-// 					window.onscroll = function() { 
-// 						console.info(window.scrollY); 
-// 					} 
+					window.onscroll = function() { 
+						console.info(window.scrollY); 
+					} 
 
-// 				</script>
+				</script>
 
-// 				<div class="second panel pad_left_15">
-// 					<table class="table">
-// 						<tr>
-// 							<th>宿舍号</th>
-// 							<th>阳台&卫生间</th>
-// 							<th>床铺</th>
-// 							<th>桌柜</th>
-// 							<th>地面</th>
-// 							<th>安全</th>
-// 							<th>备注</th>
-// 							<th>总分</th>
-// 						</tr>
-// 						<tr style="visibility:hidden;"><td><input name="dorm_num0" class="form-control" type="text" value="南10#601" readonly=""></td><td><select name="wc_balcony0" id="wc_balcony0" class="form-control">
-// 							<option value="20" selected="selected">20</option>
-// 							<option value="15">15</option>
-// 							<option value="10">10</option>
-// 							<option value="5">5</option>
-// 							<option value="0">0</option>
-// 						</select>
-// 					</td><td><select name="bed0" id="bed0" class="form-control">
-// 					<option value="20" selected="selected">20</option>
-// 					<option value="15">15</option>
-// 					<option value="10">10</option>
-// 					<option value="5">5</option>
-// 					<option value="0">0</option>
-// 				</select>
-// 			</td><td><select name="desk_cupboard0" id="desk_cupboard0" class="form-control">
-// 			<option value="20" selected="selected">20</option>
-// 			<option value="15">15</option>
-// 			<option value="10">10</option>
-// 			<option value="5">5</option>
-// 			<option value="0">0</option>
-// 		</select>
-// 	</td><td><select name="ground0" id="ground0" class="form-control">
-// 	<option value="20" selected="selected">20</option>
-// 	<option value="15">15</option>
-// 	<option value="10">10</option>
-// 	<option value="5">5</option>
-// 	<option value="0">0</option>
-// </select>
-// </td><td><select name="security0" id="security0" class="form-control">
-// <option value="20" selected="selected">20</option>
-// <option value="15">15</option>
-// <option value="10">10</option>
-// <option value="5">5</option>
-// <option value="0">0</option>
-// </select>
-// </td><td><input type="text" name="comments0" class="form-control"></td><td><input type="text" name="score0" id="score0" class="form-control" required=""></td></tr>
-// </table>
-// </div> 
-// ';
+				<div class="second panel pad_left_15">
+					<table class="table">
+						<tr>
+							<th>宿舍号</th>
+							<th>阳台&卫生间</th>
+							<th>床铺</th>
+							<th>桌柜</th>
+							<th>地面</th>
+							<th>安全</th>
+							<th>备注</th>
+							<th>总分</th>
+						</tr>
+						<tr style="visibility:hidden;"><td><input name="dorm_num0" class="form-control" type="text" value="南10#601" readonly=""></td><td><select name="wc_balcony0" id="wc_balcony0" class="form-control">
+							<option value="20" selected="selected">20</option>
+							<option value="15">15</option>
+							<option value="10">10</option>
+							<option value="5">5</option>
+							<option value="0">0</option>
+						</select>
+					</td><td><select name="bed0" id="bed0" class="form-control">
+					<option value="20" selected="selected">20</option>
+					<option value="15">15</option>
+					<option value="10">10</option>
+					<option value="5">5</option>
+					<option value="0">0</option>
+				</select>
+			</td><td><select name="desk_cupboard0" id="desk_cupboard0" class="form-control">
+			<option value="20" selected="selected">20</option>
+			<option value="15">15</option>
+			<option value="10">10</option>
+			<option value="5">5</option>
+			<option value="0">0</option>
+		</select>
+	</td><td><select name="ground0" id="ground0" class="form-control">
+	<option value="20" selected="selected">20</option>
+	<option value="15">15</option>
+	<option value="10">10</option>
+	<option value="5">5</option>
+	<option value="0">0</option>
+</select>
+</td><td><select name="security0" id="security0" class="form-control">
+<option value="20" selected="selected">20</option>
+<option value="15">15</option>
+<option value="10">10</option>
+<option value="5">5</option>
+<option value="0">0</option>
+</select>
+</td><td><input type="text" name="comments0" class="form-control"></td><td><input type="text" name="score0" id="score0" class="form-control" required=""></td></tr>
+</table>
+</div> 
+';
 	//table head ceiling<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 }
@@ -315,10 +321,11 @@ elseif(isset($_POST["add_step2"])){
 	//routine_add
 	$add_time=date("Y-m-d  H:i:s");
 	$user_name=$_SESSION['user_name'];
-	$sql_insert="INSERT INTO routine_add(date,add_floor,add_time,user_name,dorm_num_sum) VALUES ('$date','$add_floor','$add_time','$user_name','$dorm_num_sum')";
+	$routine_add_action="add";
+	$sql_insert="INSERT INTO routine_add(date,add_floor,add_time,user_name,routine_add_action,dorm_num_sum) VALUES ('$date','$add_floor','$add_time','$user_name','$routine_add_action','$dorm_num_sum')";
 	$db->query($sql_insert) or die($db->error);
 	//log
-	$action="增加记录, 日期：".$date." , 楼层：".$add_floor ."宿舍：".$dorm_num_sum;
+	$action="增加记录, 日期：".$date." , 楼层：".$add_floor ." 宿舍：".$dorm_num_sum;
 	add_log($action,$db);
 
 
@@ -339,7 +346,7 @@ elseif(isset($_POST["add_step2"])){
 
 
 	//routine_list insert
-		$sql_insert="INSERT INTO routine_list(date, dorm_num,add_floor,wc_balcony,bed,desk_cupboard,ground,security, comments, score) VALUES ('$date','$dorm_num','$add_floor','$a','$b','$c','$d','$e','$comments','$score')";
+		$sql_insert="INSERT INTO routine_list(user_name,date, dorm_num,add_floor,wc_balcony,bed,desk_cupboard,ground,security, comments, score) VALUES ('$user_name','$date','$dorm_num','$add_floor','$a','$b','$c','$d','$e','$comments','$score')";
 		$db->query($sql_insert) or die($db->error);
 	}
 	//Display added

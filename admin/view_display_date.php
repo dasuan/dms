@@ -20,7 +20,7 @@ require_once("view_js.php");
 
 echo '
 <div class="panel panel-info">
-    <div class="panel-heading">view显示</div>
+    <div class="panel-heading">通过日期查询</div>
     <div class="panel-body">
         ';
         require_once("date_form_view.php");
@@ -53,11 +53,12 @@ echo '
         <style>
         .dorm_model_container_panel{
             visibility:hidden;
+            display:none;
             /*height:500px;*/
 
         }
         .main{
-            height:1000px;
+            height:1500px;
         }
          
     </style>
@@ -71,13 +72,15 @@ echo '</div></div>';
 <style>
 #build_top{
     /*position: fixed;*/
+    position: absolute;
+    top:180px;
     visibility:hidden;
-    margin-bottom: 50px;
+    
 }
 #dorm_top{
-    /*position: fixed;*/
+    position: absolute;
+    top:650px;
     visibility:hidden;
-    margin-bottom: 50px;
 }
 
 

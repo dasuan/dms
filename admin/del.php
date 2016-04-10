@@ -28,9 +28,9 @@ if(isset($_POST["add_step1"])){
 		$region="南";
 	}elseif ($region=="2") {
 		$region="北";
-	}else{
-		die();
-	}
+	// }else{
+	// 	die();
+	// }
 
 	//$sql_checkdate="SELECT * FROM routine_list where date = '" . $date ."'";
 	$sql_check="SELECT * FROM dorm,routine_list WHERE routine_list.date='$date' and dorm.region = '$region' and dorm.build_num = '$build_num' and dorm.part = '$part' and dorm.floor = '$floor' and dorm.dorm_num=routine_list.dorm_num ";

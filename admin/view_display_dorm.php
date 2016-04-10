@@ -29,8 +29,8 @@ echo '
 
 
 echo '<p>所有宿舍楼如下所示：<strong class="text-danger">'.$date.'</strong>  
-&nbsp;&nbsp;
-<strong class="bg-success text-success">绿色</strong>代表有记录 (<strong>0区</strong>代表此楼不分AB区)</p> ';
+&nbsp;&nbsp;(
+<strong class="bg-success text-success">绿色</strong>代表有记录 <strong>0区</strong>代表此楼不分AB区)</p> ';
 
 echo '<hr />';
 
@@ -127,38 +127,6 @@ td.is_gray {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 echo '<div  id="dorm_top">喔喔~也看不见我~看不见我~</div>';
 echo '
 <div class="panel panel-default dorm_model_container_panel" id="button_2">
@@ -192,7 +160,7 @@ echo '
 
         }
         .main{
-            height:1000px;
+            height:1500px;
         }
          
     </style>
@@ -208,18 +176,21 @@ echo '</div></div>';
 <style>
 #build_top{
     /*position: fixed;*/
+    position: absolute;
+    top:180px;
     visibility:hidden;
-    margin-bottom: 50px;
+    
 }
 #dorm_top{
-    /*position: fixed;*/
+    position: absolute;
+    top:500px;
     visibility:hidden;
-    margin-bottom: 50px;
 }
+
 #routine_top{
-    /*position: fixed;*/
+    position: absolute;
+    top:668px;
     visibility:hidden;
-    margin-bottom: 50px;
 }
 
 

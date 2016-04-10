@@ -5,6 +5,17 @@ require_once("header.php"); //nav
 require_once("db_connection.php");
 check_permission($level_display);
 
+    // var_dump($_POST);
+    // echo "<br />";
+    // echo "<br />";
+    // var_dump($_SESSION);
+    // echo "<br />";
+    // echo "<br />";
+    // var_dump($_SERVER);
+    // echo "<br />";
+    // echo "<br />";
+
+
 echo '
 <ol class="breadcrumb">
 <li><a href="index.php">主页</a></li>

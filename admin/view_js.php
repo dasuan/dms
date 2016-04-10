@@ -187,10 +187,8 @@ function view_get_dorm(str)
 			document.getElementById("dorm_model_container").innerHTML=xmlhttp.responseText;
 			$(function(argument) {
 				$('[type="checkbox"]').bootstrapSwitch();
-				// $(document).ajaxComplete(function(event, xhr, settings) {
-				// 	$('[type="checkbox"]').bootstrapSwitch();
-				// });
 			})
+
 		}
 	});
 }
@@ -207,12 +205,24 @@ function view_dorm_routine(str)
 	{
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{	
-			
+	
 			document.getElementById("routine_model_container").innerHTML=xmlhttp.responseText;
+<?php
+$filename='export';
+require("view_display_export_js.php");
+?>	
 
 		}
 	});
 }
+
+// function toggle(source) {
+// 	var checkboxes = document.getElementsByClassName('check');
+
+// for(var i=0, n=checkboxes.length;i<n;i++) {
+//     checkboxes[i].checked = source.checked;
+//   }
+// }
 
 
 

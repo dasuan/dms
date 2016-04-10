@@ -74,94 +74,20 @@ function drop_list_20($col,$i){
 	';
 }
 
-function role_siderbar($user_role){
-	switch($user_role)
-	{
-		case 1:
-
-		// echo "<li ";
-		// if (php_self() == 'display.php') { echo 'class="active" '; } 
-		// echo "><a href="display.php">显示 </a></li><li ";
-		// if (php_self() == 'add.php') { echo 'class="active" '; } 
-		// echo "><a href="add.php">添加</a></li><!-- <li ";
-		// if (php_self() == 'update.php') { echo 'class="active" '; } 
-		// echo "><a href="update.php">更新</a></li> --><li ";
-		// if (php_self() == 'del.php') { echo 'class="active" '; } 
-		// echo "><a href="del.php">删除</a></li><li ";
-		// if (php_self() == 'import.php') { echo 'class="active" '; } 
-		// echo "><a href="import.php">导入</a></li><li ";
-		// if (php_self() == 'log.php') { echo 'class="active" '; } 
-		// echo "><a href="log.php">日志</a></li>";
 
 
-		echo "<li ";
-		if (php_self() == 'del.php') { echo 'class="active" '; } 
-		echo '><a href="del.php">删除</a></li>';
-		echo "<li ";
-		if (php_self() == 'import.php') { echo 'class="active" '; } 
-		echo '><a href="import.php">导入</a></li>';
-		//echo "<li ";
-		// if (php_self() == 'display_table.php') { echo 'class="active" '; } 
-		// echo '><a href="display_table.php">显示底层表</a></li>';
-		break;
-
-		case 2:
-		echo "<li ";
-		if (php_self() == 'del.php') { echo 'class="active" '; } 
-		echo '><a href="del.php">删除</a></li>';
-		break;
-
-		case 3:
-		echo "<li ";
-		if (php_self() == 'del.php') { echo 'class="active" '; } 
-		echo '><a href="del.php">删除</a></li>';
-		break;
-
-		case 4:
-		echo "";
-		break;
-
-		default:
-		die("<h1>你没有权限查看此页</h1>");
-	}
-
-}
-
-function role_siderbar_develop($user_role){
-	switch($user_role)
-	{
-		case 1:
-
-		echo "<li ";
-		if (php_self() == 'd_log.php') { echo 'class="active" '; } 
-		echo '><a href="d_log.php">开发日志</a></li>';
-		break;
-
-		case 2:
-		echo "";
-		break;
-
-		case 3:
-		echo "";
-		break;
-
-		case 4:
-		echo "";
-		break;
-
-		default:
-		die("<h1>你没有权限查看此页</h1>");
-	}
-
-}
-
-function check_permission($level){
-
-	$user_role=$_SESSION['user_role'];
-	$user_role += 0;
-	if($user_role > $level){
+function check_permission($need_level){
+	
+	if(isset($_SESSION['user_level'])){
+		//$user_level=$_SESSION['user_level']; //defined in load
+		//$user_level += 0;
+		if($USER_LEVEL > $need_level){
+			die("你没有权限查看此页！");
+		}
+	}else{
 		die("你没有权限查看此页！");
 	}
+	
 	// echo gettype($user_role), "\n";
 	// echo gettype($level), "\n";
 }

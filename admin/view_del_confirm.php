@@ -81,7 +81,7 @@ if(isset($_POST["view_del_submit"])){
 			//echo $dorm_check_k."&nbsp;&nbsp;";
 			$dorm_num=$_POST["$dorm_check_k"];		
 			//echo $dorm_num."<br />";
-			$dorm_num_sum=$dorm_num_sum.",".$dorm_num;
+			$dorm_num_sum=$dorm_num_sum." ".$dorm_num;  
 
 			echo "<input name = 'dorm_num$i' value = '$dorm_num' style='display: none;' />";
 
@@ -113,6 +113,7 @@ if(isset($_POST["view_del_submit"])){
 	echo "<input name = 'add_floor' value = '$add_floor' style='display: none;' />";
 	echo "<input name = 'date' value = '$date' style='display: none;' />";
 	echo "<input name = 'entry_count' value = '$i' style='display: none;' />";
+	echo "<input name = 'dorm_num_sum' value = '$dorm_num_sum' style='display: none;' />";
 	echo "</form>";
 	//<<<<<<<<<<<<<<<<<<<<<<< form end <<<<<<<<<<<<<<<<<<<<<<<<<
 
@@ -140,27 +141,30 @@ elseif(isset($_POST["add_step2"])){
 	$date=$_POST["date"];
 	$i=$_POST["entry_count"];
 	$add_floor=$_POST["add_floor"];
-
-
+	$dorm_num_sum=$_POST["dorm_num_sum"];
 
 	//routine_add
 	$add_time=date("Y-m-d  H:i:s");
 	$user_name=$_SESSION['user_name'];
+	$routine_add_action="del";
+	$sql_insert="INSERT INTO routine_add(date,add_floor,add_time,user_name,routine_add_action,dorm_num_sum) VALUES ('$date','$add_floor','$add_time','$user_name','$routine_add_action','$dorm_num_sum')";
+	$db->query($sql_insert) or die($db->error);
 
 	//var_dump($_POST);
-	echo "<br />";
-	echo "<br />";
+	//echo "<br />";
+	//echo "<br />";
 	// var_dump($_SESSION);
 	// echo "<br />";
 	// echo "<br />";
 	// var_dump($_SERVER);
 	// echo "<br />";
 	// echo "<br />";
-	$dorm_num_sum="";
+
+	//$dorm_num_sum="";
 
 	for ($j=0; $j < $i ; $j++) { 
-		$dorm_num=$_POST["dorm_num"."$j"];
-		$dorm_num_sum=$dorm_num_sum.",".$dorm_num;
+		//$dorm_num=$_POST["dorm_num"."$j"];
+		$dorm_num_sum=$dorm_num_sum." ".$dorm_num;
 		$sql_delete="DELETE FROM routine_list WHERE dorm_num = '$dorm_num'";
 		$db->query($sql_delete) or die($db->error);
 	}
@@ -186,15 +190,15 @@ elseif(isset($_POST["add_step2"])){
 
 
 	//log
-	$action="删除记录, 检查日期：".$date." , 宿舍：".$dorm_num_sum;
+	$action="删除记录, 检查日期：".$date." , 楼层：".$add_floor ." 宿舍：".$dorm_num_sum;
 	add_log($action,$db);
 
 		echo '<div class="well">';
 			echo '<div class="alert alert-success" role="alert">
-		日期为<strong class="text-danger">'.$date.'</strong> <strong class="text-danger">'.$dorm_num_sum.'</strong>的记录已删除！</div>';
+		日期为<strong class="text-danger">'.$date.'</strong>, 宿舍 <strong class="text-danger">'.$dorm_num_sum.'</strong>的记录已删除！</div>';
 			$this_page=$_SERVER['PHP_SELF'];
 			//echo '<a href="#" id ="export" role="button" class="btn btn-default">导出表格</a>';
-			echo '<a class="btn btn-default" href="'.$this_page.'">继续删除</a>';		
+			//echo '<a class="btn btn-default" href="'.$this_page.'">继续删除</a>';		
 			echo '<a href="index.php" class="btn btn-default float_right">返回主面板</a>';
 		echo '</div>';
 

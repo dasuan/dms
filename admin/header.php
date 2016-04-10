@@ -25,7 +25,8 @@ require_once("html.php");
 				<li <?php if (php_self() == 'add.php') { echo 'class="active" '; } ?>><a href="add.php">添加</a></li>
 				<li <?php if (php_self() == 'update.php') { echo 'class="active" '; } ?>><a href="update.php">更新</a></li>
 				<li <?php if (php_self() == 'log.php') { echo 'class="active" '; } ?>><a href="log.php">日志</a></li>
- -->
+ -->	
+ 				<li><a href="help.php">帮助</a></li>
 				<li><a href="user.php"><?php echo $_SESSION['user_name']; ?></a></li>
 				<li><a href="index.php?logout">退出</a></li>
 			</ul>
@@ -60,41 +61,41 @@ require_once("html.php");
 			
 			
 
-				<?//php role_siderbar($_SESSION['user_role']); ?>
+				<?//php role_siderbar($_SESSION['USER_LEVEL']); ?>
 
 
 <?php
 
-//$level_system=1;
-if ($level_display >= $user_role) {
+
+if ($level_display >= $USER_LEVEL) {
 		echo "<li ";
 		if (php_self() == 'view_display.php' || php_self() == 'view_display_date.php' || php_self() == 'view_display_dorm.php' || php_self() == 'view_display_stu.php'){
 			echo 'class="active" '; 
 		} 
 		echo '><a href="view_display.php">查询</a></li>';
 }
-if ($level_add >= $user_role) {
+if ($level_add >= $USER_LEVEL) {
 		echo "<li ";
 		if (php_self() == 'view_add.php' || php_self() == 'view_add_input.php'){
 			echo 'class="active" '; 
 		} 
-		echo '><a href="view_add.php">增加</a></li>';
+		echo '><a href="view_add.php">添加</a></li>';
 }
-if ($level_del >= $user_role) {
+if ($level_del >= $USER_LEVEL) {
 		echo "<li ";
 		if (php_self() == 'view_del.php' || php_self() == 'view_del_confirm.php'){
 			echo 'class="active" '; 
 		} 
 		echo '><a href="view_del.php">删除</a></li>';
 }
-if ($level_import >= $user_role) {
+if ($level_import >= $USER_LEVEL) {
 		echo "<li ";
 		if (php_self() == 'import.php'){
 			echo 'class="active" '; 
 		} 
 		echo '><a href="import.php">导入</a></li>';
 }
-if ($level_log >= $user_role) {
+if ($level_log >= $USER_LEVEL) {
 		echo "<li ";
 		if (php_self() == 'log.php'){
 			echo 'class="active" '; 

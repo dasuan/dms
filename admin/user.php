@@ -4,7 +4,7 @@ require_once("auth.php");
 require_once("header.php");
 require_once("db_connection.php");
 require_once("functions.php");
-check_permission(0);
+check_permission($level_userinfo);
 //site map
 echo '
 <ol class="breadcrumb">
@@ -32,27 +32,8 @@ $user_role = $row['user_role'];
 echo "已登录用户：" . $user_name."<br />";
 echo "邮箱：" . $mailbox."<br />";	
 echo "角色：" ;	
-switch($user_role)
-	{
-		case 1:
-		echo "超级管理员";
-		break;
+echo $_SESSION['user_role'];
 
-		case 2:
-		echo "宿舍管理员";
-		break;
-
-		case 3:
-		echo "学生辅导员";
-		break;
-
-		case 4:
-		echo "学生管理员";
-		break;
-
-		default:
-		die("你没有身份！");
-	}
 
 
 //Add contents finish

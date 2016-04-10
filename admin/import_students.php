@@ -4,7 +4,7 @@ require_once("auth.php");
 require_once("header.php");
 require_once("db_connection.php");
 require_once("functions.php"); 
-check_permission(1);
+check_permission($level_import);
 echo '
 <ol class="breadcrumb">
   <li><a href="index.php">主页</a></li>
@@ -18,7 +18,7 @@ require_once("import_list.php");
 //Display welcome message
 echo "<h1>This is import_stu</h1> ";
 echo "<p>警告：此操作会删除并依据导入的文件重建所有学生信息，此操作不可逆，请确保一次性导入正确的格式！</p> ";
-echo "<p>格式要求：</p> ";
+echo "<p>格式要求：.csv文件，UTF-8编码，无BOM，无引号</p> ";
 echo "<p>条件要求：学生id不能重复！学生表中宿舍号必须在宿舍表内有唯一值对应！</p> ";
 
 

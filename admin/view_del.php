@@ -17,7 +17,7 @@ echo '
     <div class="panel-body">
         ';
         require_once("date_form_view.php");
-        echo '<a href="#build_top" class="btn btn-default" onclick="view_del_get_build()">图形化显示</a>';
+        echo '<a href="#build_top" class="btn btn-default" onclick="view_del_get_build()">提交</a>';
         echo '
     </div>
 </div>';
@@ -50,7 +50,7 @@ echo '
 
         }
         .main{
-            height:1000px;
+            height:1500px;
         }
          
     </style>
@@ -64,13 +64,15 @@ echo '</div></div>';
 <style>
 #build_top{
     /*position: fixed;*/
+    position: absolute;
+    top:180px;
     visibility:hidden;
-    margin-bottom: 50px;
+    
 }
 #dorm_top{
-    /*position: fixed;*/
+    position: absolute;
+    top:650px;
     visibility:hidden;
-    margin-bottom: 50px;
 }
 
 
