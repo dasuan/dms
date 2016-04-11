@@ -5,6 +5,10 @@ require_once("db_connection.php");
 
 
 
+if(isset($_GET["step"]) || isset($_GET["view_display_step"]) || isset($_GET["view_step"]) || isset($_GET["view_del_step"]) || isset($_GET["view_dorm_step"])){  //for undefined index
+
+
+
 if($_GET["step"]=="1"){
 	$region=$_GET["region"];
 	if ($region=="1") {
@@ -1065,18 +1069,9 @@ if ($result->num_rows != 0){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+}//for undefined index
 
 
 ?>
+
+

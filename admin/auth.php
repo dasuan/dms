@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ALL ^ E_NOTICE);
 /**
  * A simple, clean and secure PHP Login Script / MINIMAL VERSION
  * For more versions (one-file, advanced, framework-like) visit http://www.php-login.net

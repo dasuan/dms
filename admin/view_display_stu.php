@@ -8,7 +8,7 @@ check_permission($level_display);
 echo '
 <ol class="breadcrumb">
     <li><a href="index.php">主页</a></li>
-    <li><a href="display.php">显示</a></li>
+    <li><a href="view_display.php">显示</a></li>
     <li class="active">查询</li>
 </ol>
 ';

@@ -157,7 +157,7 @@ if($judge==0){
 	//panle end  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 	//form verify start >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-$rows = $result->num_rows;
+$rows = $i;
 echo '
 <script type="text/javascript">
 	function validate_required(field,alerttxt)

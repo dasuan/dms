@@ -77,7 +77,7 @@ function drop_list_20($col,$i){
 
 
 function check_permission($need_level){
-	
+	global $USER_LEVEL;
 	if(isset($_SESSION['user_level'])){
 		//$user_level=$_SESSION['user_level']; //defined in load
 		//$user_level += 0;
