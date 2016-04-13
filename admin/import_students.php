@@ -12,7 +12,12 @@ echo '
   <li class="active">导入学生</li>
 </ol>
 ';
+
+echo "<h1>为确保安全，该功能已关闭！</h1> ";
+die();
+
 require_once("import_list.php");
+
 
 
 //Display welcome message

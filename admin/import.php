@@ -12,7 +12,10 @@ echo '
   <li class="active">导入</li>
 </ol>
 ';
-echo "<h1>This is import page</h1> ";
+
+//echo "<h1>This is import page</h1> ";
+echo "<h1>为确保安全，该功能已关闭！</h1> ";
+die();
 
 require_once("import_list.php");
 
