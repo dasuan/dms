@@ -21,7 +21,7 @@ function loadXMLDoc(url,cfunc)
 }
 
 
-//>>>>>>>>>>>>>>>>>>>>>> View Display func >>>>>>>>>>>>>>>>>>>>
+//>>>>>>>>>>>>>>>>>>>>>> View Display date func >>>>>>>>>>>>>>>>>>>>
 
 function view_display_get_dorm_model()
 {
@@ -37,6 +37,18 @@ function view_display_get_dorm_model()
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
 			document.getElementById("build_model_container").innerHTML=xmlhttp.responseText;
+			//do not display dorm2 dorm3
+			$(".dorm2").css({
+								"display":"none"								
+							});
+			$(".dorm3").css({
+								"display":"none"								
+							});
+
+			$("html,body").animate({scrollTop: $("#build_model_container").offset().top}, 500);
+
+			
+
 		}
 	});
 }
@@ -57,10 +69,17 @@ function view_display(str)
 			document.getElementById("dorm_model_container").innerHTML=xmlhttp.responseText;
 
 
-<?php
-$filename='export';
-require_once("view_display_export_js.php");
-?>
+			<?php
+			$filename='export';
+			require_once("view_display_export_js.php");
+			?>
+
+			$(".dorm2").css({
+					"display":"block"					
+				});
+
+
+			$("html,body").animate({scrollTop: $("#dorm_model_container").offset().top-80}, 500);
 
 
 
@@ -77,100 +96,8 @@ require_once("view_display_export_js.php");
 	});
 }
 
-//>>>>>>>>>>>>>>>>>>>>>> View Add func >>>>>>>>>>>>>>>>>>>>
-function get_model()
-{
-	var str=document.getElementById("dp1")
-	var date=str.value
-	//document.write(a)
-	var url="ajax_get.php?view_step=1"
-	url=url+"&date="+date
-	url=url+"&sid="+Math.random()
 
-	loadXMLDoc(url,function()
-	{
-		if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{
-			document.getElementById("build_model_container").innerHTML=xmlhttp.responseText;
-		}
-	});
-}
-
-function get_dorm_list(str)
-{
-
-	//document.write(a)
-	var url="ajax_get.php?view_step=2"
-	url=url+"&"+str
-	url=url+"&sid="+Math.random()
-
-	loadXMLDoc(url,function()
-	{
-		if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{	
-			
-			document.getElementById("dorm_model_container").innerHTML=xmlhttp.responseText;
-			$(function(argument) {
-				$('[type="checkbox"]').bootstrapSwitch();
-				// $(document).ajaxComplete(function(event, xhr, settings) {
-				// 	$('[type="checkbox"]').bootstrapSwitch();
-				// });
-			})
-		}
-	});
-}
-
-
-
-
-
-
-//>>>>>>>>>>>>>>>>>>>>>> View del func >>>>>>>>>>>>>>>>>>>>
-
-
-function view_del_get_build()
-{
-	var str=document.getElementById("dp1")
-	var date=str.value
-	//document.write(a)
-	var url="ajax_get.php?view_del_step=1"
-	url=url+"&date="+date
-	url=url+"&sid="+Math.random()
-
-	loadXMLDoc(url,function()
-	{
-		if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{
-			document.getElementById("build_model_container").innerHTML=xmlhttp.responseText;
-		}
-	});
-}
-
-function view_del_get_dorm(str)
-{
-
-	//document.write(a)
-	var url="ajax_get.php?view_del_step=2"
-	url=url+"&"+str
-	url=url+"&sid="+Math.random()
-
-	loadXMLDoc(url,function()
-	{
-		if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{				
-			document.getElementById("dorm_model_container").innerHTML=xmlhttp.responseText;
-
-			//check box			
-			$(function(argument) {
-				$('[type="checkbox"]').bootstrapSwitch();
-			})
-			
-		}
-	});
-}
-
-
-//>>>>>>>>>>>>>>>>>>>>> view dorm >>>>>>>>>>>>>>>>>>>>>>
+//>>>>>>>>>>>>>>>>>>>>>  dorm >>>>>>>>>>>>>>>>>>>>>>
 function view_dorm_build(str)
 {
 
@@ -188,6 +115,16 @@ function view_dorm_build(str)
 			$(function(argument) {
 				$('[type="checkbox"]').bootstrapSwitch();
 			})
+
+			$(".dorm2").css({
+								"display":"none"								
+							});
+			$(".dorm3").css({
+								"display":"none"								
+							});
+
+			$("html,body").animate({scrollTop: $("#build_model_container").offset().top-80}, 500);
+
 
 		}
 	});
@@ -215,6 +152,12 @@ function view_get_dorm(str)
 				$('[type="checkbox"]').bootstrapSwitch();
 			})
 
+			$(".dorm2").css({
+					"display":"block"					
+				});
+
+			$("html,body").animate({scrollTop: $("#dorm_model_container").offset().top-80}, 500);
+
 		}
 	});
 }
@@ -233,16 +176,22 @@ function view_dorm_routine(str)
 		{	
 	
 			document.getElementById("routine_model_container").innerHTML=xmlhttp.responseText;
-<?php
-$filename='export';
-require("view_display_export_js.php");
-?>	
+			<?php
+			$filename='export';
+			require("view_display_export_js.php");
+			?>	
+
+			$(".dorm3").css({
+					"display":"block"					
+				});
+
+			$("html,body").animate({scrollTop: $("#routine_model_container").offset().top-80}, 500);
 
 		}
 	});
 }
 
-//>>>>>>>>>>>>>>>>>>>>>>>>> view stu_id >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//>>>>>>>>>>>>>>>>>>>>>>>>> stu_id >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 function view_display_stu()
 {
@@ -259,10 +208,20 @@ function view_display_stu()
 		{
 			document.getElementById("build_model_container").innerHTML=xmlhttp.responseText;
 
-<?php
-$filename='export';
-require("view_display_export_js.php");
-?>	
+			<?php
+			$filename='export';
+			require("view_display_export_js.php");
+			?>	
+
+			$(".dorm2").css({
+								"display":"none"								
+							});
+			$(".dorm3").css({
+								"display":"none"								
+							});
+
+			$("html,body").animate({scrollTop: $("#build_model_container").offset().top-80}, 500);
+
 		}
 	});
 }

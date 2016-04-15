@@ -1023,7 +1023,7 @@ body.login-page {
     .landing-page .app-header .app-description {
       margin-bottom: 40px; }
   .landing-page .app-content-a, .landing-page .app-content-b {
-    padding-top: 50px;
+    padding-top: 20px;
     padding-bottom: 20px; }
   .landing-page .app-content-b.feature-1 {
     /*background-image: url("../img/bg/picjumbo.com_HNCK3558.jpg");*/

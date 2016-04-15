@@ -12,6 +12,7 @@ echo '
 <h2 class="alert alert-danger">为获得最佳浏览效果，请将浏览器窗口<strong>最大化！</strong></h1>
 <h2 class="alert alert-danger">完成操作后请及时点右上角 <strong>退出！</strong></h1>
 ';
-
-
 ?>
+
+
+

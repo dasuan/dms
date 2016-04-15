@@ -30,7 +30,7 @@ $level_log=3;
 $level_userinfo=3;
 $level_help=3;
 
-
+session_start();
 
 
 

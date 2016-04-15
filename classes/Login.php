@@ -127,10 +127,12 @@ class Login
 
 
                     } else {
-                        $this->errors[] = "<div class='alert alert-danger' role='alert'>密码错误，请重试！</div>";
+                        //$this->errors[] = "<div class='alert alert-danger' role='alert'>密码错误，请重试！</div>";
+                        $this->errors[] = "<div class='alert alert-danger' role='alert'>用户名密码不匹配，请重试！</div>";
                     }
                 } else {
-                    $this->errors[] = "<div class='alert alert-danger' role='alert'>用户不存在！</div>";
+                    //$this->errors[] = "<div class='alert alert-danger' role='alert'>用户不存在！</div>";
+                    $this->errors[] = "<div class='alert alert-danger' role='alert'>用户名密码不匹配，请重试！</div>";
                 }
             } else {
                 $this->errors[] = "<div class='alert alert-danger' role='alert'>数据库连接出错！</div>";

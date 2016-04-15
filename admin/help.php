@@ -12,3 +12,9 @@ QQ &nbsp;1069072177 <br />
 </p>';
 
 ?>
+
+
+<div style="position: fixed;bottom: 0;"> 
+    <!-- <hr /> -->
+    <p class="text-muted"><a href="../">Front</a> &nbsp;&nbsp; Powered by <a href="http://github.com/dasuan">dasuan</a> &copy; <?php echo date("Y");?>, Copyleft. </p>
+</div>
