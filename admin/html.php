@@ -17,7 +17,7 @@
 	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 	<script src="js/bootstrap.min.js"></script>
 
-	<link href="css/datepicker.css" rel="stylesheet">
+	<link href="css/bootstrap-datepicker.min.css" rel="stylesheet">
   <!-- Jack's define -->
   <link href="css/dms.css" rel="stylesheet">
   <script src="js/dms.js"></script>

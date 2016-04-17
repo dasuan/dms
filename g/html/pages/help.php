@@ -84,16 +84,11 @@ require_once("view_js.php");
 
 
 <!-- /END THE FEATURETTES -->
-<!-- FOOTER -->
-<footer class="app-footer">
-  <div class="container">
-    <!-- <hr /> -->
-    <p class="text-muted">Powered by <a href="http://github.com/dasuan">dasuan</a> &copy; <?php echo date("Y");?>, Copyleft. </p>
-</div>
-</footer>
+<?php require_once("footer.php");?>
 
 <!-- /.container -->
 </body>
 
 </html>
+
 

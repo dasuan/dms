@@ -32,7 +32,7 @@
 
             <div  onmouseover="this.style.cursor='pointer'" onclick="document.location='../';" class="col-sm-12 text-center login-header">
                 <i class="login-logo fa fa-building-o fa-4x"></i>
-                <h4 class="login-title">中德DMS</h4>
+                <h4 class="login-title">中德 DMS</h4>
             </div>
 
 

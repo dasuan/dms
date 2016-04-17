@@ -23,7 +23,9 @@ echo '
     <div class="panel-heading">通过日期查询</div>
     <div class="panel-body">
         ';
-        require_once("date_form_view.php");
+        //Below will run sql to loop added date
+        require_once("date_form_view_added.php");
+
         echo '<a href="#build_top" class="btn btn-default" onclick="view_display_get_dorm_model()">显示</a>';
         echo '
     </div>

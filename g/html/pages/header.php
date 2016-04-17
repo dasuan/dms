@@ -21,7 +21,7 @@
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/themes/flat-blue.css">
 
-    <!-- <link href="css/datepicker.css" rel="stylesheet"> -->
+    <link href="css/bootstrap-datepicker.min.css" rel="stylesheet">
 
     <!-- Javascript Libs -->
     <script type="text/javascript" src="../../lib/js/jquery.min.js"></script>

@@ -83,7 +83,7 @@ if (!monster.get('cookieConsent')) {
 </script>
 
     <!-- <script src="js/jquery-1.12.2.min.js"></script> -->
-    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/bootstrap-datepicker-min.js"></script>
 	<script>
 	if (top.location != location) {
     top.location.href = document.location.href ;

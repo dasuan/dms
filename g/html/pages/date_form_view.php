@@ -6,80 +6,6 @@
 <link href="css/datepicker.css" rel="stylesheet">
 <input type="text" class="span2 form-control drop_list_add" value="<?php echo date("Y-m-d");?>" id="dp1" name="date" onchange="get_model(this.value)" onselect="get_model(this.value)" style="display: inline;width: 150px;" required>
 
-<script>
-var monster = {
-	set: function(name, value, days, path, secure) {
-		var date = new Date(),
-			expires = '',
-			type = typeof(value),
-			valueToUse = '',
-			secureFlag = '';
-		path = path || "/";
-		if (days) {
-			date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-			expires = "; expires=" + date.toUTCString();
-		}
-		if (type === "object" && type !== "undefined") {
-			if (!("JSON" in window)) throw "Bummer, your browser doesn't support JSON parsing.";
-			valueToUse = encodeURIComponent(JSON.stringify({
-				v: value
-			}));
-		}
-		else {
-			valueToUse = encodeURIComponent(value);
-		}
-		if (secure) {
-			secureFlag = "; secure";
-		}
-		document.cookie = name + "=" + valueToUse + expires + "; path=" + path + secureFlag;
-	},
-	get: function(name) {
-		var nameEQ = name + "=",
-			ca = document.cookie.split(';'),
-			value = '',
-			firstChar = '',
-			parsed = {};
-		for (var i = 0; i < ca.length; i++) {
-			var c = ca[i];
-			while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-			if (c.indexOf(nameEQ) === 0) {
-				value = decodeURIComponent(c.substring(nameEQ.length, c.length));
-				firstChar = value.substring(0, 1);
-				if (firstChar == "{") {
-					try {
-						parsed = JSON.parse(value);
-						if ("v" in parsed) return parsed.v;
-					}
-					catch (e) {
-						return value;
-					}
-				}
-				if (value == "undefined") return undefined;
-				return value;
-			}
-		}
-		return null;
-	}
-};
-
-if (!monster.get('cookieConsent')) {
-	var cookieConsentAct = function() {
-			document.getElementById('cookieConsent').style.display = 'none';
-			monster.set('cookieConsent', 1, 360, '/');
-		};
-	document.getElementById('cookieConsent').style.display = 'block';
-	var cookieConsentEl = document.getElementById('cookieConsentAgree');
-	if (cookieConsentEl.addEventListener) {
-		cookieConsentEl.addEventListener('click', cookieConsentAct, false);
-	}
-	else if (cookieConsentEl.attachEvent) {
-		cookieConsentEl.attachEvent("onclick", cookieConsentAct);
-	}
-	else {
-		cookieConsentEl["onclick"] = cookieConsentAct;
-	}
-}
-</script>
 
     <!-- <script src="js/jquery-1.12.2.min.js"></script> -->
     <script src="js/bootstrap-datepicker.js"></script>
@@ -90,7 +16,9 @@ if (!monster.get('cookieConsent')) {
 		$(function(){
 			window.prettyPrint && prettyPrint();
 			$('#dp1').datepicker({
-				format: 'yyyy-mm-dd'
+				format: 'yyyy-mm-dd',
+				autoclose: true,
+				endDate: "<?php echo date("Y-m-d");?>",
 			});
 			$('#dp2').datepicker();
 			$('#dp3').datepicker();
