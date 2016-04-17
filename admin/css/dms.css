@@ -31,10 +31,9 @@ body{
 
 .form-signin {
 	/*max-width: 330px;*/
-	max-width: 400px;
-	padding: 15px;
+	/*max-width: 400px;*/
+
 	margin: 0 auto;
-	padding-top: 80px;
 }
 
 .form-signin .form-control {

@@ -13,5 +13,5 @@
  */
 define("DB_HOST", "localhost");
 define("DB_NAME", "dms");
-define("DB_USER", "dms_admin");
+define("DB_USER", "dms_g");
 define("DB_PASS", "123");

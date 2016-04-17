@@ -14,7 +14,7 @@
 function table_get($table_name){
 	global $db;
 	$sql="SELECT * FROM ".$table_name;
-	$result = $db->query($sql);
+	$result = $db->query($sql) or die($db->error);
 	echo "<table border='1' class='table table-bordered'>";
 	$i = 0;
 	while($row = $result->fetch_array(MYSQLI_ASSOC)){

@@ -288,8 +288,8 @@ elseif ($_GET["view_display_step"]=="2"){
 		echo '<div class="alert alert-danger" role="alert">
 		日期为<strong>'.$date.'</strong> ，楼层为<strong>'.$region.$build_num.'#'.$part.'区'.$floor.'层</strong>的记录 <strong>不存在！</strong></div>';
 		$this_page=$_SERVER['PHP_SELF'];
-		echo '<a href="#build_top"><button class="btn btn-default">重新选择</button></a>';
-		echo '<a href="index.php"><button class="btn btn-default float_right">返回主页</button></a>';
+		//echo '<a href="#build_top"><button class="btn btn-default">重新选择</button></a>';
+		//echo '<a href="index.php"><button class="btn btn-default float_right">返回主页</button></a>';
 		echo '</div>';
 	
 	}
@@ -607,7 +607,8 @@ elseif ($_GET["view_display_stu"]=="1"){
 		die();
 	}
     $table_name="students";
-    $sql="SELECT * FROM $table_name WHERE stu_id='$stu_id'";
+    //$sql="SELECT * FROM $table_name WHERE stu_id='$stu_id'";
+    $sql="SELECT dorm_num,bed_num FROM $table_name WHERE stu_id='$stu_id'";
     $stu_info = $db->query($sql) or die($db->error);
     $num_rows=$stu_info->num_rows;
 
@@ -622,17 +623,30 @@ elseif ($_GET["view_display_stu"]=="1"){
         $row = $stu_info->fetch_array(MYSQLI_ASSOC);
         $dorm_num=$row['dorm_num'];
         $bed_num=$row['bed_num'];
-        $stu_name=$row['stu_name'];
+        //$stu_name=$row['stu_name'];
 //Panel start >>>>>>>>>>>>>>>>>>>>
-        echo '
+/*        echo '
         <div class="panel panel-success">
             <div class="panel-heading">学号为 <strong class="text-danger">'.$stu_id.'</strong> 的学生姓名为 <strong class="text-danger">'.$stu_name.'</strong> ，宿舍号为 <strong class="text-danger">'.$dorm_num.'</strong> ，床号为 <strong class="text-danger">'.$bed_num.'</strong> ，记录如下：</div>
             <div class="panel-body" id="dvData">
+                ';*/
+        	echo '
+        <div class="panel panel-success">
+            <div class="panel-heading">学号为 <strong class="text-danger">'.$stu_id.'</strong> 的学生宿舍号为 <strong class="text-danger">'.$dorm_num.'</strong> ，床号为 <strong class="text-danger">'.$bed_num.'</strong> ，记录如下：</div>
+            <div class="panel-body" id="dvData">
                 ';
+
 //Add contents start
                 $table_name="routine_list";
                 $sql="SELECT * FROM $table_name WHERE dorm_num='$dorm_num'";
                 $result = $db->query($sql) or die($db->error);
+
+                $stu_result_rows=$result->num_rows;
+                if($stu_result_rows==0){
+				        echo "<div class='well'><div class='alert alert-danger' role='alert'><strong></strong>记录不存在！</div>";
+				        die();
+				}
+
                 echo "<table class='table table-bordered'>
                 <tr>
                     <th>检查日期</th>

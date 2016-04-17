@@ -32,7 +32,10 @@ $level_help=3;
 
 session_start();
 
-
+$git_hub = "This project was developing by dasuan-> https://github.com/dasuan/dms";
+echo '
+<script type="text/javascript">console.log("'.$git_hub.'")</script>     
+';
 
 
 

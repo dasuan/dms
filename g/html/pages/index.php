@@ -15,7 +15,7 @@ require_once("view_js.php");
 
 
 
-    <div class="jumbotron app-header">
+    <div class="jumbotron app-header" >
         <div class="container">
             <h2 class="text-center"><i class="app-logo fa fa-search fa-5x color-white"></i><div class="color-white">中德科技学院 宿舍成绩查询</div></h2>
 
@@ -134,9 +134,102 @@ require_once("view_js.php");
 <footer class="app-footer">
   <div class="container">
     <!-- <hr /> -->
-    <p class="text-muted">Powered by <a href="http://github.com/dasuan">dasuan</a> &copy; <?php echo date("Y");?>, Copyleft. </p>
+    <p class="text-muted">Powered by <a id="t" href="http://github.com/dasuan">dasuan</a> &copy; <?php echo date("Y");?>, Copyleft. </p>
 </div>
 </footer>
+<!-- <div id='tt' style="width: 1000px;height: 1000px;"></div> -->
+<script src="js/sweep.js"></script>
+<script>
+;(function() {
+//unuse
+  // function loop1 () {
+  //   // sweep(t, ['color', 'border-color','background'], 'hsl(0, 1, 0.5)', 'hsl(359, 1, 0.5)', {
+  //   //   callback: loop,
+  //   //   direction: -1,
+  //   //   duration: 18000,
+  //   //   space: 'HUSL'
+  //   // });
+
+  //   sweep(t, ['color', 'border-color','background'], 'rgb(236,0,140)', 'rgb(0,188,195)', {
+  //     callback: loop2,
+  //     direction: -1,
+  //     duration: 1800
+  //   });
+
+  // }
+
+  // function loop2 () {
+  //   sweep(t, ['color', 'border-color','background'], 'rgb(0,188,195)', 'rgb(0,188,195)', {
+  //     callback: loop3,
+  //     direction: -1,
+  //     duration: 1800
+  //   });
+  // }
+
+  // function loop3 () {
+  //   sweep(t, ['color', 'border-color','background'], 'rgb(0,188,195)', 'rgb(95,178,106)', {
+  //     callback: loop4,
+  //     direction: -1,
+  //     duration: 1800
+  //   });
+  // }
+
+  // function loop4 () {
+  //   sweep(t, ['color', 'border-color','background'], 'rgb(95,178,106)', 'rgb(95,178,106)', {
+  //     callback: loop5,
+  //     direction: -1,
+  //     duration: 1800
+  //   });
+  // }
+
+  // function loop5 () {
+  //   sweep(t, ['color', 'border-color','background'], 'rgb(95,178,106)', 'rgb(252,115,49)', {
+  //     callback: loop6,
+  //     direction: -1,
+  //     duration: 1800
+  //   });
+  // }
+
+  // function loop6 () {
+  //   sweep(t, ['color', 'border-color','background'], 'rgb(252,115,49)', 'rgb(252,115,49)', {
+  //     callback: loop7,
+  //     direction: -1,
+  //     duration: 1800
+  //   });
+  // }
+
+  // function loop7 () {
+  //   sweep(t, ['color', 'border-color','background'], 'rgb(252,115,49)', 'rgb(236,0,140)', {
+  //     callback: loop8,
+  //     direction: -1,
+  //     duration: 1800
+  //   });
+  // }
+
+  // function loop8 () {
+  //   sweep(t, ['color', 'border-color','background'], 'rgb(236,0,140)', 'rgb(236,0,140)', {
+  //     callback: loop1,
+  //     direction: -1,
+  //     duration: 1800
+  //   });
+  // }
+
+function loop() {
+sweep(t, ['color', 'border-color'], 'hsl(0, 1, 0.5)', 'hsl(359, 1, 0.5)', {
+  callback: loop,
+  direction: 1,
+  duration: 10000,
+  space: 'HUSL'
+});
+}
+
+
+var t = document.getElementById('t');
+loop();
+
+})();
+</script>
+
 
 <!-- /.container -->
 </body>

@@ -50,7 +50,7 @@ echo '
 
 
 echo "<h1>This is Display_table page!</h1>";
-echo "<h1>此页面仅为底层数据查看</h1>";
+echo "<h1>Only For core data view</h1>";
 $this_page=$_SERVER['PHP_SELF'];
 echo "<a href='".$this_page."?display_dorm'>display_dorm </a>";
 echo "<a href='".$this_page."?display_students'>display_students </a>";

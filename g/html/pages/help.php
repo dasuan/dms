@@ -69,7 +69,7 @@ require_once("view_js.php");
         <div class="container">
             <div class="row" id="build_model_container">
 
-            <h2 class="alert alert-danger">请务必使用Chrome浏览器，或将浏览器切换到 <strong>极速模式！</strong>
+            <h2 class="alert alert-danger">请使用Chrome或Firefox浏览器，或将浏览器切换到 <strong>极速模式！</strong>
             <img src="../../../admin/images/webkit.png" /></h1>
 
             </div>
