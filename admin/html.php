@@ -6,15 +6,14 @@
 <link href="images/dms.ico" rel="shortcut icon">
 <title>中德科技学院DMS</title>
 
-	<!-- From date-picker -->
-<!-- 	<link href="css/bootstrap.css" rel="stylesheet"> -->
-	<!-- 新 Bootstrap 核心 CSS 文件 -->
+
+	<!-- core CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<!-- 可选的Bootstrap主题文件（一般不用引入） -->
-<!-- 	<link rel="stylesheet" href="css/bootstrap-theme.min.css"> -->
-	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<!-- optinal theme-->
+  <!-- 	<link rel="stylesheet" href="css/bootstrap-theme.min.css"> -->
+	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
-	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<!-- core JS -->
 	<script src="js/bootstrap.min.js"></script>
 
 	<link href="css/bootstrap-datepicker.min.css" rel="stylesheet">

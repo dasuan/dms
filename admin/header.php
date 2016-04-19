@@ -104,6 +104,13 @@ if ($level_import >= $USER_LEVEL) {
 		} 
 		echo '><a href="import.php">导入</a></li>';
 }
+if ($level_stu_m >= $USER_LEVEL) {
+		echo "<li ";
+		if (php_self() == 'stu_m.php'){
+			echo 'class="active" '; 
+		} 
+		echo '><a href="stu_m.php">宿舍信息</a></li>';
+}
 if ($level_log >= $USER_LEVEL) {
 		echo "<li ";
 		if (php_self() == 'log.php'){

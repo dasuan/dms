@@ -5,20 +5,21 @@
 	<meta name="renderer" content="webkit">
 	<title>中德DMS登录</title>
 
-	<!-- 新 Bootstrap 核心 CSS 文件 -->
+	<!-- core CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<!-- flat-ui -->
 	<link rel="stylesheet" href="css/flat-ui.min.css">
 	<!-- Jack's define -->
 	<link rel="stylesheet" href="css/dms.css">
-	<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+	<!-- css theme -->
 	<!-- 	<link rel="stylesheet" href="css/bootstrap-theme.min.css"> -->
 
-	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
-	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<!-- core JS-->
 	<script src="js/bootstrap.min.js"></script>
 
+	<!-- awesome font ~ -->
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 
 

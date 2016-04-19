@@ -28,6 +28,7 @@ $level_log=3;
 $level_userinfo=3;
 $level_help=3;
 $level_develop=1;
+$level_stu_m=1;
 
 
 

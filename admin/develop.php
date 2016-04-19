@@ -23,7 +23,10 @@ echo '
 			<div class="panel-body" id="dvData">
 			';//id="dvData" for export module
 //Add contents start
-echo '<a href="display_table.php">Get all tables</a>';
+echo '<a href="display_table.php">1.Get all tables</a><br />';
+echo '<a href="display.php">2.old display</a><br />';
+echo '<a href="add.php">3.old add</a><br />';
+
 
 
 

@@ -4,9 +4,9 @@ require_once("db_connection.php");
 
 
 
-
+/*
 if(isset($_GET["step"]) || isset($_GET["view_display_step"]) || isset($_GET["view_step"]) || isset($_GET["view_del_step"]) || isset($_GET["view_dorm_step"])){  //for undefined index
-
+*/
 
 
 if($_GET["step"]=="1"){
@@ -1064,13 +1064,375 @@ if ($result->num_rows != 0){
 }
 
 
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>> stu_m 2 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+elseif ($_GET["stu_m_step"]=="2"){
+
+	$date=$_GET["date"];
+	$region=$_GET["region"];
+	if ($region=="1") {
+		$region="南";
+	}elseif ($region=="2") {
+		$region="北";
+	}
+	// else{
+	// 	die("不住宿");
+	// }
+
+	$build_num=$_GET["build_num"];
+	$part=$_GET["part"];
+	$floor=$_GET["floor"];
+
+	//echo "$region$build_num$part$floor";
+	//$sql="SELECT * FROM dorm";
+	$sql="SELECT * FROM dorm WHERE region = '$region' and build_num = '$build_num' and part = '$part' and floor = '$floor'";
+	$result = $db->query($sql) or die($db->error);
+
+	$floor_add=$region.'苑'.$build_num.'号楼'.$part.'区'.$floor.'层';
+	echo '<p>您选择的楼层为：<strong class="text-danger">'.$floor_add.'</strong>  &nbsp;&nbsp; &nbsp;&nbsp;( <strong>0区</strong>代表此楼不分AB区)</p> ';
+
+	//echo '<form method="post" action="view_del_confirm.php">';
+
+	echo "<input name = 'date' value = '$date' style='display: none;' />";
+	echo "<input name = 'region' value = '$region' style='display: none;' />";
+	echo "<input name = 'build_num' value = '$build_num' style='display: none;' />";
+	echo "<input name = 'part' value = '$part' style='display: none;' />";
+	echo "<input name = 'floor' value = '$floor' style='display: none;' />";
+
+
+	echo "<input name = 'add_floor' value = '".$region."$build_num"."#"."$part"."区"."$floor"."层' style='display: none;' />";
+	echo '<div class="dorm_list_div">';
+
+	while($row = $result->fetch_array(MYSQLI_ASSOC)){
+		$dorm_num=$row['dorm_num'];
+		//echo "<button class='btn btn-default'>$dorm_num</button>";
+
+
+		//echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaafaffff";
+		$dorm_num_replace=str_replace("#","%23",$dorm_num);
+		//str_replace("world","Shanghai","Hello world!");
+		//echo $dorm_num;
+
+
+			echo "<a><button class='btn btn-default' value='".$dorm_num_replace."' onclick='stu_m_get_last(this.value)'>$dorm_num</button></a>";
+		
+
+
+	}
+
+	echo "</div>";
+
+
+	// echo '<div class="dorm_list_right">
+	// <button class="btn btn-default " type="submit"  name="view_del_submit" value="'.$i.'" >为左侧选中的宿舍删除记录</button>
+	// </div>';
+
+
+
+	//echo '</form>';
 
 
 
 
 
+
+	echo "<style>
+        .dorm_model_container_panel{
+            /*visibility:hidden;*/
+            /*height:500px;*/
+
+        }
+        .main{
+            height:1500px;
+        }  
+        .dorm_list_div{
+        	/*width:200px;
+        	float: left;*/
+        } 
+        .dorm_list_right{
+        	float:left;
+        }     
+    </style>";
+
+
+}
+
+elseif ($_GET["stu_m_step"]=="3"){
+
+$dorm_num=$_GET["dorm_num"];
+//var_dump($_GET);
+
+echo '
+<style type="text/css">
+  .stu_sec{
+    height: 235px;
+  }
+  .stu_pic{
+    height: 100%;
+    width: 15%;
+    float: left;
+    padding: 15px;
+  }
+  .stu_info{
+    height: 100%;
+    width: 35%;
+    float: left;
+    padding: 15px;
+  }
+  .stu_comment{
+    height: 100%;
+    width: 50%;
+    float: left;
+    padding: 15px;
+  }
+
+
+</style>';
+
+
+
+$sql="SELECT * FROM students WHERE dorm_num='$dorm_num' ORDER BY bed_num";
+$result = $db->query($sql) or die($db->error);
+if ($result->num_rows != 0){
+
+	echo '<p>您选择的宿舍为：<strong class="text-danger">'.$dorm_num.'</strong> 学生信息如下：</p>';
+	echo '<hr style="margin-top: 7px;margin-bottom: 7px;">';
+
+	while($row = $result->fetch_array(MYSQLI_ASSOC)){
+		echo '<div class="stu_sec" id="stu_sec'.$row['bed_num'].'">';
+
+		// echo '  <div class="stu_pic" style="">
+		// 		<img src="http://211.87.148.243/_dms/images/'.$row['stu_id'].'.jpg" >
+		// 		</div>';
+
+		echo '  <div class="stu_pic" style="">
+				<img src="http://211.87.148.243/_dms/images/me.jpg" >
+				</div>';
+
+  		echo '<div class="stu_info" style="">';
+		echo '<p>姓名：'.$row['stu_name'].'</p>';
+		echo '<p>学号：'.$row['stu_id'].'</p>';
+		echo '<p>专业：'.$row['major'].'</p>';
+		$class=substr($row['stu_id'], -3,1);
+		echo '<p>班级：'.$class.'</p>';
+		echo '<p>民族：'.$row['ethnic'].'</p>';
+		echo '<p>床号：'.$row['bed_num'].'</p>';
+		echo '<p>手机：'.$row['phone'].'</p>';
+		echo '</div>';
+
+		echo '
+	<div class="stu_comment" style="" id="stu_comment'.$row['bed_num'].'">
+	    <p style="float: left;">备注：</p>
+
+	    <button onclick="edit'.$row['bed_num'].'()" style="float: right;" class="edit_comment btn btn-info btn-xs">修改</button>
+	    
+	    <textarea style="width: 100%;height: 70%;" class="input_comment_readonly" >'.$row['stu_comment'].'</textarea>
+
+	    <form id="stu_comment_form'.$row['bed_num'].'" style="width: 100%;height: 70%;">
+	      <input name = "stu_id" value = "'.$row['stu_id'].'" style="display: none;" />  
+	      <input name = "bed_num" value = "'.$row['bed_num'].'" style="display: none;" />   
+	      <textarea  class="input_comment" style="width: 100%;height: 100%;" name="stu_comment">'.$row['stu_comment'].'</textarea>
+	      <button type="submit" name="submit_comment" style="float: right;" class="submit_comment btn btn-success btn-xs">提交</button>      
+	    </form>
+	    <button  style="float: left;" class="cancel_edit btn btn-warning btn-xs" onclick="cancelEdit'.$row['bed_num'].'()">取消</button>
+    </div>';
+
+    echo '<div style="clear: both;"></div>';
+    echo '</div>';
+    echo '<hr style="margin-top: 0px;margin-bottom: 0px;">';
+	}
+	
+}else{
+	echo '这个宿舍没有学生';
+}
+
+
+
+// echo '
+// <div class="stu_sec">
+//   <div class="stu_pic" style="">
+
+//     <img src="images/me.jpg" >
+
+//   </div>
+//   <div class="stu_info" style="">
+//     <p>姓名：小明</p>
+//     <p>学号：1301010101</p>
+//     <p>专业：应用化学</p>
+//     <p>班级：应化中德141</p>
+//     <p>民族：汉族</p>
+//     <p>床号：1</p>
+//     <p>手机：18888888888</p>
+//   </div>
+//   <div class="stu_comment" style="">
+//     <p style="float: left;">备注：</p>
+
+//     <button onclick="edit()" style="float: right;" id="edit_comment">修改</button>
+    
+//     <input style="width: 100%;height: 70%;" id="input_comment_readonly" ></input>
+
+//     <form method="post" action="stu_m.php" style="width: 100%;height: 70%;">     
+//       <input  id="input_comment" style="width: 100%;height: 100%;"></input>
+//       <button type="submit" style="float: right;" id="submit_comment">提交</button>      
+//     </form>
+//     <button type="submit" style="float: left;" id="cancel_edit" onclick="cancelEdit()">取消</button>
+
+//     <script type="text/javascript">
+//       $(document).ready(function(){
+//         $("#edit_comment").show("fast");
+//         $("#input_comment_readonly").attr("readonly", true);
+
+//         $("#input_comment").hide();
+//         $("#submit_comment").hide();
+//         $("#cancel_edit").hide();
+//       });
+
+//       function edit(){
+//         $("#cancel_edit").show("fast");
+//         $("#input_comment").show("fast");        
+//         $("#submit_comment").show("fast");
+        
+//         $("#input_comment_readonly").hide("fast");
+//         $("#edit_comment").hide("fast");
+//       }
+
+//       function cancelEdit(){
+//         $("#edit_comment").show("fast");
+//         $("#input_comment_readonly").show("fast");
+
+//         $("#submit_comment").hide("fast");
+//         $("#input_comment").hide("fast");
+//         $("#cancel_edit").hide("fast");
+//       }
+//     </script>
+
+//   </div>
+
+//   <div style="clear: both;"></div>
+// </div>
+
+// <hr style="margin-top: 0px;margin-bottom: 0px;">
+
+// ';
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>> stu_m 1 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+elseif (isset($_POST["dorm_num"])){
+
+$dorm_num=$_POST["dorm_num"];
+//var_dump($_GET);
+
+echo '
+<style type="text/css">
+  .stu_sec{
+    height: 235px;
+  }
+  .stu_pic{
+    height: 100%;
+    width: 15%;
+    float: left;
+    padding: 15px;
+  }
+  .stu_info{
+    height: 100%;
+    width: 35%;
+    float: left;
+    padding: 15px;
+  }
+  .stu_comment{
+    height: 100%;
+    width: 50%;
+    float: left;
+    padding: 15px;
+  }
+
+
+</style>';
+
+
+
+$sql="SELECT * FROM students WHERE dorm_num='$dorm_num' ORDER BY bed_num";
+$result = $db->query($sql) or die($db->error);
+if ($result->num_rows != 0){
+
+	echo '<p>您选择的宿舍为：<strong class="text-danger">'.$dorm_num.'</strong> 学生信息如下：</p>';
+	echo '<hr style="margin-top: 7px;margin-bottom: 7px;">';
+
+	while($row = $result->fetch_array(MYSQLI_ASSOC)){
+		echo '<div class="stu_sec" id="stu_sec'.$row['bed_num'].'">';
+
+		// echo '  <div class="stu_pic" style="">
+		// 		<img src="http://211.87.148.243/_dms/images/'.$row['stu_id'].'.jpg" >
+		// 		</div>';
+
+		echo '  <div class="stu_pic" style="">
+				<img src="http://211.87.148.243/_dms/images/me.jpg" >
+				</div>';
+
+  		echo '<div class="stu_info" style="">';
+		echo '<p>姓名：'.$row['stu_name'].'</p>';
+		echo '<p>学号：'.$row['stu_id'].'</p>';
+		echo '<p>专业：'.$row['major'].'</p>';
+		$class=substr($row['stu_id'], -3,1);
+		echo '<p>班级：'.$class.'</p>';
+		echo '<p>民族：'.$row['ethnic'].'</p>';
+		echo '<p>床号：'.$row['bed_num'].'</p>';
+		echo '<p>手机：'.$row['phone'].'</p>';
+		echo '</div>';
+
+		echo '
+	<div class="stu_comment" style="" id="stu_comment'.$row['bed_num'].'">
+	    <p style="float: left;">备注：</p>
+
+	    <button onclick="edit'.$row['bed_num'].'()" style="float: right;" class="edit_comment btn btn-info btn-xs">修改</button>
+	    
+	    <textarea style="width: 100%;height: 70%;" class="input_comment_readonly" >'.$row['stu_comment'].'</textarea>
+
+	    <form id="stu_comment_form'.$row['bed_num'].'" style="width: 100%;height: 70%;">
+	      <input name = "stu_id" value = "'.$row['stu_id'].'" style="display: none;" />  
+	      <input name = "bed_num" value = "'.$row['bed_num'].'" style="display: none;" />   
+	      <textarea  class="input_comment" style="width: 100%;height: 100%;" name="stu_comment">'.$row['stu_comment'].'</textarea>
+	      <button type="submit" name="submit_comment" style="float: right;" class="submit_comment btn btn-success btn-xs">提交</button>      
+	    </form>
+	    <button  style="float: left;" class="cancel_edit btn btn-warning btn-xs" onclick="cancelEdit'.$row['bed_num'].'()">取消</button>
+    </div>';
+
+    echo '<div style="clear: both;"></div>';
+    echo '</div>';
+    echo '<hr style="margin-top: 0px;margin-bottom: 0px;">';
+	}
+	
+}else{
+	echo '这个宿舍没有学生';
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 }//for undefined index
-
+*/
 
 ?>
 
