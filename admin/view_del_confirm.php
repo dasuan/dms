@@ -138,6 +138,7 @@ if(isset($_POST["view_del_submit"])){
 elseif(isset($_POST["add_step2"])){
 	//var_dump($_POST);
 
+
 	$date=$_POST["date"];
 	$i=$_POST["entry_count"];
 	$add_floor=$_POST["add_floor"];
@@ -163,9 +164,10 @@ elseif(isset($_POST["add_step2"])){
 	//$dorm_num_sum="";
 
 	for ($j=0; $j < $i ; $j++) { 
-		//$dorm_num=$_POST["dorm_num"."$j"];
-		$dorm_num_sum=$dorm_num_sum." ".$dorm_num;
-		$sql_delete="DELETE FROM routine_list WHERE dorm_num = '$dorm_num'";
+		$dorm_num=$_POST["dorm_num"."$j"];
+		//echo $dorm_num;
+		/*$dorm_num_sum=$dorm_num_sum." ".$dorm_num;*/
+		$sql_delete="DELETE FROM routine_list WHERE dorm_num = '$dorm_num' and date = '$date' ";
 		$db->query($sql_delete) or die($db->error);
 	}
 
@@ -199,7 +201,7 @@ elseif(isset($_POST["add_step2"])){
 			$this_page=$_SERVER['PHP_SELF'];
 			//echo '<a href="#" id ="export" role="button" class="btn btn-default">导出表格</a>';
 			//echo '<a class="btn btn-default" href="'.$this_page.'">继续删除</a>';		
-			echo '<a href="index.php" class="btn btn-default float_right">返回主面板</a>';
+			echo '<a href="index.php" class="btn btn-default">返回主面板</a>';
 		echo '</div>';
 
 }

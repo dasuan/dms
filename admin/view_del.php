@@ -16,7 +16,7 @@ echo '
     <div class="panel-heading">删除</div>
     <div class="panel-body">
         ';
-        require_once("date_form_view.php");
+        require_once("date_form_view_added.php");
         echo '<a href="#build_top" class="btn btn-default" onclick="view_del_get_build()">提交</a>';
         echo '
     </div>
