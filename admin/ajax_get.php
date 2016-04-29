@@ -88,7 +88,7 @@ $(function(argument) {
 
 
 
-//>>>>>>>>>>>>>>>>>>>View Display Code Here>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//>>>>>>>>>>>>>>>>>>>View Display date Code Here>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
 elseif ($_GET["view_display_step"]=="1") {
@@ -360,7 +360,8 @@ elseif ($_GET["view_display_step"]=="2"){
 					<th>地面</th>
 					<th>安全</th>
 					<th>备注</th>
-					<th>总分</th>			
+					<th>总分</th>
+					<th>学生处检查表</th>			
 				</tr>";
 				while($row = $result->fetch_array(MYSQLI_ASSOC)){
 					echo "<tr>";
@@ -374,6 +375,7 @@ elseif ($_GET["view_display_step"]=="2"){
 						echo "<td>" .$row['security']."</td>" ;
 						echo "<td>" .$row['comments']."</td>" ;
 						echo "<td>" .$row['score']."</td>" ;
+						echo "<td>" .$row['score_t']."</td>" ;
 
 					echo "</tr>";
 				}

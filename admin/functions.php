@@ -65,11 +65,11 @@ function add_log($action,$db){
 function drop_list_20($col,$i){
 	echo "<select name='$col$i' id='$col$i' class= 'form-control'>";
 	echo '
-	<option value="20" selected="selected">20</option>
+	<option value="20">20</option>
 	<option value="15">15</option>
 	<option value="10">10</option>
 	<option value="5">5</option>
-	<option value="0">0</option>
+	<option value="0" selected="selected">0</option>
 	</select>
 	';
 }

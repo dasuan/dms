@@ -26,11 +26,13 @@ require_once("html.php");
 				<li <?php if (php_self() == 'update.php') { echo 'class="active" '; } ?>><a href="update.php">更新</a></li>
 				<li <?php if (php_self() == 'log.php') { echo 'class="active" '; } ?>><a href="log.php">日志</a></li>
  -->	
- 				<!-- <li><a href="help.php">前台</a></li> -->
+
+
+ 				<li><a href="../">Front</a></li>
 
 <?php 
 if ($level_develop >= $USER_LEVEL) {
-		echo '<li><a href="../">Front</a></li>';
+		//echo '<li><a href="../">Front</a></li>';
 		echo '<li><a href="develop.php">Develop</a></li>';
 }
 ?>
