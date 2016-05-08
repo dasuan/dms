@@ -92,6 +92,13 @@ if ($level_add >= $USER_LEVEL) {
 		} 
 		echo '><a href="view_add.php">添加</a></li>';
 }
+if ($level_update >= $USER_LEVEL) {
+		echo "<li ";
+		if (php_self() == 'view_update.php' || php_self() == 'view_update_input.php'){
+			echo 'class="active" '; 
+		} 
+		echo '><a href="view_update.php">更新</a></li>';
+}
 if ($level_del >= $USER_LEVEL) {
 		echo "<li ";
 		if (php_self() == 'view_del.php' || php_self() == 'view_del_confirm.php'){
@@ -106,6 +113,7 @@ if ($level_import >= $USER_LEVEL) {
 		} 
 		echo '><a href="import.php">导入</a></li>';
 }
+/*
 if ($level_stu_m >= $USER_LEVEL) {
 		echo "<li ";
 		if (php_self() == 'stu_m.php'){
@@ -113,6 +121,7 @@ if ($level_stu_m >= $USER_LEVEL) {
 		} 
 		echo '><a href="stu_m.php">宿舍信息</a></li>';
 }
+*/
 if ($level_log >= $USER_LEVEL) {
 		echo "<li ";
 		if (php_self() == 'log.php'){

@@ -74,6 +74,42 @@ function drop_list_20($col,$i){
 	';
 }
 
+function drop_list_20_added($col,$i,$added_value){
+	echo "<select name='$col$i' id='$col$i' class= 'form-control'>";
+
+	echo '<option value="20"';
+	if( $added_value == "20"){
+		echo ' selected="selected" ';
+	}
+	echo '>20</option>';
+
+	echo '<option value="15"';
+	if( $added_value == "15"){
+		echo ' selected="selected" ';
+	}
+	echo '>15</option>';
+
+	echo '<option value="10"';
+	if( $added_value == "10"){
+		echo ' selected="selected" ';
+	}
+	echo '>10</option>';
+
+	echo '<option value="5"';
+	if( $added_value == "5"){
+		echo ' selected="selected" ';
+	}
+	echo '>5</option>';
+
+	echo '<option value="0"';
+	if( $added_value == "0"){
+		echo ' selected="selected" ';
+	}
+	echo '>0</option>';
+	
+	echo '</select>';
+}
+
 
 
 function check_permission($need_level){

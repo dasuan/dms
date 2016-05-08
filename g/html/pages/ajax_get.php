@@ -2,7 +2,7 @@
 //require_once("auth.php"); // verify whether login
 require_once("db_connection.php");
 
-
+//error_reporting(E_ALL ^ E_NOTICE);
 
 
 if(isset($_GET["step"]) || isset($_GET["view_display_step"]) || isset($_GET["view_step"]) || isset($_GET["view_del_step"]) || isset($_GET["view_dorm_step"]) || isset($_GET["view_display_stu"])){  //for undefined index

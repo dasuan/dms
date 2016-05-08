@@ -120,7 +120,52 @@ function get_dorm_list(str)
 	});
 }
 
+//>>>>>>>>>>>>>>>>>>>>>> View update start >>>>>>>>>>>>>>>>>>>>
 
+
+
+
+//<<<<<<<<<<<<<<<<<<<<<< View update end    <<<<<<<<<<<<<<<<<<<<<<<
+function view_update_get_build()
+{
+	var str=document.getElementById("dp1")
+	var date=str.value
+	//document.write(a)
+	var url="ajax_get.php?view_update_step1=1"
+	url=url+"&date="+date
+	url=url+"&sid="+Math.random()
+
+	loadXMLDoc(url,function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			document.getElementById("build_model_container").innerHTML=xmlhttp.responseText;
+		}
+	});
+}
+
+function view_update_get_dorm(str)
+{
+
+	//document.write(a)
+	var url="ajax_get.php?view_update_step2=1"
+	url=url+"&"+str
+	url=url+"&sid="+Math.random()
+
+	loadXMLDoc(url,function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{				
+			document.getElementById("dorm_model_container").innerHTML=xmlhttp.responseText;
+
+			//check box			
+			$(function(argument) {
+				$('[type="checkbox"]').bootstrapSwitch();
+			})
+			
+		}
+	});
+}
 
 
 
