@@ -20,6 +20,7 @@ if(isset($_SESSION['user_role'])){
 
 
 //need level
+$level_index=3;
 $level_display=3;
 $level_add=3;
 $level_del=2;

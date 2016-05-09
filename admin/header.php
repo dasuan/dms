@@ -77,7 +77,13 @@ if ($level_develop >= $USER_LEVEL) {
 
 <?php
 
-
+if ($level_index >= $USER_LEVEL) {
+		echo "<li ";
+		if (php_self() == 'index.php' ){
+			echo 'class="active" '; 
+		} 
+		echo '><a href="index.php">主面板</a></li>';
+}
 if ($level_display >= $USER_LEVEL) {
 		echo "<li ";
 		if (php_self() == 'view_display.php' || php_self() == 'view_display_date.php' || php_self() == 'view_display_dorm.php' || php_self() == 'view_display_stu.php'){
