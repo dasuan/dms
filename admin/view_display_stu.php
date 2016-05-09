@@ -35,7 +35,7 @@ if (isset($_POST["stu_id"])) {
     $num_rows=$stu_info->num_rows;
 
     if($num_rows==0){
-        echo "<div class='well'><div class='alert alert-danger' role='alert'>学号为 <strong>".$stu_id."</strong> 的学生不存在！</div>";
+        echo "<div class='well'><div class='alert alert-danger' role='alert'>学号为 <strong>".$stu_id."</strong> 的学生不存在！请尝试使用宿舍号查询！</div>";
         $this_page=$_SERVER['PHP_SELF'];
         //echo '<a href="#" id ="export" role="button" class="btn btn-default">导出表格</a>';
         echo '<a class="btn btn-default" href="'.$this_page.'">重新选择</a>';       

@@ -359,9 +359,9 @@ elseif ($_GET["view_display_step"]=="2"){
 					<th>桌柜</th>
 					<th>地面</th>
 					<th>安全</th>
-					<th>备注</th>
 					<th>总分</th>
-					<th>学生处检查表</th>			
+					<th>备注</th>
+					<th>学生处</th>			
 				</tr>";
 				while($row = $result->fetch_array(MYSQLI_ASSOC)){
 					echo "<tr>";
@@ -373,8 +373,8 @@ elseif ($_GET["view_display_step"]=="2"){
 						echo "<td>" .$row['desk_cupboard']."</td>" ;
 						echo "<td>" .$row['ground']."</td>" ;
 						echo "<td>" .$row['security']."</td>" ;
-						echo "<td>" .$row['comments']."</td>" ;
 						echo "<td>" .$row['score']."</td>" ;
+						echo "<td>" .$row['comments']."</td>" ;
 						echo "<td>" .$row['score_t']."</td>" ;
 
 					echo "</tr>";
@@ -847,7 +847,7 @@ elseif ( isset($_GET["view_update_step2"]) ){
 		$result_of_check = $db->query($sql_check) or die($db->error);
 	//echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaafaffff";
 		if ($result_of_check->num_rows != 0){
-			echo '<input type="checkbox" name="dorm_check'.$i.'" value="'.$dorm_num.'" data-label-text="'.$dorm_num.'" data-on-text="修改" data-off-text="不修改" data-on-color="danger" data-off-color="success" />';
+			echo '<input type="checkbox" name="dorm_check'.$i.'" value="'.$dorm_num.'" data-label-text="'.$dorm_num.'" data-on-text="修改" data-off-text="不修改" data-on-color="warning" data-off-color="success" />';
 			$i=$i+1;
 		}else{
 		echo '<input type="checkbox" name="dorm_check'.$i.'" value="'.$dorm_num.'"  data-label-text="'.$dorm_num.'" data-on-text="修改" data-off-text="无记录" data-switch-toggle="readonly" readonly/>';
@@ -1207,13 +1207,14 @@ if ($result->num_rows != 0){
 				<tr>
 					<th>检查日期</th>
 					<th>宿舍号</th>
-					<th>阳台&卫生间</th>
+					<th>阳卫</th>
 					<th>床铺</th>
 					<th>桌柜</th>
 					<th>地面</th>
 					<th>安全</th>
-					<th>备注</th>
 					<th>总分</th>
+					<th>备注</th>
+					<th>学生处</th>
 				</tr>";
 				while($row = $result->fetch_array(MYSQLI_ASSOC)){
 					echo "<tr>";
@@ -1225,8 +1226,9 @@ if ($result->num_rows != 0){
 						echo "<td>" .$row['desk_cupboard']."</td>" ;
 						echo "<td>" .$row['ground']."</td>" ;
 						echo "<td>" .$row['security']."</td>" ;
-						echo "<td>" .$row['comments']."</td>" ;
 						echo "<td>" .$row['score']."</td>" ;
+						echo "<td>" .$row['comments']."</td>" ;
+						echo "<td>" .$row['score_t']."</td>" ;
 
 
 					echo "</tr>";

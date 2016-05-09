@@ -9,8 +9,8 @@ check_permission($level_add);
 echo '
 <ol class="breadcrumb">
 	<li><a href="index.php">主页</a></li>
-	<li><a href="view_add.php">添加</a></li>
-	<li class="active">添加选定宿舍</li>
+	<li><a href="view_add.php">修改</a></li>
+	<li class="active">修改选定宿舍</li>
 </ol>
 ';
 //Display welcome message
@@ -383,7 +383,7 @@ elseif(isset($_POST["add_step2"])){
 	//Panel begin >>>>>>>>>>>>>>>>>>>>
 	echo '
 	<div class="panel panel-success">
-		<div class="panel-heading"><strong>添加成功！</strong>如下表格所示：</div>
+		<div class="panel-heading"><strong>修改成功！</strong>如下表格所示：</div>
 		<div class="panel-body"  id="dvData">
 			';
 
@@ -400,9 +400,9 @@ elseif(isset($_POST["add_step2"])){
 					<th>桌柜</th>
 					<th>地面</th>
 					<th>安全</th>
-					<th>备注</th>
 					<th>总分</th>
-					<th>学生处检查表</th>			
+					<th>备注</th>
+					<th>学生处</th>			
 				</tr>";
 
 				for ($j=0; $j<$i; $j++) {
@@ -422,8 +422,8 @@ elseif(isset($_POST["add_step2"])){
 						echo "<td>" .$row['desk_cupboard']."</td>" ;
 						echo "<td>" .$row['ground']."</td>" ;
 						echo "<td>" .$row['security']."</td>" ;
-						echo "<td>" .$row['comments']."</td>" ;
 						echo "<td>" .$row['score']."</td>" ;
+						echo "<td>" .$row['comments']."</td>" ;
 						echo "<td>" .$row['score_t']."</td>" ;
 
 

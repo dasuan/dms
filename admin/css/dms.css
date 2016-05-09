@@ -86,8 +86,16 @@ body{
 	/*margin-top: 50%;
 	margin-left: 50px;*/
 }
+
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>> display Page <<<<<<<<<<<<<<<<<<<<<*/
 #dvData  td,#dvData  th {
   text-align: center;
   vertical-align: middle;
 }
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>> input page start >>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.input_score{
+	width: 50px;
+}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<< input page end   <<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+

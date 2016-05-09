@@ -65,9 +65,9 @@ if($judge==0){
 		<th>桌柜</th>
 		<th>地面</th>
 		<th>安全</th>
-		<th>备注</th>
 		<th>总分</th>
-		<th>学生处检查表</th>
+		<th>备注</th>
+		<th>学生处</th>
 	</tr>";
 	$i=0;
 	$dorm_num_sum="";
@@ -106,17 +106,19 @@ if($judge==0){
 			echo "<td>";
 			drop_list_20("security",$i);
 			echo "</td>";
+
+							//score
+			echo "<td>";
+			echo "<input type='text' name='score" . "$i". "' id='score" . "$i". "' class='form-control input_score' required />";
+			echo "</td>";
 							//comment
 			echo "<td>";
 			echo "<input type='text' name='comments" . "$i". "' class='form-control'  />";
 			echo "</td>";
-							//score
-			echo "<td>";
-			echo "<input type='text' name='score" . "$i". "' id='score" . "$i". "' class='form-control' required />";
-			echo "</td>";
+			
 							//score_t
 			echo "<td>";
-			echo "<input type='text' name='score_t" . "$i". "' id='score_t" . "$i". "' class='form-control' required />";
+			echo "<input type='text' name='score_t" . "$i". "' id='score_t" . "$i". "' class='form-control  input_score' placeholder='' required />";
 			echo "</td>";
 
 							//per row end
@@ -377,10 +379,10 @@ elseif(isset($_POST["add_step2"])){
 					<th>床铺</th>
 					<th>桌柜</th>
 					<th>地面</th>
-					<th>安全</th>
-					<th>备注</th>
+					<th>安全</th>					
 					<th>总分</th>
-					<th>学生处检查表</th>			
+					<th>备注</th>
+					<th>学生处</th>			
 				</tr>";
 
 				for ($j=0; $j<$i; $j++) {
@@ -400,8 +402,8 @@ elseif(isset($_POST["add_step2"])){
 						echo "<td>" .$row['desk_cupboard']."</td>" ;
 						echo "<td>" .$row['ground']."</td>" ;
 						echo "<td>" .$row['security']."</td>" ;
-						echo "<td>" .$row['comments']."</td>" ;
 						echo "<td>" .$row['score']."</td>" ;
+						echo "<td>" .$row['comments']."</td>" ;
 						echo "<td>" .$row['score_t']."</td>" ;
 
 

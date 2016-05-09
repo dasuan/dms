@@ -643,7 +643,7 @@ elseif ($_GET["view_display_stu"]=="1"){
 
                 $stu_result_rows=$result->num_rows;
                 if($stu_result_rows==0){
-				        echo "<div class='well'><div class='alert alert-danger' role='alert'><strong></strong>记录不存在！</div>";
+				        echo "<div class='well'><div class='alert alert-danger' role='alert'><strong></strong>记录不存在！请尝试用宿舍号查询！</div>";
 				        die();
 				}
 

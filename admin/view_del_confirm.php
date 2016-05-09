@@ -65,11 +65,12 @@ if(isset($_POST["view_del_submit"])){
 		<th>桌柜</th>
 		<th>地面</th>
 		<th>安全</th>
-		<th>备注</th>
 		<th>总分</th>
+		<th>备注</th>		
+		<th>学生处</th>
 	</tr>";
 
-	$i=0;//i means delected entry count
+	$i=0;//i means deleted entry count
 	$dorm_num_sum="";
 
 	//>>>>>>>>>>>>>>>>>>>> form begin >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -98,8 +99,9 @@ if(isset($_POST["view_del_submit"])){
 						echo "<td>" .$row['desk_cupboard']."</td>" ;
 						echo "<td>" .$row['ground']."</td>" ;
 						echo "<td>" .$row['security']."</td>" ;
-						echo "<td>" .$row['comments']."</td>" ;
 						echo "<td>" .$row['score']."</td>" ;
+						echo "<td>" .$row['comments']."</td>" ;
+						echo "<td>" .$row['score_t']."</td>" ;
 
 
 					echo "</tr>";
