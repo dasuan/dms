@@ -6,10 +6,28 @@ require_once("db_connection.php");
 
 check_permission($level_help);
 
-echo '<p>有问题请联系： <br />
-QQ &nbsp;1069072177 <br />
-手机 158 6472 8220 <br />
-</p>';
+// echo '<p>有问题请联系： <br />
+// QQ &nbsp;1069072177 <br />
+// 手机 158 6472 8220 <br />
+// </p>';
+
+echo '
+<div class="panel panel-success ">
+	<div class="panel-heading">帮助 </div>
+	<div class="panel-body bulletin">
+	<p>
+		有问题请联系: </br>
+		  Tel 15864728220 </br>
+		  QQ   <a href="tencent://QQInterLive/?Cmd=2&amp;Uin=1069072177">1069072177</a> (Click to be friends) </br>
+		  Mail <a href="mailto:1069072177@qq.com?Subject=DMS_GET_HELP" target="_top">1069072177@qq.com</a> </br>
+		  Blog <a href="http://kyshel.com">kyshel.com</a> </br>
+	</p>
+	</div>
+</div>
+
+';
+
+
 
 ?>
 

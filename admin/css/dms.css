@@ -20,6 +20,9 @@
 .float_right{
 	float:right;
 }
+.float_left{
+	float:left;
+}
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>Login Page<<<<<<<<<<<<<<<<<<<<<*/
 body{

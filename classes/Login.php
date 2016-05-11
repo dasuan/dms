@@ -29,6 +29,8 @@ class Login
         // create/read session, absolutely necessary
         session_start();
 
+        /*   >>>>> comment cause not useful
+         *   >>>>> absolute timeout, from login
             //Timeout set
         if(!(isset($_SESSION['timeout']))){
                 //echo "setting time ~~~~~~~~~~~~~</ br>";
@@ -47,9 +49,36 @@ class Login
                 $cha=time()-$_SESSION['timeout'];
                 $cha_div=$cha / 60 ;
                 echo '
-                <script type="text/javascript">console.log("您已经停留'.$cha.'秒，即'.$cha_div.' 分钟，超过60分钟会强制退出！")</script>     
+                <script type="text/javascript">console.log("您已经登录'.$cha.'秒，即'.$cha_div.' 分钟，超过60分钟会强制退出！")</script>     
 
                 ';
+                // session ok
+            }
+        }
+        */
+
+        //judge last_opreate to now opreate_time distance
+        // if greater than 60 , logout
+        if(!(isset($_SESSION['timeout']))){
+                //echo "setting time ~~~~~~~~~~~~~</ br>";
+             $_SESSION['timeout'] = time();
+        }
+            //set delay time,secs
+        else{
+            $delay=3600;
+            if ($_SESSION['timeout'] + $delay < time()) {
+                $_SESSION = array();
+                session_destroy();
+                // return a little feeedback message
+                $this->messages[] = "<div class='alert alert-success' role='alert'>由于长时间未操作，您已退出系统，请重新登录！</div>";
+                // session timed out
+            } else {
+                $cha=time()-$_SESSION['timeout'];
+                $cha_div=$cha / 60 ;
+                echo '
+                <script type="text/javascript">console.log("您距离上一次操作相差'.$cha.'秒，即'.$cha_div.' 分钟，超过60分钟会强制退出！")</script>  
+                ';
+                $_SESSION['timeout'] = time();
                 // session ok
             }
         }

@@ -49,7 +49,7 @@ echo '
 <script type="text/javascript">console.log("'.$logged_welcome.'")</script>     
 ';
 
-$git_hub = "This project was developing by jack, my github-> https://github.com/dasuan/dms";
+$git_hub = "This project was developing by kyshel, github-> https://github.com/kyshel/dms";
 echo '
 <script type="text/javascript">console.log("'.$git_hub.'")</script>     
 ';

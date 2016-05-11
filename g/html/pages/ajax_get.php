@@ -122,7 +122,7 @@ while($row_region = $result_region->fetch_array(MYSQLI_ASSOC)){
             $part = $row_part['part'];
 
         echo '<table class="table table-bordered _responsive-utilities build_model" >
-            <tr><th>'.$build_num.'号楼'.$part.'区</th></tr>';
+            <tr><th>'.$region.$build_num.'号楼'.$part.'区</th></tr>';
             
 
             $sql_floor="SELECT DISTINCT floor FROM dorm WHERE part = '$part' and build_num = '$build_num' and region = '$region' ORDER BY floor DESC";
@@ -174,7 +174,7 @@ td.is_gray {
     background-color: #f9f9f9!important;
 }
 .build_model{
-    width: 100px ;
+    width: 110px ;
     /*float: left;*/
     vertical-align: bottom;
     display: inline-table;
@@ -361,7 +361,7 @@ while($row_region = $result_region->fetch_array(MYSQLI_ASSOC)){
             $part = $row_part['part'];
 
         echo '<table class="table table-bordered _responsive-utilities build_model" >
-            <tr><th>'.$build_num.'号楼'.$part.'区</th></tr>';
+            <tr><th>'.$region.$build_num.'号楼'.$part.'区</th></tr>';
             
 
             $sql_floor="SELECT DISTINCT floor FROM dorm WHERE part = '$part' and build_num = '$build_num' and region = '$region' ORDER BY floor DESC";
@@ -413,7 +413,7 @@ td.is_gray {
     background-color: #f9f9f9!important;
 }
 .build_model{
-    width: 100px ;
+    width: 110px ;
     /*float: left;*/
     vertical-align: bottom;
     display: inline-table;
