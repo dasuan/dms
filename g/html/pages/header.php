@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>中德DMS - 中德科技学院 宿舍成绩管理系统</title>
+    <title>QUST DMS - 青岛科技大学 宿舍成绩管理系统</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Fonts -->
@@ -50,7 +50,7 @@
                 </button>
                 <a class="navbar-brand" href="index.php">
                     <div class="icon fa fa-building-o"></div>
-                    <div class="title">中德DMS</div>
+                    <div class="title">QUST宿舍成绩管理系统</div>
                 </a>
             </div>
             <div id="navbar" class="navbar-collapse collapse " aria-expanded="true">

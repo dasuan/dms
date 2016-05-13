@@ -206,7 +206,7 @@ echo '
 			楼栋数目：'.$build_cnt.'<br>
 			数据来源：后勤处 <br>
 			导入时间：2016-5-11 <br>
-			等待数据：宿舍所属学院，学生学号与宿舍分布
+			<!-- 等待数据：宿舍所属学院，学生学号与宿舍分布 -->
 			<hr style="margin-top: 0px; margin-bottom: 10px;">
 			已记录条数：'.$record_cnt.'<br>			
 		</p>

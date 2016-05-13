@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="renderer" content="webkit">
-	<title>中德DMS登录</title>
+	<title>QUST DMS - 青岛科技大学 宿舍成绩管理系统</title>
 
 	<!-- core CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -33,7 +33,7 @@
 
             <div  onmouseover="this.style.cursor='pointer'" onclick="document.location='../';" class="col-sm-12 text-center login-header">
                 <i class="login-logo fa fa-building-o fa-4x"></i>
-                <h4 class="login-title">中德 DMS</h4>
+                <h4 class="login-title">QUST宿舍成绩管理系统</h4>
             </div>
 
 

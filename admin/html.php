@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="renderer" content="webkit">
 <link href="images/dms.ico" rel="shortcut icon">
-<title>中德科技学院DMS</title>
+<title>QUST DMS - 青岛科技大学 宿舍成绩管理系统 </title>
 
 
 	<!-- core CSS -->

@@ -241,8 +241,9 @@ elseif ($_GET["view_display_step"]=="2"){
 					<th>桌柜</th>
 					<th>地面</th>
 					<th>安全</th>
+					<th>总分</th>
 					<th>备注</th>
-					<th>总分</th>			
+					<th>学生处</th>			
 				</tr>";
 				while($row = $result->fetch_array(MYSQLI_ASSOC)){
 					echo "<tr>";
@@ -254,8 +255,9 @@ elseif ($_GET["view_display_step"]=="2"){
 						echo "<td>" .$row['desk_cupboard']."</td>" ;
 						echo "<td>" .$row['ground']."</td>" ;
 						echo "<td>" .$row['security']."</td>" ;
-						echo "<td>" .$row['comments']."</td>" ;
 						echo "<td>" .$row['score']."</td>" ;
+						echo "<td>" .$row['comments']."</td>" ;
+						echo "<td>" .$row['score_t']."</td>" ;
 
 					echo "</tr>";
 				}
@@ -553,8 +555,9 @@ if ($result->num_rows != 0){
 					<th>桌柜</th>
 					<th>地面</th>
 					<th>安全</th>
-					<th>备注</th>
 					<th>总分</th>
+					<th>备注</th>
+					<th>学生处</th>
 				</tr>";
 				while($row = $result->fetch_array(MYSQLI_ASSOC)){
 					echo "<tr>";
@@ -566,8 +569,10 @@ if ($result->num_rows != 0){
 						echo "<td>" .$row['desk_cupboard']."</td>" ;
 						echo "<td>" .$row['ground']."</td>" ;
 						echo "<td>" .$row['security']."</td>" ;
-						echo "<td>" .$row['comments']."</td>" ;
 						echo "<td>" .$row['score']."</td>" ;
+						echo "<td>" .$row['comments']."</td>" ;
+						echo "<td>" .$row['score_t']."</td>" ;
+
 
 
 					echo "</tr>";
@@ -656,8 +661,9 @@ elseif ($_GET["view_display_stu"]=="1"){
                     <th>桌柜</th>
                     <th>地面</th>
                     <th>安全</th>
-                    <th>备注</th>
                     <th>总分</th>
+                    <th>备注</th>
+                    <th>学生处</th>
                 </tr>";
                 while($row = $result->fetch_array(MYSQLI_ASSOC)){
                     echo "<tr>";
@@ -669,8 +675,9 @@ elseif ($_GET["view_display_stu"]=="1"){
                         echo "<td>" .$row['desk_cupboard']."</td>" ;
                         echo "<td>" .$row['ground']."</td>" ;
                         echo "<td>" .$row['security']."</td>" ;
-                        echo "<td>" .$row['comments']."</td>" ;
                         echo "<td>" .$row['score']."</td>" ;
+                        echo "<td>" .$row['comments']."</td>" ;
+                        echo "<td>" .$row['score_t']."</td>" ;
 
 
                     echo "</tr>";

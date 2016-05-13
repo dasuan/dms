@@ -15,7 +15,7 @@ require_once("html.php");
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index.php">中德DMS</a>
+			<a class="navbar-brand" href="index.php">QUST宿舍成绩管理系统</a>
 		</div>
 
 		<div id="navbar" class="navbar-collapse collapse">
