@@ -17,7 +17,7 @@ echo '
     <div class="panel-body">
         ';
         require_once("date_form_view_added.php");
-        echo '<a href="#build_top" class="btn btn-default" onclick="view_update_get_build()">提交</a>';
+        echo '<a class="btn btn-default" onclick="view_update_get_build()">提交</a>';
         echo '
     </div>
 </div>';
@@ -50,7 +50,7 @@ echo '
 
         }
         .main{
-            height:1500px;
+            /*height:1500px;*/
         }
          
     </style>

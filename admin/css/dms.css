@@ -17,11 +17,18 @@
 .panel-body  > a > .btn {
 	margin: 0px 5px;
 }
+
 .float_right{
 	float:right;
 }
 .float_left{
 	float:left;
+}
+
+.width33{
+    width: 30%;
+    float: left;
+    margin-right: 3%;
 }
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>Login Page<<<<<<<<<<<<<<<<<<<<<*/

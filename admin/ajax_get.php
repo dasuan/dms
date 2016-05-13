@@ -136,7 +136,7 @@ while($row_region = $result_region->fetch_array(MYSQLI_ASSOC)){
                 if ($result_of_check->num_rows != 0){
                     echo '<tr><td class="is_green">';
 					$str="date=$date&region=$region&build_num=$build_num&part=$part&floor=$floor";
-					echo "<a href='#dorm_top'><button name = 'add_step1' class='btn btn-success' value = '$str' style='width: 100%;' onclick='view_display(this.value)'>".$floor."层</button></a>";
+					echo "<a><button name = 'add_step1' class='btn btn-success' value = '$str' style='width: 100%;' onclick='view_display(this.value)'>".$floor."层</button></a>";
 					                  
                     echo '</td></tr>';
                 }else{
@@ -146,7 +146,7 @@ while($row_region = $result_region->fetch_array(MYSQLI_ASSOC)){
 					//echo "<p>$str</p>";
 					//echo "<p>$this_floor</p>";
 					//$str="bbbbbbbbbbbb";
-					echo "<a href='#dorm_top'><button name = 'add_step1' class='btn btn-default' value = '$str' style='width: 100%;' onclick='view_display(this.value)'>".$floor."层</button></a>";
+					echo "<a><button name = 'add_step1' class='btn btn-default' value = '$str' style='width: 100%;' onclick='view_display(this.value)'>".$floor."层</button></a>";
 					
                     
                     echo '</td></tr>';
@@ -385,7 +385,7 @@ elseif ($_GET["view_display_step"]=="2"){
 
 				$this_page=$_SERVER['PHP_SELF'];
 				echo '<a href="#" id ="export" role="button" class="btn btn-default">导出表格</a>';
-				echo '<a class="btn btn-default float_right" href="'.$this_page.'">继续查询</a>';
+				//echo '<a class="btn btn-default float_right" href="'.$this_page.'">继续查询</a>';
 				//echo '<a href="'.$this_page.'"><button class="btn btn-default">重新选择</button></a>';
 				//echo '<a href="index.php"><button class="btn btn-default float_right">返回主面板</button></a>';
 				echo '</div>';//dor dvData
@@ -554,7 +554,7 @@ while($row_region = $result_region->fetch_array(MYSQLI_ASSOC)){
                 if ($result_of_check->num_rows != 0){
                     echo '<tr><td class="is_green">';
 					$str="date=$date&region=$region&build_num=$build_num&part=$part&floor=$floor";
-					echo "<a href='#dorm_top'><button name = 'add_step1' class='btn btn-success' value = '$str' style='width: 100%;' onclick='get_dorm_list(this.value)'>".$floor."层</button></a>";
+					echo "<a><button name = 'add_step1' class='btn btn-success' value = '$str' style='width: 100%;' onclick='get_dorm_list(this.value)'>".$floor."层</button></a>";
 					                  
                     echo '</td></tr>';
                 }else{
@@ -564,7 +564,7 @@ while($row_region = $result_region->fetch_array(MYSQLI_ASSOC)){
 					//echo "<p>$str</p>";
 					//echo "<p>$this_floor</p>";
 					//$str="bbbbbbbbbbbb";
-					echo "<a href='#dorm_top'><button name = 'add_step1' class='btn btn-default' value = '$str' style='width: 100%;' onclick='get_dorm_list(this.value)'>".$floor."层</button></a>";
+					echo "<a><button name = 'add_step1' class='btn btn-default' value = '$str' style='width: 100%;' onclick='get_dorm_list(this.value)'>".$floor."层</button></a>";
 					
                     
                     echo '</td></tr>';
@@ -749,7 +749,7 @@ while($row_region = $result_region->fetch_array(MYSQLI_ASSOC)){
                 if ($result_of_check->num_rows != 0){
                     echo '<tr><td class="is_green">';
 					$str="date=$date&region=$region&build_num=$build_num&part=$part&floor=$floor";
-					echo "<a href='#dorm_top'><button name = 'add_step1' class='btn btn-success' value = '$str' style='width: 100%;' onclick='view_update_get_dorm(this.value)'>".$floor."层</button></a>";
+					echo "<a><button name = 'add_step1' class='btn btn-success' value = '$str' style='width: 100%;' onclick='view_update_get_dorm(this.value)'>".$floor."层</button></a>";
 					                  
                     echo '</td></tr>';
                 }else{
@@ -759,7 +759,7 @@ while($row_region = $result_region->fetch_array(MYSQLI_ASSOC)){
 					//echo "<p>$str</p>";
 					//echo "<p>$this_floor</p>";
 					//$str="bbbbbbbbbbbb";
-					echo "<a href='#dorm_top'><button name = 'add_step1' class='btn btn-default' value = '$str' style='width: 100%;' onclick='view_update_get_dorm(this.value)'>".$floor."层</button></a>";
+					echo "<a><button name = 'add_step1' class='btn btn-default' value = '$str' style='width: 100%;' onclick='view_update_get_dorm(this.value)'>".$floor."层</button></a>";
 					
                     
                     echo '</td></tr>';
@@ -942,7 +942,7 @@ while($row_region = $result_region->fetch_array(MYSQLI_ASSOC)){
                 if ($result_of_check->num_rows != 0){
                     echo '<tr><td class="is_green">';
 					$str="date=$date&region=$region&build_num=$build_num&part=$part&floor=$floor";
-					echo "<a href='#dorm_top'><button name = 'add_step1' class='btn btn-success' value = '$str' style='width: 100%;' onclick='view_del_get_dorm(this.value)'>".$floor."层</button></a>";
+					echo "<a><button name = 'add_step1' class='btn btn-success' value = '$str' style='width: 100%;' onclick='view_del_get_dorm(this.value)'>".$floor."层</button></a>";
 					                  
                     echo '</td></tr>';
                 }else{
@@ -952,7 +952,7 @@ while($row_region = $result_region->fetch_array(MYSQLI_ASSOC)){
 					//echo "<p>$str</p>";
 					//echo "<p>$this_floor</p>";
 					//$str="bbbbbbbbbbbb";
-					echo "<a href='#dorm_top'><button name = 'add_step1' class='btn btn-default' value = '$str' style='width: 100%;' onclick='view_del_get_dorm(this.value)'>".$floor."层</button></a>";
+					echo "<a><button name = 'add_step1' class='btn btn-default' value = '$str' style='width: 100%;' onclick='view_del_get_dorm(this.value)'>".$floor."层</button></a>";
 					
                     
                     echo '</td></tr>';
@@ -1141,10 +1141,10 @@ elseif ($_GET["view_dorm_step"]=="2"){
 		//echo $dorm_num;
 		if ($result_of_check->num_rows != 0){
 			//echo '<input type="checkbox" name="dorm_check'.$i.'" value="'.$dorm_num.'" data-label-text="'.$dorm_num.'" data-on-text="删除" data-off-text="不删除" />';
-			echo "<a href='#routine_top'><button class='btn btn-success' value='".$dorm_num_replace."' onclick='view_dorm_routine(this.value)'>$dorm_num</button></a>";
+			echo "<a><button class='btn btn-success' value='".$dorm_num_replace."' onclick='view_dorm_routine(this.value)'>$dorm_num</button></a>";
 			$i=$i+1;
 		}else{
-			echo "<a href='#routine_top'><button class='btn btn-default' value='".$dorm_num_replace."' onclick='view_dorm_routine(this.value)'>$dorm_num</button></a>";
+			echo "<a><button class='btn btn-default' value='".$dorm_num_replace."' onclick='view_dorm_routine(this.value)'>$dorm_num</button></a>";
 		
 		}
 

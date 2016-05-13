@@ -155,6 +155,9 @@ function view_get_dorm(str)
 			$(".dorm2").css({
 					"display":"block"					
 				});
+			$(".dorm3").css({
+								"display":"none"								
+							});
 
 			$("html,body").animate({scrollTop: $("#dorm_model_container").offset().top-80}, 500);
 

@@ -37,6 +37,7 @@ function view_display_get_dorm_model()
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
 			document.getElementById("build_model_container").innerHTML=xmlhttp.responseText;
+			$("html,body").animate({scrollTop: $("#build_model_container").offset().top-65}, 500);
 		}
 	});
 }
@@ -62,6 +63,7 @@ $filename='export';
 require_once("view_display_export_js.php");
 ?>
 
+			$("html,body").animate({scrollTop: $("#dorm_model_container").offset().top-65}, 500);
 
 
 
@@ -92,6 +94,8 @@ function get_model()
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
 			document.getElementById("build_model_container").innerHTML=xmlhttp.responseText;
+			//scroll
+			$("html,body").animate({scrollTop: $("#build_model_container").offset().top-65}, 500);
 		}
 	});
 }
@@ -116,16 +120,12 @@ function get_dorm_list(str)
 				// 	$('[type="checkbox"]').bootstrapSwitch();
 				// });
 			})
+			$("html,body").animate({scrollTop: $("#dorm_model_container").offset().top-65}, 500);
 		}
 	});
 }
 
 //>>>>>>>>>>>>>>>>>>>>>> View update start >>>>>>>>>>>>>>>>>>>>
-
-
-
-
-//<<<<<<<<<<<<<<<<<<<<<< View update end    <<<<<<<<<<<<<<<<<<<<<<<
 function view_update_get_build()
 {
 	var str=document.getElementById("dp1")
@@ -140,6 +140,7 @@ function view_update_get_build()
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
 			document.getElementById("build_model_container").innerHTML=xmlhttp.responseText;
+			$("html,body").animate({scrollTop: $("#build_model_container").offset().top-65}, 500);
 		}
 	});
 }
@@ -162,12 +163,14 @@ function view_update_get_dorm(str)
 			$(function(argument) {
 				$('[type="checkbox"]').bootstrapSwitch();
 			})
+
+			$("html,body").animate({scrollTop: $("#dorm_model_container").offset().top-65}, 500);
 			
 		}
 	});
 }
 
-
+//<<<<<<<<<<<<<<<<<<<<<< View update end    <<<<<<<<<<<<<<<<<<<<<<<
 
 
 //>>>>>>>>>>>>>>>>>>>>>> View del func >>>>>>>>>>>>>>>>>>>>
@@ -187,6 +190,7 @@ function view_del_get_build()
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
 			document.getElementById("build_model_container").innerHTML=xmlhttp.responseText;
+			$("html,body").animate({scrollTop: $("#build_model_container").offset().top-65}, 500);
 		}
 	});
 }
@@ -209,6 +213,8 @@ function view_del_get_dorm(str)
 			$(function(argument) {
 				$('[type="checkbox"]').bootstrapSwitch();
 			})
+
+			$("html,body").animate({scrollTop: $("#dorm_model_container").offset().top-65}, 500);
 			
 		}
 	});
@@ -233,6 +239,7 @@ function view_get_dorm(str)
 			$(function(argument) {
 				$('[type="checkbox"]').bootstrapSwitch();
 			})
+			$("html,body").animate({scrollTop: $("#dorm_model_container").offset().top-65}, 500);
 
 		}
 	});
@@ -256,6 +263,7 @@ function view_dorm_routine(str)
 $filename='export';
 require("view_display_export_js.php");
 ?>	
+			$("html,body").animate({scrollTop: $("#routine_model_container").offset().top-65}, 500);
 
 		}
 	});

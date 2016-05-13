@@ -19,17 +19,19 @@ echo '
 require_once("view_js.php");
 
 echo '
-<div class="panel panel-info">
+<div class="panel panel-info ">
     <div class="panel-heading">通过日期查询</div>
     <div class="panel-body">
         ';
         //Below will run sql to loop added date
         require_once("date_form_view_added.php");
 
-        echo '<a href="#build_top" class="btn btn-default" onclick="view_display_get_dorm_model()">显示</a>';
+        echo '<a class="btn btn-default" onclick="view_display_get_dorm_model()">显示</a>';
         echo '
     </div>
 </div>';
+
+
 
 
 
@@ -60,7 +62,7 @@ echo '
 
         }
         .main{
-            height:1500px;
+            /*height:1500px;*/
         }
          
     </style>

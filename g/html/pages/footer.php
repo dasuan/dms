@@ -2,7 +2,7 @@
 <footer class="app-footer">
   <div class="container">
     <!-- <hr /> -->
-    <p class="text-muted">Powered by <a id="t" href="http://github.com/dasuan">dasuan</a> &copy; <?php echo date("Y");?>, Copyleft. </p>
+    <p class="text-muted">Powered by <a id="t" href="http://kyshel.com">kyshel</a> &copy; <?php echo date("Y");?>, Copyleft. </p>
 </div>
 </footer>
 <!-- <div id='tt' style="width: 1000px;height: 1000px;"></div> -->
@@ -100,7 +100,7 @@ loop();
 
 
 <a href="#top" class="second" style="">
-  <i class="app-logo fa fa-chevron-circle-up fa-5x slow_show"></i>
+  <i class="app-logo fa fa-chevron-circle-up fa-4x slow_show"></i>
 </a>
 
 <script type="text/javascript">

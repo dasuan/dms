@@ -17,7 +17,7 @@ echo '
     <div class="panel-body">
         ';
         require_once("date_form_view_added.php");
-        echo '<a href="#build_top" class="btn btn-default" onclick="get_model()">提交</a>';
+        echo '<a class="btn btn-default" onclick="get_model()">提交</a>';
         echo '
     </div>
 </div>';
@@ -26,7 +26,7 @@ require_once("view_js.php");
 
 echo '<div  id="build_top">喔喔~看不见我~看不见我~</div>';
 echo '
-<div class="panel panel-default build_model_container_panel" id="button_1">
+<div class="panel panel-default build_model_container_panel " id="button_1">
     
     <div class="panel-body build_model_container" id="build_model_container">
     <style>
@@ -40,7 +40,7 @@ echo '</div></div>';
 
 echo '<div  id="dorm_top">喔喔~也看不见我~看不见我~</div>';
 echo '
-<div class="panel panel-default dorm_model_container_panel" id="button_2">
+<div class="panel panel-default dorm_model_container_panel " id="button_2">
 
     <div class="panel-body dorm_model_container" id="dorm_model_container">
         <style>
@@ -50,7 +50,7 @@ echo '
 
         }
         .main{
-            height:1500px;
+           /* height:1500px;*/
         }
          
     </style>

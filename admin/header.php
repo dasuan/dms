@@ -103,7 +103,7 @@ if ($level_update >= $USER_LEVEL) {
 		if (php_self() == 'view_update.php' || php_self() == 'view_update_input.php'){
 			echo 'class="active" '; 
 		} 
-		echo '><a href="view_update.php">更新</a></li>';
+		echo '><a href="view_update.php">修改</a></li>';
 }
 if ($level_del >= $USER_LEVEL) {
 		echo "<li ";

@@ -110,9 +110,9 @@ if(isset($_POST["view_del_submit"])){
 		}
 	}
 	echo "</table>";
-				
+
 	echo '<button class="btn btn-danger float_right" type="submit"  name="add_step2" value="add_step2" >确认删除</button>';
-	echo "<input name = 'add_floor' value = '$add_floor' style='display: none;' />";
+	echo "<input name = 'add_floor' value = '".$region."$build_num"."#"."$part"."区"."$floor"."层' style='display: none;' />";
 	echo "<input name = 'date' value = '$date' style='display: none;' />";
 	echo "<input name = 'entry_count' value = '$i' style='display: none;' />";
 	echo "<input name = 'dorm_num_sum' value = '$dorm_num_sum' style='display: none;' />";

@@ -79,9 +79,5 @@ echo '
 ?>
 
 <style type="text/css">
-    .width33{
-        width: 30%;
-        float: left;
-        margin-right: 3%;
-    }
+
 </style>
