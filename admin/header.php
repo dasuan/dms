@@ -15,7 +15,7 @@ require_once("html.php");
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index.php">QUST宿舍成绩管理系统</a>
+			<a class="navbar-brand" href="index.php">CDTF宿舍成绩管理系统</a>
 		</div>
 
 		<div id="navbar" class="navbar-collapse collapse">
@@ -36,7 +36,7 @@ if ($level_develop >= $USER_LEVEL) {
 		echo '<li><a href="develop.php">Develop</a></li>';
 }
 ?>
-
+				<li><a href="info.php">数据统计</a></li>
  				<li><a href="help.php">帮助</a></li>
 				<li><a href="user.php"><?php echo $_SESSION['user_role']; ?></a></li>
 				<li><a href="index.php?logout">退出</a></li>

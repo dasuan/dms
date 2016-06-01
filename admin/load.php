@@ -19,18 +19,23 @@ if(isset($_SESSION['user_role'])){
 
 
 
-//need level
+/*need level*/
 $level_index=3;
+// operate
 $level_display=3;
 $level_add=3;
 $level_del=2;
+$level_update=2;
+
 $level_import=1;
 $level_log=3;
 $level_userinfo=3;
 $level_help=3;
 $level_develop=1;
 $level_stu_m=1;
-$level_update=2;
+//160601
+$level_info=3;
+
 
 
 
