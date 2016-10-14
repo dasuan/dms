@@ -17,7 +17,8 @@ dorm
 - region(南，必须与前一个字段第一个字匹配),
 - build_num(4，必须与#之前的数字匹配),
 - part(必须与后三位之前的字母匹配),
-- floor(必须与倒数第三位匹配),total(可以为空)
+- floor(必须与倒数第三位匹配)
+- total(可以为空)
 
 students 
 - dorm_num(必须与dorm_num匹配)
