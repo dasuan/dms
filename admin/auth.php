@@ -31,6 +31,8 @@ require_once("functions.php");
 // load the login class
 require_once("../classes/Login.php");
 
+date_default_timezone_set('Asia/Shanghai');
+
 // create a login object. when this object is created, it will do all login/logout stuff automatically
 // so this single line handles the entire login process. in consequence, you can simply ...
 $login = new Login();
