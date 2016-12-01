@@ -80,7 +80,7 @@
 <div class="app-footer">
   <div class="container">
     <!-- <hr /> -->
-    <p class="text-muted">Powered by <a id="t" style="color: #BDC3C7;" href="http://kyshel.com">kyshel</a> &copy; <?php echo date("Y");?>, Copyleft. </p>
+    <p class="text-muted">Powered by <a id="t" style="color: #BDC3C7;" href="#">ca1</a> &copy; <?php echo date("Y");?>, Copyleft. </p>
 </div>
 </div>
 
