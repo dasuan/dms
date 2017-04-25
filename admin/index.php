@@ -128,7 +128,7 @@ echo '
 		<div class="panel-heading">Status </div>
 		<div class="panel-body bulletin">
 			<div class="float_left">
-			欢迎使用 CDTF宿舍成绩管理系统 ！ <br>
+			欢迎使用 QUST宿舍养成管理系统 ！ <br>
 			<hr style="margin-top: 10px; margin-bottom: 10px;">
 			今天是'.$this_year.'年'.$this_month.'月'.$this_day.'日，星期'.$weekarray[date("w")].'<br>
 			<hr style="margin-top: 10px; margin-bottom: 10px;">

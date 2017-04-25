@@ -65,15 +65,14 @@ echo '
 		<div class="panel-heading">Project</div>
 		<div class="panel-body ">
 			<p>
-			系统版本：CDTF 学生宿舍成绩管理系统 v0.1 <br>
+			系统版本：QUST 宿舍养成管理系统 v0.1 <br>
 			运行地点：中德科技学院 <br>
 			项目起始：2016年3月 <br>
-			开发总计：'.$interval->m.'个月'.$interval->d.'天，Developing <br>
+			运行时间：'.$interval->m.'个月'.$interval->d.'天，Developing <br>
 			代码行数：后台8700行 ，前台2200行 <br>
 
 			<hr style="margin-top: 0px; margin-bottom: 10px;">
 			Contact Developer: </br>
-			Tel 15864728220 </br>
 			QQ   <a href="tencent://QQInterLive/?Cmd=2&amp;Uin=1069072177">1069072177</a> (Click to be friends) </br>
 			Mail <a href="mailto:1069072177@qq.com?Subject=DMS_GET_HELP" target="_top">1069072177@qq.com</a> </br>
 			Blog <a href="http://kyshel.com">kyshel.com</a> </br>

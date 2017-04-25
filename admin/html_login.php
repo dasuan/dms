@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="renderer" content="webkit">
-	<title>CDTF DMS - 中德科技学院 宿舍成绩管理系统</title>
+	<title>QUST 宿舍养成管理系统</title>
 
 	<!-- core CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -33,7 +33,7 @@
 
             <div  onmouseover="this.style.cursor='pointer'" onclick="document.location='../';" class="col-sm-12 text-center login-header">
                 <i class="login-logo fa fa-building-o fa-4x"></i>
-                <h4 class="login-title">QUST宿舍成绩管理系统</h4>
+                <h4 class="login-title">QUST宿舍养成管理系统</h4>
             </div>
 
 
@@ -80,7 +80,7 @@
 <div class="app-footer">
   <div class="container">
     <!-- <hr /> -->
-    <p class="text-muted">Powered by <a id="t" style="color: #BDC3C7;" href="#">ca1</a> &copy; <?php echo date("Y");?>, Copyleft. </p>
+    <p class="text-muted">Powered by <a id="t" style="color: #BDC3C7;" href="http://kyshel.com">kyshel</a> &copy; <?php echo date("Y");?>, Copyleft. </p>
 </div>
 </div>
 

@@ -25,7 +25,7 @@ require_once("view_js.php");
     </div>
 
 
-    <div class="container-fluid app-content-a">
+    <!--div class="container-fluid app-content-a">
         <div class="container">        
             <div class="row text-center">
 
@@ -62,7 +62,7 @@ require_once("view_js.php");
 
             </div>                
         </div>
-    </div>
+    </div-->
 
 
     <div class="container-fluid app-content-b feature-1 dorm1">

@@ -17,7 +17,7 @@ require_once("view_js.php");
 
     <div class="jumbotron app-header" >
         <div class="container">
-            <h2 class="text-center"><i class="app-logo fa fa-search fa-5x color-white"></i><div class="color-white">中德科技学院 宿舍成绩查询</div></h2>
+            <h2 class="text-center"><i class="app-logo fa fa-search fa-5x color-white"></i><div class="color-white">QUST 宿舍养成管理系统</div></h2>
 
             <p class="text-center color-white app-description">
 
